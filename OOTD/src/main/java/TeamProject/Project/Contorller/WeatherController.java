@@ -17,15 +17,4 @@ public class WeatherController {
     public String home(){
         return "index.html";
     }
-
-    @Value("${resources.location}")
-    private String resourceLocation;
-
-    @PostMapping("/region")
-    public ResponseEntity<String> resetRegionList() {
-        String fileLocation = resourceLocation + "/weatherData.csv"; // 설정파일에 설정된 경로 뒤에 붙인다
-        Path path = Paths.get(fileLocation);
-        URI uri = path.toUri();
-        return null;
-    }
 }
