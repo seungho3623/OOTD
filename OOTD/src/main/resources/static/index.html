@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>OOTD</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+
+    <body>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <select id="step1" class="emptyCheck" title="시/도">
+                <option id="city" value="">시/도</option>
+            </select>
+
+            <select id="step2">
+                <option id="county" value="">시/군/구</option>
+            </select>
+
+            <select id="step3">
+                <option id="town" value="">읍/면/동</option>
+            </select>
+
+            <button type="button">
+                <span>실행</span>
+            </button>
+
+            <div>
+                <table id="resultWeather" class="table"></table>
+            </div>
+        </div>
+    </form>
+    <script>
+        window.onload = function (){
+            loadArea('city');
+        };
+
+        $('#step1').change(function (){
+            loadArea('county', $(this));
+        });
+
+        $('#step2').change(function (){
+            loadArea('town', $(this));
+        });
+
+        function loadArea(type, element) {
+            let value = $(element).find('option:selected').text();
+            let params = {type: type, keyword: value};
+
+            console.log(params);
+            $.ajax({
+                url: "/Project/weatherStep.do",
+                data: params,
+                dataType: "json",
+                method : "post",
+                success : function(res){
+                    if (type == 'city'){
+                        res.forEach(function (city) {
+                            $('#step1').append('<option value="'+city.areacode+'">'+city.step1+'</option>')
+                        });
+                    }
+                    else if(type == 'county'){
+                        $('#county').siblings().remove();
+                        $('#town').siblings().remove();
+                        res.forEach(function (county) {
+                            $('#step2').append('<option value="'+county.areacode+'">'+county.step2+'</option>')
+                        });
+                    }
+                    else{
+                        $('#town').siblings().remove();
+                        res.forEach(function (town) {
+                            $('#step3').append('<option value="'+town.areacode+'">'+town.step3+'</option>')
+                        });
+                    }
+                },
+                error : function(xhr){
+                    alert(xhr.responseText);
+                }
+            });
+        }
+    </script>
+    </body>
+</html>
