@@ -1,0 +1,33 @@
+/*
+#headerLine{height : 40px;  margin : 0 auto; background: blueviolet;}
+*/
+#Menu{text-align: center; margin : 0 auto; }
+
+.box{
+    text-align: left; 
+    margin : 0 auto; 
+    width: 500px;
+    background: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-color: black;
+    border-radius: 40px
+}
+.first{
+    margin-top: 20px;
+    margin-left: 40px;
+}
+.second{
+    margin-top: 20px;
+    margin-left: 40px;
+}
+.third{
+    margin-top: 20px;
+    margin-left: 40px;
+}
+.fourth{
+    margin-top: 40px;
+    margin : 0 auto;
+}
+
+
+
