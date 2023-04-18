@@ -1,6 +1,7 @@
 package TeamProject.Project.Contorller;
 
 import TeamProject.Project.Dto.AreaRequestDTO;
+import TeamProject.Project.Dto.DailyWeatherDTO;
 import TeamProject.Project.Dto.WeatherDTO;
 import TeamProject.Project.Service.WeatherService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -32,6 +33,7 @@ public class WeatherController
         areaRequestDTO.setNy(coordinate.getNy());
 
         List<WeatherDTO> weatherList = this.weatherService.getWeather(areaRequestDTO);
+
         return weatherList;
     }
 

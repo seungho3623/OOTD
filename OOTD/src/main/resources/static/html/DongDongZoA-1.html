@@ -118,6 +118,8 @@
 
       $('#step1').change(function (){
         cityData = $('#step1').find('option:selected').text();
+        countyData = "";
+        townData = "";
         loadArea('county', $(this));
       });
 
@@ -224,6 +226,12 @@
                   switch (item.category){
                     case "TMP" :
                       html += "<p>온도 : " + item.fcstValue + "</p>";
+                      break;
+                    case "DTX" :
+                      html += "<p>최고 온도 : " + item.fcstValue + "</p>";
+                      break;
+                    case "DTN" :
+                      html += "<p>최저 온도 : " + item.fcstValue + "</p>";
                       break;
                     case "REH" :
                       html += "<p>습도 : " + item.fcstValue + "</p>";
