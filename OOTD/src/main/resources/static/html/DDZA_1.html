@@ -6,25 +6,61 @@
     <title>Page1</title>
     <style>
         body{
-          background-image: url(/img/backimg.png);
+          background-image: url(img/backimg.png);
           background-size: cover;
         }
       </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <link href="/css/DDZA_1.css" rel="stylesheet">
+    <link href="DDZA_1.css" rel="stylesheet">
   </head>
-  <body>
-    <header><img src="/img/아이콘.png" width="500" height="166">
-        <img src="/img/그림1.png" width="400" height="100" margin-top=>
-       </header>
-    <div id = "headerLine"><h1></h1></div>
+  <body><!--
+    <header>
+      <img src="img/아이콘.png" width="500" height="166">
+      <img src="img/그림1.png" width="400" height="100" margin-top=>
+      
+    </header>-->
+    <header>
+      <div class="flex-container flex-start">
+        <div class="flex-item icon"><img src="img/아이콘.png" width="500" height="166"><!--/img/아이콘.png--></div>
+        <div class="flex-item name"><img src="img/그림1.png" width="400" height="100" bottom="50"></div>
+        <div class="flex-item weather">
+          <div id="resultWeather">
+            <div class="SmallWeather">
+              <p></p>
+            <ul class="weatherSmall"> 
+              <select class="form-select" aria-label="Default select example" style="width: auto;">
+                <option selected>지역</option>
+                <option value="1">서울</option>
+                <option value="2">부산</option>
+                <option value="3">대구</option>
+                <option value="4">인천</option>
+                <option value="5">대전</option>
+                <option value="6">광주</option>
+                <option value="7">울산</option>
+              </select>
+            </ul>
+            <ul class="SmallWeatherIMG">
+            <img src="img/weather.jpg" width="50" height="50">
+            </ul>
+            </div>
+            <div class="WeatherComent">
+              <p></p>
+              <p>최저기온 7도, 최고기온 14도</p>
+              <p>일교차가 있어 옷 단디 입으세요</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex-item color-red font4"></div>
+    </div>
+    </header>
+
     <br><br><br><br>
     <div id = "Codi">
       <h3>추천 코디</h3>
       <div class = "box">
         <br><br>
         <div class = "imgbox">
-        <a href="/html/DDZA_2.html"><button type="button" class="btn1"></button></a>
+        <a href="DDZA_2.html"><button type="button" class="btn1"></button></a> 
         </div>
         <br><br>
         <button type="button" class="btn btn-primary" data-bs-toggle="button">Toggle button</button>
@@ -32,14 +68,18 @@
       </div>
       <div class = "box">
         <br><br>
-        <div class = "imgbox">
+        <div class="img2">
+          <a href="DDZA_2.html"><button type="button"><img src="https://image.msscdn.net/images/codimap/detail/22814/detail_22814_1_500.jpg?202304270004"
+           width="250" height="350" alt=""></button>
+        <!--<img src="https://image.msscdn.net/images/codimap/detail/22814/detail_22814_1_500.jpg?202304270004" width="250" height="350">-->
         </div>
-    </div>
+        </div>
+
     <div class = "box">
         <br><br>
         <div class = "imgbox">
         </div>
     </div>
-    </div>
+  
   </body>
 </html>
