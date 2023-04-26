@@ -1,5 +1,29 @@
 
 #Codi{margin-left : 70px; }
+#resultWeather{
+    display: flex;
+    margin-left: 200px;
+    width: 400px;
+    background: white;
+    border-radius: 15px;
+    }
+.flex-container{
+        display: flex;
+        color: white;
+        align-items: flex-end;
+    }
+.name{
+    position: relative;
+    top: 10px;
+}
+.weather{
+    position: relative;
+    bottom: 20px;
+}
+.WeatherComent{
+    color: black;
+    text-align: center;
+}
 .box{
     float: left;
     margin-left: 0px;
