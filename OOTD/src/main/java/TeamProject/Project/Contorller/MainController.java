@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
     @GetMapping(value = "/Project/ootd.do")
-    public String openMainPage()
-    {
+    public String openMainPage() {
         return "/html/DongDongZoA-1.html";
     }
 }

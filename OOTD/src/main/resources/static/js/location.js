@@ -4,23 +4,23 @@ let townData;
 let dateData;
 let weatherData = {};
 
-window.onload = function (){
+window.onload = function () {
     loadArea('city');
 };
 
-$('#step1').change(function (){
+$('#step1').change(function () {
     cityData = $('#step1').find('option:selected').text();
     countyData = "";
     townData = "";
     loadArea('county', $(this));
 });
 
-$('#step2').change(function (){
+$('#step2').change(function () {
     countyData = $('#step2').find('option:selected').text();
     loadArea('town', $(this));
 });
 
-$('#step3').change(function (){
+$('#step3').change(function () {
     townData = $('#step3').find('option:selected').text();
 });
 
@@ -33,28 +33,26 @@ function loadArea(type, element) {
         url: "/Project/weatherStep.do",
         data: params,
         dataType: "json",
-        method : "post",
-        success : function(res){
-            if (type == 'city'){
+        method: "post",
+        success: function (res) {
+            if (type == 'city') {
                 res.forEach(function (city) {
-                    $('#step1').append('<option value="'+city.areacode+'">'+city.step1+'</option>')
+                    $('#step1').append('<option value="' + city.areacode + '">' + city.step1 + '</option>')
                 });
-            }
-            else if(type == 'county'){
+            } else if (type == 'county') {
                 $('#county').siblings().remove();
                 $('#town').siblings().remove();
                 res.forEach(function (county) {
-                    $('#step2').append('<option value="'+county.areacode+'">'+county.step2+'</option>')
+                    $('#step2').append('<option value="' + county.areacode + '">' + county.step2 + '</option>')
                 });
-            }
-            else{
+            } else {
                 $('#town').siblings().remove();
                 res.forEach(function (town) {
-                    $('#step3').append('<option value="'+town.areacode+'">'+town.step3+'</option>')
+                    $('#step3').append('<option value="' + town.areacode + '">' + town.step3 + '</option>')
                 });
             }
         },
-        error : function(xhr){
+        error: function (xhr) {
             alert(xhr.responseText);
         }
     });

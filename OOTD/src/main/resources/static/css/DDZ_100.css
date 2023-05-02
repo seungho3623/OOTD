@@ -1,69 +1,85 @@
 /*
 #headerLine{height : 40px;  margin : 0 auto; background: blueviolet;}
 */
-#MainImg{
+#MainImg {
     display: inline-block;
 }
-#MainName{
+
+#MainName {
     display: inline-block;
     margin-top: 0px;
 }
-#resultWeather{
+
+#resultWeather {
     display: flex;
     margin-left: 200px;
     width: 400px;
     background: white;
     border-radius: 15px;
-    }
-.flex-container{
-        display: flex;
-        color: white;
-        align-items: flex-end;
-    }
-.name{
+}
+
+.flex-container {
+    display: flex;
+    color: white;
+    align-items: flex-end;
+}
+
+.name {
     position: relative;
     top: 10px;
 }
-.weather{
+
+.weather {
     position: relative;
     bottom: 20px;
 }
-.WeatherComent{
+
+.WeatherComent {
     color: black;
     text-align: center;
 }
 
 
-#Menu{text-align: center; margin : 0 auto; }
-.SmallWeather{
+#Menu {
+    text-align: center;
+    margin: 0 auto;
 }
-.weatherSmall{
+
+.SmallWeather {
+}
+
+.weatherSmall {
 
 }
-.box{
-    text-align: left; 
-    margin : 0 auto; 
+
+.box {
+    text-align: left;
+    margin: 0 auto;
     width: 500px;
     background: rgba(0, 0, 0, 0.2);
     border-style: solid;
     border-color: black;
     border-radius: 40px
 }
-.first{
+
+.first {
     margin-top: 20px;
     margin-left: 40px;
 }
-.second{
+
+.second {
     margin-top: 20px;
     margin-left: 40px;
 }
-.third{
+
+.third {
     margin-top: 20px;
     margin-left: 40px;
 }
-.fourth{
+
+.fourth {
     margin-top: 40px;
-    margin : 0 auto;
+    margin: 0 auto;
 }
 
 

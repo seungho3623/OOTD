@@ -1,7 +1,7 @@
 function getWeather() {
     let nullCheck = true;
-    $('.emptyCheck').each(function (){
-        if ('' == $(this).val()){
+    $('.emptyCheck').each(function () {
+        if ('' == $(this).val()) {
             alert($(this).attr('title') + "을(를) 확인바람");
             nullCheck = false;
             return false;	// 빈 값에서 멈춤
@@ -25,35 +25,53 @@ function getWeather() {
 
         if (townCode == '' && countyCode == '') {
             areacode = cityCode;
-        }
-        else if(townCode == '' && countyCode != '') {
+        } else if (townCode == '' && countyCode != '') {
             areacode = countyCode;
-        }
-        else if(townCode != '') {
+        } else if (townCode != '') {
             areacode = townCode;
         }
 
-        let data = {"areacode" : areacode, "baseDate" : dateData, "baseTime" : time};
+        let data = {"areacode": areacode, "baseDate": dateData, "baseTime": time};
+        let test = 0;
 
         $.ajax({
             url: "/Project/getWeather.do",
             data: data,
             dataType: "json",
-            method : "post",
-            success : function(res){
+            method: "post",
+            success: function (res) {
                 console.log(res);
                 if (res[0].resultCode != null) {
                     alert(res[0].resultMsg);
-                }
-                else {
+                } else {
                     let weatherData = {};
                     let locationData = {
-                        city : cityData,
+                        city: cityData,
                         county: countyData,
-                        town : townData
+                        town: townData
                     };
-                    $.each(res, function(index, item) {
+                    $.each(res, function (index, item) {
                         switch (item.category) {
+                            case "PTY":
+                                switch (item.fcstValue) {
+                                    case "1":
+                                        weatherData.rainPrecipitaion = "비";
+                                        break;
+                                    case "2":
+                                        weatherData.rainPrecipitaion = "비/눈";
+                                        break;
+                                    case "3":
+                                        weatherData.rainPrecipitaion = "눈";
+                                        break;
+                                    case "4":
+                                        weatherData.rainPrecipitaion = "소나기";
+                                        break;
+                                    default:
+                                        //weatherData.rainPrecipitaion = item.fcstValue;
+                                        weatherData.rainPrecipitaion = "강수없음";
+                                        break;
+                                }
+                                break;
                             case "TMP":
                                 weatherData.temperature = item.fcstValue;
                                 break;
@@ -65,9 +83,6 @@ function getWeather() {
                                 break;
                             case "REH":
                                 weatherData.humidity = item.fcstValue;
-                                break;
-                            case "POP":
-                                weatherData.rainProbability = item.fcstValue;
                                 break;
                             case "SKY":
                                 switch (item.fcstValue) {
@@ -93,7 +108,7 @@ function getWeather() {
                     window.location.href = "/html/DDZA_1.html";
                 }
             },
-            error : function(xhr){
+            error: function (xhr) {
                 alert(xhr.responseText);
             }
         });
@@ -101,53 +116,66 @@ function getWeather() {
 }
 
 function displayData() {
-    const locationData = JSON.parse(sessionStorage.getItem("locationData"));
-    const weatherData = JSON.parse(sessionStorage.getItem("weatherData"));
-
-    // locationData 출력
-    let locationHtml = "";
-    for (let key in locationData) {
-        locationHtml += "<p>" + key + " : " + locationData[key] + "</p>";
-    }
-    $("#resultLocation").html(locationHtml);
-
-    // weatherData 출력
-    let weatherHtml = "";
-    for (let key in weatherData) {
-        switch (key) {
-            case "TMP":
-                weatherHtml += "<p>온도 : " + weatherData[key] + "</p>";
+    // sessionStorage에서 데이터 가져오기
+    let imagePath;
+    const weatherData = JSON.parse(sessionStorage.getItem('weatherData'));
+    const locationData = JSON.parse(sessionStorage.getItem('locationData'));
+    const maxTemp = weatherData.highTemperature;
+    const minTemp = weatherData.lowTemperature;
+    const weatherStatus = weatherData.weather;
+    const humidity = weatherData.humidity;
+    const rainPrecipitation = weatherData.rainPrecipitaion;
+    const city = locationData.city;
+    const county = locationData.county;
+    const town = locationData.town;
+    const locationString = `${city} ${county} ${town}`;
+    //날씨에 따른 아이콘
+    if (rainPrecipitation == "강수없음") {
+        switch (weatherStatus) {
+            case "맑음":
+                imagePath = "/img/Weather/맑음.jpg";
                 break;
-            case "DTX":
-                weatherHtml += "<p>최고 온도 : " + weatherData[key] + "</p>";
+            case "구름많음":
+                imagePath = "/img/Weather/구름많음.jpg";
                 break;
-            case "DTN":
-                weatherHtml += "<p>최저 온도 : " + weatherData[key] + "</p>";
-                break;
-            case "REH":
-                weatherHtml += "<p>습도 : " + weatherData[key] + "</p>";
-                break;
-            case "POP":
-                weatherHtml += "<p>강수 확률 : " + weatherData[key] + "</p>";
-                break;
-            case "SKY":
-                switch (weatherData[key]) {
-                    case "1":
-                        weatherHtml += "<p>날씨 : 맑음</p>";
-                        break;
-                    case "3":
-                        weatherHtml += "<p>날씨 : 구름 많음</p>";
-                        break;
-                    case "4":
-                        weatherHtml += "<p>날씨 : 흐림</p>";
-                        break;
-                    default:
-                        break;
-                }
+            case "흐림":
+                imagePath = "/img/Weather/흐림.jpg";
                 break;
             default:
+                imagePath = "/img/Weather/맑음.jpg";
+                break;
+        }
+    } else {
+        switch (rainPrecipitation) {
+            case "비":
+                imagePath = "/img/Weather/비.jpg";
+                break;
+            case "비/눈":
+                imagePath = "/img/Weather/눈.jpg";
+                break;
+            case "눈":
+                imagePath = "/img/Weather/눈.jpg";
+                break;
+            case "소나기":
+                imagePath = "/img/Weather/비.jpg";
+                break;
+            default:
+                imagePath = "/img/Weather/비.jpg";
                 break;
         }
     }
-    $("#resultWeather").html(weatherHtml);
+
+    // weather-widget 요소 찾기
+    const weatherWidget = document.querySelector('.weather-widget');
+
+    // weather-widget 내부의 요소들 찾기
+    const weatherLocation = weatherWidget.querySelector('.weather-location');
+    const weatherTemp = weatherWidget.querySelector('.weather-temp');
+    const weatherDesc = weatherWidget.querySelector('.weather-desc');
+
+    // 가져온 데이터를 weather-widget에 적용하기
+    weatherLocation.textContent = locationString;
+    weatherTemp.innerHTML = `${weatherData.temperature} &#8451; (${minTemp} &#8451;,  ${maxTemp} &#8451;)`;
+    weatherDesc.textContent = weatherData.description;
+    weatherWidget.querySelector('.weather-icon').style.backgroundImage = `url('${imagePath}')`;
 }

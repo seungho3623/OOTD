@@ -1,70 +1,85 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Page1</title>
     <style>
-        body{
-          background-image: url(img/backimg.png);
-          background-size: cover;
-        }
         button {
-         border: none;
+            border: none;
         }
-      </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link href="/css/DDZA_1.css" rel="stylesheet">
-  </head>
-  <body>
-  <header>
+</head>
+<body onload="displayData()">
+<header>
     <div class="flex-container flex-start">
-      <div class="flex-item icon"><img src="/img/아이콘.png" width="500" height="166"><!--/img/아이콘.png--></div>
-      <div class="flex-item name"><img src="/img/그림1.png" width="400" height="100" bottom="50"></div>
-      <div class="weather-widget">
-        <div class="weather-icon" style="background-image: url('https://blogfiles.pstatic.net/MjAyMzA0MTFfMTcy/MDAxNjgxMTczNjc3MzEy.zEuCcUAs8eQQ4mbronufuFLybsI3wqNI28JY6YqKW8og.fX9U1ufM9y9W25qb9Jg_nyj8kFsGRt-a4eQumYbbMSEg.PNG.stellarium243/%EA%B9%80%EB%AC%B8%EC%A0%95-%EB%A7%91%EC%9D%8C');">
-          <!--날씨 아이콘 https://blog.naver.com/yeon4i3/223071076003--></div>
-        <div class="weather-data">
-          <div class="weather-location">Seoul, South Korea</div>
-          <div class="weather-temp">25 &#8451;</div>
-          <div class="weather-desc">Sunny</div>
+        <div class="flex-item icon"><img src="/img/아이콘.png" width="500" height="166"><!--/img/아이콘.png--></div>
+        <div class="flex-item name"><img src="/img/그림1.png" width="400" height="100" bottom="50"></div>
+        <!--날씨 아이콘 https://blog.naver.com/yeon4i3/223071076003-->
+        <!--<div class="weather-widget">
+            <div class="weather-icon"
+                 style="background-image:
+                 url('https://blogfiles.pstatic.net/MjAyMzA0MTFfMTcy/MDAxNjgxMTczNjc3MzEy.zEuCcUAs8eQQ4mbronufuFLybsI3wqNI28JY6YqKW8og.fX9U1ufM9y9W25qb9Jg_nyj8kFsGRt-a4eQumYbbMSEg.PNG.stellarium243/%EA%B9%80%EB%AC%B8%EC%A0%95-%EB%A7%91%EC%9D%8C');">
+            </div>
+            <div class="weather-data">
+                <div class="weather-location">Seoul, South Korea</div>
+                <div class="weather-temp">25 &#8451;</div>
+                <div class="weather-desc">Sunny</div>
+            </div>
+            <div class="flex-item color-red font4"></div>
+        </div>-->
+        <div class="weather-widget">
+            <div class="weather-icon"></div>
+            <div class="weather-data">
+                <div class="weather-location" id="weather-location"></div>
+                <div class="weather-temp" id="weather-temp"></div>
+                <div class="weather-desc" id="weather-desc"></div>
+            </div>
+            <div class="flex-item color-red font4"></div>
         </div>
-        <div class="flex-item color-red font4"></div>
-      </div>
     </div>
     <div class="line"></div>
-  </header>
+</header>
 
-    <br><br><br><br>
-    <div id = "Codi">
-      <br><br>
-      <div class = "box">
+<br><br><br><br>
+<div id="Codi">
+    <br><br>
+    <div class="box">
         <br><br>
         <div class="img2">
-          <!--<a href="DDZA_2.html"><button type="button"><img src="https://image.msscdn.net/images/codimap/detail/22814/detail_22814_1_500.jpg?202304270004"
-           width="250" height="350" alt=""></button>-->
-          <a href="DDZA_2.html"><input type="image" src="https://image.msscdn.net/images/codimap/detail/22814/detail_22814_1_500.jpg?202304270004" width="250" height="350"/>
-        </div>
-        </div>
-      </div>
-      <div class = "box">
-        <br><br>
-        <div class="img2">
-          <!--<a href="DDZA_2.html"><button type="button"><img src="https://image.msscdn.net/images/codimap/detail/22814/detail_22814_1_500.jpg?202304270004"
-           width="250" height="350" alt=""></button>-->
-          <a href="DDZA_2.html">
-            <input type="image" src="https://image.msscdn.net/mfile_s01/_shopstaff/detail.staff_6449ce313b27a.jpg?20230427104017" width="250" height="350"/>
-
-        </div>
-      </div>
-    <div class = "box">
-        <br><br>
-        <div class="img2">
-          <!--<a href="DDZA_2.html"><button type="button"><img src="https://image.msscdn.net/images/codimap/detail/22814/detail_22814_1_500.jpg?202304270004"
-           width="250" height="350" alt=""></button>-->
-          <a href="DDZA_2.html"><input type="image" src="https://image.msscdn.net/images/codimap/detail/22814/detail_22814_1_500.jpg?202304270004" width="250" height="350"/>
+            <!--<a href="DDZA_2.html"><button type="button"><img src="https://image.msscdn.net/images/codimap/detail/22814/detail_22814_1_500.jpg?202304270004"
+             width="250" height="350" alt=""></button>-->
+            <a href="DDZA_2.html"><input type="image"
+                                         src="https://image.msscdn.net/images/codimap/detail/22814/detail_22814_1_500.jpg?202304270004"
+                                         width="250" height="350"/>
         </div>
     </div>
-    <script src="/js/weather.js"></script>
-  </body>
+</div>
+<div class="box">
+    <br><br>
+    <div class="img2">
+        <!--<a href="DDZA_2.html"><button type="button"><img src="https://image.msscdn.net/images/codimap/detail/22814/detail_22814_1_500.jpg?202304270004"
+         width="250" height="350" alt=""></button>-->
+        <a href="DDZA_2.html">
+            <input type="image"
+                   src="https://image.msscdn.net/mfile_s01/_shopstaff/detail.staff_6449ce313b27a.jpg?20230427104017"
+                   width="250" height="350"/>
+
+    </div>
+</div>
+<div class="box">
+    <br><br>
+    <div class="img2">
+        <!--<a href="DDZA_2.html"><button type="button"><img src="https://image.msscdn.net/images/codimap/detail/22814/detail_22814_1_500.jpg?202304270004"
+         width="250" height="350" alt=""></button>-->
+        <a href="DDZA_2.html"><input type="image"
+                                     src="https://image.msscdn.net/images/codimap/detail/22814/detail_22814_1_500.jpg?202304270004"
+                                     width="250" height="350"/>
+    </div>
+</div>
+<script src="/js/weather.js"></script>
+</body>
 </html>
