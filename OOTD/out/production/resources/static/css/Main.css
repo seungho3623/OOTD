@@ -3,6 +3,16 @@
 */
 #Menu{text-align: center; margin : 0 auto; }
 
+.line {
+    background-color: black;
+    height: 30px;
+}
+.flex-container{
+    display: flex;
+    flex-wrap: nowrap;
+    color: white;
+    align-items: flex-end;
+}
 .box{
     text-align: left; 
     margin : 0 auto; 
