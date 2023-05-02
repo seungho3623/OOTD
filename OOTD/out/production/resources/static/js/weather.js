@@ -123,13 +123,12 @@ function displayData() {
     const maxTemp = weatherData.highTemperature;
     const minTemp = weatherData.lowTemperature;
     const weatherStatus = weatherData.weather;
-    const humidity = weatherData.humidity;
+    //const humidity = weatherData.humidity;
     const rainPrecipitation = weatherData.rainPrecipitaion;
     const city = locationData.city;
     const county = locationData.county;
     const town = locationData.town;
     const locationString = `${city} ${county} ${town}`;
-    alert(rainPrecipitation);
     //날씨에 따른 아이콘
     if (rainPrecipitation == "강수없음") {
         switch (weatherStatus) {
@@ -173,26 +172,46 @@ function displayData() {
     const weatherLocation = weatherWidget.querySelector('.weather-location');
     const weatherTemp = weatherWidget.querySelector('.weather-temp');
     const weatherDesc = weatherWidget.querySelector('.weather-desc');
+    let weatherInfo;
 
+    switch (true) {
+        case (weatherData.temperature < 0):
+            weatherInfo = "너무 추워! 나가지 말고 집에 있자!";
+            break;
+        case (0 < weatherData.temperature && weatherData.temperature <= 5):
+            weatherInfo = "두꺼운 옷을 입어! 내복을 입는 것도 추천!";
+            break;
+        case (5 < weatherData.temperature && weatherData.temperature <= 9):
+            weatherInfo = "날씨가 쌀쌀해! 코트나 무스탕 추천!";
+            break;
+        case (9 < weatherData.temperature && weatherData.temperature <= 11):
+            weatherInfo = "외투착용 필수! 옷장 속 외투 챙기기!";
+            break;
+        case (11 < weatherData.temperature && weatherData.temperature <= 16):
+            weatherInfo = "본격적인 갈절기 싲가! 일교차 조심해!";
+            break;
+        case (16 < weatherData.temperature && weatherData.temperature <= 19):
+            weatherInfo = "약간은 쌀쌀할거야! 감기 조심해!";
+            break;
+        case (19 < weatherData.temperature && weatherData.temperature <= 22):
+            weatherInfo = "포근한 날씨로 옷 입기 가장 좋은 날씨!";
+            break;
+        case (22 < weatherData.temperature && weatherData.temperature <= 26):
+            weatherInfo = "에어컨을 트는 곳이 많아 얇은 외투를 챙겨도 좋아!";
+            break;
+        case (26 < weatherData.temperature && weatherData.temperature <= 32):
+            weatherInfo = "완전 여름이야! 시원하게 입자!";
+            break;
+        case (32 < weatherData.temperature):
+            weatherInfo = "폭염주의! 나가지말자!";
+            break;
+        default:
+            break;
+    }
+    alert(weatherInfo);
     // 가져온 데이터를 weather-widget에 적용하기
     weatherLocation.textContent = locationString;
     weatherTemp.innerHTML = `${weatherData.temperature} &#8451; (${minTemp} &#8451;,  ${maxTemp} &#8451;)`;
-    weatherDesc.textContent = weatherData.description;
+    weatherDesc.textContent = weatherInfo
     weatherWidget.querySelector('.weather-icon').style.backgroundImage = `url('${imagePath}')`;
-    /*
-    let weatherData = JSON.parse(sessionStorage.getItem("weatherData"));
-    let locationData = JSON.parse(sessionStorage.getItem("locationData"));
-
-    let locationDiv = document.getElementById("location");
-    let weatherDiv = document.getElementById("weather");
-
-    locationDiv.innerHTML = `${locationData.city} ${locationData.county} ${locationData.town}`;
-    weatherDiv.innerHTML = `
-    <p>온도: ${weatherData.TMP}</p>
-    <p>최고 온도: ${weatherData.DTX}</p>
-    <p>최저 온도: ${weatherData.DTN}</p>
-    <p>습도: ${weatherData.REH}</p>
-    <p>강수 확률: ${weatherData.POP}</p>
-    <p>날씨: ${weatherData.SKY}</p>`;
-    */
 }
