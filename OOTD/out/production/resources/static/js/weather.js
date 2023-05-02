@@ -14,9 +14,11 @@ function getWeather() {
         let year = today.getFullYear();
         let month = ('0' + (today.getMonth() + 1)).slice(-2);
         let day = ('0' + today.getDate()).slice(-2);
+        let hours = ('0' + today.getHours()).slice(-2) - 1;
+        let minutes = "00";
 
         dateData = year + month + day;
-        let time = "0800";
+        let time = hours + minutes;
 
         let areacode = "";
         let cityCode = $('#step1 option:selected').val();
@@ -208,7 +210,6 @@ function displayData() {
         default:
             break;
     }
-    alert(weatherInfo);
     // 가져온 데이터를 weather-widget에 적용하기
     weatherLocation.textContent = locationString;
     weatherTemp.innerHTML = `${weatherData.temperature} &#8451; (${minTemp} &#8451;,  ${maxTemp} &#8451;)`;
