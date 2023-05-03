@@ -7,16 +7,34 @@ let weatherData = {};
 window.onload = function () {
     loadArea('city');
 };
+$(document).ready(function () {
+    $('.select2').select2();
+    $('#step1').change(function () {
+        cityData = $('#step1').find('option:selected').text();
+        countyData = "";
+        townData = "";
+        $('#step2').css('display', 'inline-block');
+        loadArea('county', $(this));
+    });
+    $('#step2').change(function () {
+        countyData = $('#step2').find('option:selected').text();
+        townData = "";
+        $('#step3').css('display', 'inline-block');
+        loadArea('town', $(this));
+    });
+});
 
 $('#step1').change(function () {
     cityData = $('#step1').find('option:selected').text();
     countyData = "";
     townData = "";
+    $('#step2').css('display', 'inline-block');
     loadArea('county', $(this));
 });
 
 $('#step2').change(function () {
     countyData = $('#step2').find('option:selected').text();
+    $('#step3').css('display', 'inline-block');
     loadArea('town', $(this));
 });
 

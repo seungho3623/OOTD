@@ -14,11 +14,29 @@ function getWeather() {
         let year = today.getFullYear();
         let month = ('0' + (today.getMonth() + 1)).slice(-2);
         let day = ('0' + today.getDate()).slice(-2);
-        let hours = ('0' + today.getHours()).slice(-2) - 1;
-        let minutes = "00";
+        //let hours = ('0' + today.getHours()).slice(-2);
+        //let minutes = ('0' + today.getMinutes()).slice(-2);
+        let hours = today.getHours();
+        let minutes = today.getMinutes();
+        let baseTimes = [2, 5, 8, 11, 14, 17, 20, 23];
 
         dateData = year + month + day;
-        let time = hours + minutes;
+
+        /*
+        - 단기예보 현업운영 발표시간 별 예보시각 !
+        - Base_time : 0200, 0500, 0800, 1100, 1400, 1700, 2000, 2300 (1일 8회)
+        - API 제공 시간(~이후) : 02:10, 05:10, 08:10, 11:10, 14:10, 17:10, 20:10, 23:10
+        - 현재 시간에서 가장 가까운 작은 값 구하기
+        */
+
+        if (minutes <= 10) {
+            hours -= 1;
+        }
+        let baseTime = Math.max(...baseTimes.filter((time) => time <= hours));
+        let apiTime = `${baseTime.toString().padStart(2, "0")}:10`;
+        let apiHours = apiTime.slice(0, 2); // 시간 추출
+        let apiMinutes = apiTime.slice(3, 5); // 분 추출
+        let time = apiHours + apiMinutes;
 
         let areacode = "";
         let cityCode = $('#step1 option:selected').val();
@@ -34,15 +52,12 @@ function getWeather() {
         }
 
         let data = {"areacode": areacode, "baseDate": dateData, "baseTime": time};
-        let test = 0;
-
         $.ajax({
             url: "/Project/getWeather.do",
             data: data,
             dataType: "json",
             method: "post",
             success: function (res) {
-                console.log(res);
                 if (res[0].resultCode != null) {
                     alert(res[0].resultMsg);
                 } else {
@@ -107,7 +122,8 @@ function getWeather() {
                     });
                     sessionStorage.setItem("weatherData", JSON.stringify(weatherData));
                     sessionStorage.setItem("locationData", JSON.stringify(locationData));
-                    window.location.href = "/html/DDZA_1.html";
+                    //window.location.href = "/html/DDZA_1.html";
+                    window.location.href = "/html/Loding.html";
                 }
             },
             error: function (xhr) {
@@ -199,7 +215,7 @@ function displayData() {
             weatherInfo = "포근한 날씨로 옷 입기 가장 좋은 날씨!";
             break;
         case (22 < weatherData.temperature && weatherData.temperature <= 26):
-            weatherInfo = "에어컨을 트는 곳이 많아 얇은 외투를 챙겨도 좋아!";
+            weatherInfo = "에어컨 때문에 얇은 외투를 챙겨도 좋아!";
             break;
         case (26 < weatherData.temperature && weatherData.temperature <= 32):
             weatherInfo = "완전 여름이야! 시원하게 입자!";

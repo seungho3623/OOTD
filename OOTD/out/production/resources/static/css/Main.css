@@ -6,6 +6,10 @@
     margin: 0 auto;
 }
 
+select {
+    border-radius: 10px;
+}
+
 .line {
     background-color: black;
     height: 30px;
@@ -21,26 +25,30 @@
 .box {
     text-align: left;
     margin: 0 auto;
-    width: 500px;
+    width: 600px;
     background: rgba(0, 0, 0, 0.2);
     border-style: solid;
     border-color: black;
-    border-radius: 40px
+    border-radius: 40px;
+    font-family: 'Poor Story', cursive;
 }
 
 .first {
     margin-top: 20px;
     margin-left: 40px;
+    font-size: 25px;
 }
 
 .second {
     margin-top: 20px;
     margin-left: 40px;
+    font-size: 25px;
 }
 
 .third {
     margin-top: 20px;
     margin-left: 40px;
+    font-size: 25px;
 }
 
 .fourth {
@@ -48,5 +56,42 @@
     margin: auto;
 }
 
+#Menu h4 {
+    color: black;
+    font-weight: bold;
+    font-size: 40px;
+}
 
+#Menu select {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f2f2f2;
+}
 
+.checkbox input[type="radio"] {
+    margin-right: 10px;
+}
+
+.checkbox1,
+.checkbox2 {
+    display: flex;
+    margin-top: 10px;
+}
+
+.checkbox1 input[type="radio"],
+.checkbox2 input[type="radio"] {
+    margin-right: 10px;
+}
+
+.btn-light {
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 20px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}

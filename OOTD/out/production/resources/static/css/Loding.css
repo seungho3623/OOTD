@@ -1,3 +1,44 @@
+.loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.spinner {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    border-top-color: #5cb85c;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+p {
+    margin-top: 20px;
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/*
+#headerLine{height : 40px;  margin : 0 auto; background: blueviolet;}
+*/
 #Codi {
     margin-left: 300px;
 }
@@ -38,6 +79,7 @@
 }
 
 .box {
+    text-align: center;
     float: left;
     width: 400px;
     height: 600px;
@@ -47,8 +89,7 @@
     background: rgba(0, 0, 0, 0.2);
     border-style: solid;
     border-color: black;
-    border-radius: 40px;
-    text-align: center
+    border-radius: 40px
 }
 
 .imgbox {
