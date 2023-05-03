@@ -1,5 +1,6 @@
 function getWeather() {
     let nullCheck = true;
+
     $('.emptyCheck').each(function () {
         if ('' == $(this).val()) {
             alert($(this).attr('title') + "을(를) 확인바람");
@@ -7,6 +8,22 @@ function getWeather() {
             return false;	// 빈 값에서 멈춤
         }
     });
+
+    if(!nullCheck) return false;
+
+    if (!$("input[name='gender']:checked").val()) {
+        nullCheck = false;
+        alert("성별을(를) 확인바람");
+    }
+    
+    if(!nullCheck) return false;
+
+    if (!$("input[name='style']:checked").val()) {
+        nullCheck = false;
+        alert("스타일을(를) 확인바람");
+    }
+
+    if(!nullCheck) return false;
 
     if (nullCheck) {
         const today = new Date();
