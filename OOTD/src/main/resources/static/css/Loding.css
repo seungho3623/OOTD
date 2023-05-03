@@ -16,7 +16,7 @@
     height: 80px;
     border-radius: 50%;
     border: 5px solid #fff;
-    border-top-color: #5cb85c;
+    border-top-color: black;
     animation: spin 1s ease-in-out infinite;
 }
 
@@ -32,8 +32,9 @@
 p {
     margin-top: 20px;
     color: black;
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: bold;
+    font-family: 'Poor Story', cursive;
 }
 
 /*
