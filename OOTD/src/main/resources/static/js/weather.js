@@ -84,6 +84,40 @@ function getWeather() {
                         county: countyData,
                         town: townData
                     };
+                    let genderData;
+                    switch ($("input[name='gender']:checked").val()){
+                        case "Man" :
+                            genderData = "남성";
+                            break;
+                        case "Women" :
+                            genderData = "여성";
+                            break;
+                        default :
+                            break;
+                    }
+                    let styleData;
+                    switch ($("input[name='style']:checked").val()){
+                        case "Casual" :
+                            styleData = "캐주얼";
+                            break;
+                        case "Retro" :
+                            styleData = "레트로";
+                            break;
+                        case "Home" :
+                            styleData = "홈웨어";
+                            break;
+                        case "Street" :
+                            styleData = "스트릿";
+                            break;
+                        case "Romantic" :
+                            styleData = "로맨틱";
+                            break;
+                        case "Sports" :
+                            styleData = "스포츠";
+                            break;
+                        default :
+                            break;
+                    }
                     $.each(res, function (index, item) {
                         switch (item.category) {
                             case "PTY":
@@ -139,6 +173,8 @@ function getWeather() {
                     });
                     sessionStorage.setItem("weatherData", JSON.stringify(weatherData));
                     sessionStorage.setItem("locationData", JSON.stringify(locationData));
+                    sessionStorage.setItem("genderData", JSON.stringify(genderData));
+                    sessionStorage.setItem("styleData", JSON.stringify(styleData));
                     //window.location.href = "/html/DDZA_1.html";
                     window.location.href = "/html/Loding.html";
                 }
