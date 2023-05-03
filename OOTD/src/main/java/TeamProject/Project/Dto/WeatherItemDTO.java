@@ -3,8 +3,7 @@ package TeamProject.Project.Dto;
 import lombok.Data;
 
 @Data
-public class WeatherItemDTO
-{
+public class WeatherItemDTO {
     private String baseDate;
 
     private String baseTime;

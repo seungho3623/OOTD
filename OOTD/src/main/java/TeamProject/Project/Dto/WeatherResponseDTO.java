@@ -3,9 +3,8 @@ package TeamProject.Project.Dto;
 import lombok.Data;
 
 @Data
-public class WeatherResponseDTO
-{
+public class WeatherResponseDTO {
     private WeatherHeaderDTO header;
 
-    private WeatherBodyDTO   body;
+    private WeatherBodyDTO body;
 }

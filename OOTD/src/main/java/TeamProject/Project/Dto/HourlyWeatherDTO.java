@@ -7,11 +7,11 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-enum SKY_CODE{
-    SUNNY, CLOUDY, OVERCAST,ERROR
+enum SKY_CODE {
+    SUNNY, CLOUDY, OVERCAST, ERROR
 }
 
-enum PRECIPITATION_CODE{
+enum PRECIPITATION_CODE {
     NO_PRECIPITATION, RAIN, RAIN_SNOW, SNOW, SHOWER, RAINDROP, RAINDROP_SNOW_DRIFT, SNOW_DRIFT, ERROR
 }
 
@@ -42,7 +42,7 @@ public class HourlyWeatherDTO {
     private int pop;
 
     public void setSky(String sky) {
-        this.sky = switch (sky){
+        this.sky = switch (sky) {
             case "1" -> SKY_CODE.SUNNY;
             case "3" -> SKY_CODE.CLOUDY;
             case "4" -> SKY_CODE.OVERCAST;
@@ -64,7 +64,7 @@ public class HourlyWeatherDTO {
         };
     }
 
-    public String getPrecipitationString(){
+    public String getPrecipitationString() {
         String result = switch (this.precipitation) {
             case NO_PRECIPITATION -> "강수없음";
             case RAIN -> "비";

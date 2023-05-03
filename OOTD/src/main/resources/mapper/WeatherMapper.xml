@@ -38,24 +38,25 @@
         </choose>
     </select>
     <select id="selectCoordinate" parameterType="String" resultType="TeamProject.Project.Dto.AreaRequestDTO">
-        SELECT
-            gridX as nx, gridY as ny
-        FROM
-            tb_weather_area
-        WHERE
-            areacode = #{areacode}
+        SELECT gridX as nx,
+               gridY as ny
+        FROM tb_weather_area
+        WHERE areacode = #{areacode}
     </select>
 
-    <select id="selectSameCoordinateWeatherList" parameterType="TeamProject.Project.Dto.AreaRequestDTO" resultType="TeamProject.Project.Dto.WeatherDTO">
-        SELECT DISTINCT
-            baseDate, baseTime, category, nx, ny, fcstValue
-        FROM
-            tw_weather_response
-        WHERE
-            baseDate = #{baseDate} AND
-            baseTime = #{baseTime} AND
-            nx = #{nx} AND
-            ny = #{ny}
+    <select id="selectSameCoordinateWeatherList" parameterType="TeamProject.Project.Dto.AreaRequestDTO"
+            resultType="TeamProject.Project.Dto.WeatherDTO">
+        SELECT DISTINCT baseDate,
+                        baseTime,
+                        category,
+                        nx,
+                        ny,
+                        fcstValue
+        FROM tw_weather_response
+        WHERE baseDate = #{baseDate}
+          AND baseTime = #{baseTime}
+          AND nx = #{nx}
+          AND ny = #{ny}
     </select>
 
     <insert id="insertWeatherList" parameterType="TeamProject.Project.Dto.WeatherDTO">

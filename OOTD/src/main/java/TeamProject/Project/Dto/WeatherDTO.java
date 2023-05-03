@@ -3,8 +3,7 @@ package TeamProject.Project.Dto;
 import lombok.Data;
 
 @Data
-public class WeatherDTO
-{
+public class WeatherDTO {
     // 발표 일자
     private String baseDate;
 

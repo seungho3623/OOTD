@@ -9,8 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 @Mapper
-public interface WeatherMapper
-{
+public interface WeatherMapper {
     List<AreaRequestDTO> selectArea(Map<String, String> params);
 
     AreaRequestDTO selectCoordinate(String areacode);

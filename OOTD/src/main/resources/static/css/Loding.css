@@ -40,18 +40,6 @@ p {
 /*
 #headerLine{height : 40px;  margin : 0 auto; background: blueviolet;}
 */
-#Codi {
-    margin-left: 300px;
-}
-
-#resultWeather {
-    display: flex;
-    margin-left: 200px;
-    width: 400px;
-    background: white;
-    border-radius: 15px;
-}
-
 .line {
     background-color: black;
     height: 30px;

@@ -38,21 +38,21 @@ public class WeatherRestTestController {
         String apiUrl = "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst";
         // 홈페이지에서 받은 키
         String serviceKey = "6wwQhBuKz6tg4wGAnMPF19o1eTOE4N7fyCFgBMhdb1eUPYZjWiBvaaM90Zrqr6FisEYu3MJOjDowhuOivARgZA%3D%3D";
-        String nx = "60";	//위도
-        String ny = "125";	//경도
-        String baseDate = formatterNow;	//조회하고싶은 날짜
-        String baseTime = "0200";	//조회하고싶은 시간
-        String type = "json";	//타입 xml, json 등등 ..
+        String nx = "60";    //위도
+        String ny = "125";    //경도
+        String baseDate = formatterNow;    //조회하고싶은 날짜
+        String baseTime = "0200";    //조회하고싶은 시간
+        String type = "json";    //타입 xml, json 등등 ..
 
         StringBuilder urlBuilder = new StringBuilder(apiUrl); /*URL*/
-        urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=" + serviceKey); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지번호*/
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("12", "UTF-8")); /*한 페이지 결과 수*/
-        urlBuilder.append("&" + URLEncoder.encode("dataType","UTF-8") + "=" + URLEncoder.encode(type, "UTF-8")); /*요청자료형식(XML/JSON) Default: XML*/
-        urlBuilder.append("&" + URLEncoder.encode("base_date","UTF-8") + "=" + URLEncoder.encode(baseDate, "UTF-8")); /*‘21년 6월 28일 발표*/
-        urlBuilder.append("&" + URLEncoder.encode("base_time","UTF-8") + "=" + URLEncoder.encode(baseTime, "UTF-8")); /*06시 발표(정시단위) */
-        urlBuilder.append("&" + URLEncoder.encode("nx","UTF-8") + "=" + URLEncoder.encode(nx, "UTF-8")); /*예보지점의 X 좌표값*/
-        urlBuilder.append("&" + URLEncoder.encode("ny","UTF-8") + "=" + URLEncoder.encode(ny, "UTF-8")); /*예보지점의 Y 좌표값*/
+        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=" + serviceKey); /*Service Key*/
+        urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지번호*/
+        urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("12", "UTF-8")); /*한 페이지 결과 수*/
+        urlBuilder.append("&" + URLEncoder.encode("dataType", "UTF-8") + "=" + URLEncoder.encode(type, "UTF-8")); /*요청자료형식(XML/JSON) Default: XML*/
+        urlBuilder.append("&" + URLEncoder.encode("base_date", "UTF-8") + "=" + URLEncoder.encode(baseDate, "UTF-8")); /*‘21년 6월 28일 발표*/
+        urlBuilder.append("&" + URLEncoder.encode("base_time", "UTF-8") + "=" + URLEncoder.encode(baseTime, "UTF-8")); /*06시 발표(정시단위) */
+        urlBuilder.append("&" + URLEncoder.encode("nx", "UTF-8") + "=" + URLEncoder.encode(nx, "UTF-8")); /*예보지점의 X 좌표값*/
+        urlBuilder.append("&" + URLEncoder.encode("ny", "UTF-8") + "=" + URLEncoder.encode(ny, "UTF-8")); /*예보지점의 Y 좌표값*/
 
         URL url = new URL(urlBuilder.toString());
         System.out.println(url);
@@ -62,8 +62,7 @@ public class WeatherRestTestController {
         //Get Weather Info
         bf = new BufferedReader(new InputStreamReader(url.openStream()));
         //Transfer String
-        while((line = bf.readLine()) != null)
-        {
+        while ((line = bf.readLine()) != null) {
             result = result.concat(line);
         }
         //Json Parser String Object
@@ -84,8 +83,7 @@ public class WeatherRestTestController {
         JSONObject weather;
 
         //Get Use Data
-        for(int i = 0; i < parse_item.size(); i++)
-        {
+        for (int i = 0; i < parse_item.size(); i++) {
             weather = (JSONObject) parse_item.get(i);
             fcstValue = (String) weather.get("fcstValue");
             category = (String) weather.get("category");

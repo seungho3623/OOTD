@@ -17,8 +17,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
-public interface WeatherService
-{
+public interface WeatherService {
     List<WeatherDTO> getWeather(AreaRequestDTO areaRequestDTO) throws UnsupportedEncodingException, URISyntaxException, JsonMappingException, JsonProcessingException;
 
     List<AreaRequestDTO> getArea(Map<String, String> params);

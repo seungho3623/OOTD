@@ -7,8 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Data
-public class AreaRequestDTO
-{
+public class AreaRequestDTO {
     // 행정구역코드
     private String areacode;
 

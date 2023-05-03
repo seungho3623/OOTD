@@ -1,6 +1,8 @@
 
 #Codi {
-    margin-left: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #resultWeather {
@@ -72,7 +74,7 @@
 }
 
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Poor Story', cursive;
 }
 
 .weather-widget {
@@ -87,6 +89,7 @@ body {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Gowun Dodum', sans-serif;
 }
 
 .weather-icon {

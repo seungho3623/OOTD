@@ -96,7 +96,7 @@ public class WeatherServiceImpl implements WeatherService {
 
     //Get Max, Min Temp Method
     @Override
-    public List<WeatherDTO> getDailyTemp(AreaRequestDTO areaRequestDTO) throws NullPointerException{
+    public List<WeatherDTO> getDailyTemp(AreaRequestDTO areaRequestDTO) throws NullPointerException {
         final int HOUR_OF_DAY = 24;
         final int NUMBER_PER_DATE_SHORT_FORECAST = 12;
 
@@ -169,7 +169,7 @@ public class WeatherServiceImpl implements WeatherService {
             JSONObject parse_items = (JSONObject) parse_body.get("items");
             // items 로 부터 item 찾기
             basetimeSrtFcstResult = (JSONArray) parse_items.get("item");
-            
+
             if (basetimeSrtFcstResult.size() == NUMBER_REQUEST) {
                 ArrayList<Integer> tempList = new ArrayList<>();
                 for (int i = 0; i < NUMBER_REQUEST; i++) {

@@ -16,8 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class WeatherController
-{
+public class WeatherController {
     private final WeatherService weatherService;
 
     public WeatherController(WeatherService weatherService) {
@@ -26,8 +25,7 @@ public class WeatherController
 
     @PostMapping(value = "/Project/getWeather.do")
     @ResponseBody
-    public List<WeatherDTO> getWeatherInfo(@ModelAttribute AreaRequestDTO areaRequestDTO) throws JsonMappingException, JsonProcessingException, UnsupportedEncodingException, URISyntaxException
-    {
+    public List<WeatherDTO> getWeatherInfo(@ModelAttribute AreaRequestDTO areaRequestDTO) throws JsonMappingException, JsonProcessingException, UnsupportedEncodingException, URISyntaxException {
         AreaRequestDTO coordinate = this.weatherService.getCoordinate(areaRequestDTO.getAreacode());
         areaRequestDTO.setNx(coordinate.getNx());
         areaRequestDTO.setNy(coordinate.getNy());
@@ -39,8 +37,7 @@ public class WeatherController
 
     @PostMapping(value = "/Project/weatherStep.do")
     @ResponseBody
-    public List<AreaRequestDTO> getAreaStep(@RequestParam Map<String, String> params)
-    {
+    public List<AreaRequestDTO> getAreaStep(@RequestParam Map<String, String> params) {
         return this.weatherService.getArea(params);
     }
 }

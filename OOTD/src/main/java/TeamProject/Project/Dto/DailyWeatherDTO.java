@@ -18,7 +18,7 @@ public class DailyWeatherDTO {
     private int tempMax;
     private int tempMin;
 
-    public DailyWeatherDTO(LocalDateTime announceDate){
+    public DailyWeatherDTO(LocalDateTime announceDate) {
         this.announceDate = announceDate;
     }
 }
