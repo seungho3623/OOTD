@@ -182,7 +182,6 @@ function getWeather() {
                     sessionStorage.setItem("locationData", JSON.stringify(locationData));
                     sessionStorage.setItem("genderData", JSON.stringify(genderData));
                     sessionStorage.setItem("styleData", JSON.stringify(styleData));
-                    //window.location.href = "/html/DDZA_1.html";
                     window.location.href = "/html/Loding.html";
                 }
             },

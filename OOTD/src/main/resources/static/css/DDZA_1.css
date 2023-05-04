@@ -75,7 +75,7 @@ body {
     font-family: 'Poor Story', cursive;
 }
 
-.description {
+.imgDescriptionBox {
     display: flex;
     align-items: center;
     justify-content: center;
