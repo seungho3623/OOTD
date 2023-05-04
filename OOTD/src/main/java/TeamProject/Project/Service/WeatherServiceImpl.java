@@ -114,7 +114,7 @@ public class WeatherServiceImpl implements WeatherService {
         final String PROPERTY_TEMPERATURE = "TMP";
 
         // 마지막 단기예보 발표시각(하루 전 2300) 구하기
-        LocalDateTime baseDate = LocalDateTime.now().minusDays(1).withHour(23).withMinute(0);
+        LocalDateTime baseDate = LocalDateTime.now().minusDays(1).withHour(23).withMinute(30);
 
         final int NUMBER_REQUEST = HOUR_OF_DAY * NUMBER_PER_DATE_SHORT_FORECAST;
 

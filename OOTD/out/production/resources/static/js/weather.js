@@ -46,11 +46,18 @@ function getWeather() {
         - 현재 시간에서 가장 가까운 작은 값 구하기
         */
 
-        if (minutes <= 10) {
-            hours -= 1;
+        if(hours == "00" || hours == "01"){
+            hours = "23";
+            minutes = "30";
         }
+
+        if (minutes < 15) {
+            if(hours == "02") hours = "23";
+            else hours -= 1;
+        }
+
         let baseTime = Math.max(...baseTimes.filter((time) => time <= hours));
-        let apiTime = `${baseTime.toString().padStart(2, "0")}:10`;
+        let apiTime = `${baseTime.toString().padStart(2, "0")}:15`;
         let apiHours = apiTime.slice(0, 2); // 시간 추출
         let apiMinutes = apiTime.slice(3, 5); // 분 추출
         let time = apiHours + apiMinutes;
