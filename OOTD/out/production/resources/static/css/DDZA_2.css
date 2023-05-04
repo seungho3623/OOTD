@@ -48,7 +48,7 @@
     text-align: center;
 }
 
-.box {
+.leftBox {
     float: left;
     width: 400px;
     height: 600px;
@@ -140,7 +140,7 @@ body {
 .rightbox .itemWrap{
     overflow:hidden;
 }
-.rightbox .descriptionWrap{
+.rightbox .etcWrap{
     display:flex;
     align-items:center;
 }
@@ -149,8 +149,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 717px;
-    height: 121px;
+    width: 720px;
+    height: 120px;
     margin-top: 10px;
     margin-left: 0px;
     margin-right: 20px;
@@ -158,6 +158,40 @@ body {
     border-style: solid;
     border-color: black;
     border-radius: 40px;
+}
+
+.rightbox .buttonBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 120px;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-color: black;
+    border-radius: 40px;
+}
+
+.buttonBox .detailButton {
+    width: 100px;
+    height: 80px;
+    border-radius: 20px;
+    border-color: black;
+    border-style: solid;
+    border-width: 3px;
+}
+
+.buttonBox .courseButton {
+    width: 100px;
+    height: 80px;
+    margin-left: 40px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
 }
 
 .itemsDescriptionBox .itemsDescription {
