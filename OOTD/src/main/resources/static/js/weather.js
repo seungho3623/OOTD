@@ -266,7 +266,7 @@ function displayData() {
             weatherInfo = "외투착용 필수! 옷장 속 외투 챙기기!";
             break;
         case (11 < weatherData.temperature && weatherData.temperature <= 16):
-            weatherInfo = "본격적인 갈절기 싲가! 일교차 조심해!";
+            weatherInfo = "본격적인 간절기 시작! 일교차 조심해!";
             break;
         case (16 < weatherData.temperature && weatherData.temperature <= 19):
             weatherInfo = "약간은 쌀쌀할거야! 감기 조심해!";
