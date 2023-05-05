@@ -1,4 +1,4 @@
-function getWeather() {
+function saveArea() {
     let nullCheck = true;
 
     $('.emptyCheck').each(function () {
@@ -15,7 +15,7 @@ function getWeather() {
         nullCheck = false;
         alert("성별을(를) 확인바람");
     }
-    
+
     if(!nullCheck) return false;
 
     if (!$("input[name='style']:checked").val()) {
@@ -25,14 +25,40 @@ function getWeather() {
 
     if(!nullCheck) return false;
 
+    if(nullCheck) {
+        // 시/도, 시/군/구, 읍/면/동 select 요소들의 값을 가져옵니다.
+        const city = document.getElementById("step1").value;
+        const county = document.getElementById("step2").value;
+        const town = document.getElementById("step3").value;
+
+        // sessionStorage에 선택된 지역을 저장합니다.
+        sessionStorage.setItem("selectedLocation", JSON.stringify({ city, county, town }));
+
+        // 선택된 성별의 값을 가져옵니다.
+        const gender = document.querySelector('input[name="gender"]:checked').value;
+
+        // sessionStorage에 선택된 성별을 저장합니다.
+        sessionStorage.setItem("selectedGender", gender);
+
+        // 선택된 스타일의 값을 가져옵니다.
+        const style = document.querySelector('input[name="style"]:checked').value;
+
+        // sessionStorage에 선택된 스타일을 저장합니다.
+        sessionStorage.setItem("selectedStyle", style);
+
+        window.location.href = "/Project/loding.do";
+    }
+}
+
+function getWeather() {
+    let nullCheck = true;
+
     if (nullCheck) {
         const today = new Date();
 
         let year = today.getFullYear();
         let month = ('0' + (today.getMonth() + 1)).slice(-2);
         let day = ('0' + today.getDate()).slice(-2);
-        //let hours = ('0' + today.getHours()).slice(-2);
-        //let minutes = ('0' + today.getMinutes()).slice(-2);
         let hours = today.getHours();
         let minutes = today.getMinutes();
         let baseTimes = [2, 5, 8, 11, 14, 17, 20, 23];
@@ -43,6 +69,7 @@ function getWeather() {
         - API 제공 시간(~이후) : 02:10, 05:10, 08:10, 11:10, 14:10, 17:10, 20:10, 23:10
         - 현재 시간에서 가장 가까운 작은 값 구하기
         */
+
         if(hours == "00" || hours == "01"){
             day -= 1;
             day = day < 10 ? '0' + day : day;
@@ -70,9 +97,23 @@ function getWeather() {
         let time = apiHours + apiMinutes;
 
         let areacode = "";
+
         let cityCode = $('#step1 option:selected').val();
         let countyCode = $('#step2 option:selected').val();
         let townCode = $('#step3 option:selected').val();
+
+        /*
+        // sessionStorage에서 sessionLocation 가져오기
+        const sessionLocationStr = sessionStorage.getItem('selectedLocation');
+
+        // JSON 문자열 파싱하여 JavaScript 객체로 변환
+        const sessionLocation = JSON.parse(sessionLocationStr);
+
+        // city, county, town 값 가져오기
+        const cityCode = sessionLocation.city;
+        const countyCode = sessionLocation.county;
+        const townCode = sessionLocation.town;
+        */
 
         if (townCode == '' && countyCode == '') {
             areacode = cityCode;
@@ -189,6 +230,7 @@ function getWeather() {
                     sessionStorage.setItem("locationData", JSON.stringify(locationData));
                     sessionStorage.setItem("genderData", JSON.stringify(genderData));
                     sessionStorage.setItem("styleData", JSON.stringify(styleData));
+
                     //window.location.href = "/html/Loding.html";
                     window.location.href = "/Project/loding.do";
                 }
