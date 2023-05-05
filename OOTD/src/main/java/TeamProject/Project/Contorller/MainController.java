@@ -9,4 +9,13 @@ public class MainController {
     public String openMainPage() {
         return "/html/MainPage.html";
     }
+
+    @GetMapping(value = "/Project/loding.do")
+    public String openLodingPage() {return "/html/Loding.html";}
+
+    @GetMapping(value = "/Project/outfit.do")
+    public String openOutfitPage() {return "/html/DDZA_1.html";}
+
+    @GetMapping(value = "/Project/detail.do")
+    public String openDetailPage() {return "/html/DDZA_2.html";}
 }

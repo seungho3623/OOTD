@@ -1,50 +1,100 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Page2</title>
-    <style>
-        body{
-          background-image: url(/img/backimg.png);
-          background-size: cover;
-        }
-      </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <title>OOTD</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap"
+          rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
+
     <link href="/css/DDZA_2.css" rel="stylesheet">
-  </head>
-  <body class="bg-primary bg-opacity-25">
-    <header><img src="/img/아이콘.png" width="500" height="166">
-        <img src="/img/그림1.png" width="400" height="100" margin-top=>
-       </header>
-    <div id = "headerLine"><h1></h1></div>
-    <br><br><br><br>
-    <div id = "Codi">
-      <h3>My PICK!</h3>
-      <div class = "Bigbox">
-      <div class = "box">
-        <br><br>
-        <div class = "imgbox">
+</head>
+<body onload="displayData()">
+<header>
+    <div class="flex-container flex-start">
+        <div class="flex-item icon"><img src="/img/아이콘.png" width="500" height="166"></div>
+        <div class="flex-item name"><img src="/img/그림1.png" width="400" height="100" bottom="50"></div>
+
+        <div class="weather-widget">
+            <div class="weather-icon"></div>
+            <div class="weather-data">
+                <div class="weather-location" id="weather-location"></div>
+                <div class="weather-temp" id="weather-temp"></div>
+                <div class="weather-desc" id="weather-desc"></div>
+            </div>
+            <div class="flex-item color-red font4"></div>
         </div>
-      </div>
-      <br><br><br><br>
-      <p>코디 아이템</p>
-      <div class = "boxs">
-        <br><br>
-        <div class = "imgbox">
-        </div>
-      </div>
-      <div class = "boxs">
-        <br><br>
-        <div class = "imgbox">
-        </div>
-      </div>
-      <div class = "boxs">
-        <br><br>
-        <div class = "imgbox">
-        </div>
-      </div>
     </div>
+    <div class="line"></div>
+</header>
+
+<br><br>
+<div id="Codi">
+    <br><br>
+    <div class="leftBox">
+        <br><br>
+        <div class="imgbox">
+                <input type="image"
+                       src="https://image.msscdn.net/images/codimap/detail/22895/detail_22895_1_500.jpg?202305031805"
+                       width="250" height="400"/>
+        </div>
+        <br>
+        <div class="imgDescriptionBox">
+            <div class="imgDescription">깔끔한 연출</div>
+        </div>
     </div>
-  </body>
+    <div class="rightbox">
+        <div class="itemWrap">
+            <br><br>
+            <div class="items">
+                <br><br>
+                <div class="imgitembox">
+                <input type="image"
+                       src="https://image.msscdn.net/images/goods_img/20220916/2798627/2798627_1_220.jpg"
+                       width="250" height="290"/>
+                </div>
+            </div>
+            <div class="items">
+                <br><br>
+                <div class="imgitembox">
+                <input type="image"
+                       src="https://image.msscdn.net/images/goods_img/20221108/2927908/2927908_1_220.jpg"
+                       width="250" height="290"/>
+                </div>
+            </div>
+            <div class="items">
+            <br><br>
+            <div class="imgitembox">
+            <input type="image"
+                   src="https://image.msscdn.net/images/goods_img/20230118/3030191/3030191_16794474325423_220.jpg"
+                   width="250" height="290"/>
+            </div>
+        </div>
+        </div>
+        <div class="etcWrap">
+            <div class="itemsDescriptionBox">
+                <div class="itemsDescription">
+                     스트라이프 패턴이 돋보이는 카라 티셔츠와 슬랙스를 매치한 후 클러치 백으로 연출한 댄디 룩
+                </div>
+            </div>
+            <div class="buttonBox">
+                <button class="detailButton">상세</button>
+                <button class="courseButton">코스</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/weather.js"></script>
+</body>
 </html>
