@@ -6,8 +6,18 @@
     margin: 0 auto;
 }
 
-select {
-    border-radius: 10px;
+#Menu h4 {
+    color: black;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+#Menu select {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f2f2f2;
 }
 
 .line {
@@ -26,6 +36,7 @@ select {
     text-align: left;
     margin: 0 auto;
     width: 600px;
+    height: 510px;
     background: rgba(0, 0, 0, 0.2);
     border-style: solid;
     border-color: black;
@@ -33,55 +44,45 @@ select {
     font-family: 'Poor Story', cursive;
 }
 
-.first {
+.areaWrap {
     margin-top: 20px;
     margin-left: 40px;
     font-size: 25px;
 }
 
-.second {
+.genderWrap {
     margin-top: 20px;
     margin-left: 40px;
     font-size: 25px;
 }
 
-.third {
+.styleWrap {
     margin-top: 20px;
     margin-left: 40px;
     font-size: 25px;
 }
 
-.fourth {
+.buttonWrap {
     margin-top: 40px;
     margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 }
 
-#Menu h4 {
-    color: black;
-    font-weight: bold;
-    font-size: 40px;
-}
 
-#Menu select {
-    margin-bottom: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    background-color: #f2f2f2;
-}
-
-.checkbox input[type="radio"] {
+.styleBox input[type="radio"] {
     margin-right: 10px;
 }
 
-.checkbox1,
-.checkbox2 {
+.styleFirst,
+.styleSecond {
     display: flex;
     margin-top: 10px;
 }
 
-.checkbox1 input[type="radio"],
-.checkbox2 input[type="radio"] {
+.styleFirst input[type="radio"],
+.styleSecond input[type="radio"] {
     margin-right: 10px;
 }
 

@@ -1,11 +1,5 @@
 #Codi {
-    /*
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    */
     width: 1650px;
-    height: 600px;
     display: flex;
     flex-flow: row;
     justify-content: center;

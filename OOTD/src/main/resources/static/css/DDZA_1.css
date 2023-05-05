@@ -1,16 +1,12 @@
 #Codi {
-    /*
+    width: 1500px;
     display: flex;
-    justify-content: center;
+    flex-flow: column;
+    justify-content: flex-start;
     align-items: center;
-    */
-    width: 1400px;
-    height: 1000px;
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: flex-center;
     margin: 0 auto;
+    padding-top: 20px;
+    position: relative;
 }
 
 #resultWeather {
@@ -86,11 +82,31 @@ body {
 
 .outfitWrap {
     display: flex;
-    align-items: center;
+    flex-flow: row wrap;
     justify-content: center;
-    text-align: center;
-    width: 1350px;
-    height: 650px;
+    align-items: center;
+}
+
+.buttonWrap {
+    width: 200px;
+    height: 60px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-color: black;
+    border-radius: 40px
+}
+
+.resetButton {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    border-radius: 40px;
 }
 
 .imgDescriptionBox {
