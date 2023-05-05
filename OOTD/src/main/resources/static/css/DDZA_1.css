@@ -1,7 +1,16 @@
 #Codi {
+    /*
     display: flex;
     justify-content: center;
     align-items: center;
+    */
+    width: 1400px;
+    height: 1000px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: flex-center;
+    margin: 0 auto;
 }
 
 #resultWeather {
@@ -73,6 +82,15 @@
 
 body {
     font-family: 'Poor Story', cursive;
+}
+
+.outfitWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 1350px;
+    height: 650px;
 }
 
 .imgDescriptionBox {

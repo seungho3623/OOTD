@@ -37,18 +37,25 @@ function getWeather() {
         let minutes = today.getMinutes();
         let baseTimes = [2, 5, 8, 11, 14, 17, 20, 23];
 
-        dateData = year + month + day;
-
         /*
         - 단기예보 현업운영 발표시간 별 예보시각 !
         - Base_time : 0200, 0500, 0800, 1100, 1400, 1700, 2000, 2300 (1일 8회)
         - API 제공 시간(~이후) : 02:10, 05:10, 08:10, 11:10, 14:10, 17:10, 20:10, 23:10
         - 현재 시간에서 가장 가까운 작은 값 구하기
         */
-
         if(hours == "00" || hours == "01"){
+            day -= 1;
+            day = day < 10 ? '0' + day : day;
+            if (day === '00') {
+              month = ('0' + (today.getMonth())).slice(-2);
+              day = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+            }
+            dateData = year + month + day;
             hours = "23";
             minutes = "30";
+        }
+        else{
+            dateData = year + month + day;
         }
 
         if (minutes < 15) {
@@ -266,7 +273,7 @@ function displayData() {
             weatherInfo = "외투착용 필수! 옷장 속 외투 챙기기!";
             break;
         case (11 < weatherData.temperature && weatherData.temperature <= 16):
-            weatherInfo = "본격적인 갈절기 싲가! 일교차 조심해!";
+            weatherInfo = "본격적인 간절기 시작! 일교차 조심해!";
             break;
         case (16 < weatherData.temperature && weatherData.temperature <= 19):
             weatherInfo = "약간은 쌀쌀할거야! 감기 조심해!";
