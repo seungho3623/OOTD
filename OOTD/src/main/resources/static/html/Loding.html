@@ -14,8 +14,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
 
     <link href="/css/Loding.css" rel="stylesheet">
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const style = urlParams.get('style');
+        const gender = urlParams.get('gender');
+    </script>
 </head>
-<body onload="displayData()">
+<body onload="startCrawling(style, gender); displayData()">
 <header>
     <div class="flex-container flex-start">
         <div class="flex-item icon"><img src="/img/아이콘.png" width="500" height="166"></div>
@@ -29,7 +36,9 @@
     <p>코디 찾는 중..</p>
 </div>
 
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="/js/loding.js"></script>
 <script src="/js/weather.js"></script>
+<script src="/js/crawling.js"></script>
 </body>
 </html>

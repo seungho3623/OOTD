@@ -19,7 +19,7 @@
 
     <link href="/css/DDZA_2.css" rel="stylesheet">
 </head>
-<body onload="displayData()">
+<body onload="showCoordiDetail(); displayData()">
 <header>
     <div class="flex-container flex-start">
         <div class="flex-item icon"><img src="/img/아이콘.png" width="500" height="166"></div>
@@ -88,7 +88,7 @@
                 </div>
             </div>
             <div class="buttonBox">
-                <button class="detailButton">상세</button>
+                <button class="detailButton" onclick="location.href=''">상세</button>
                 <button class="courseButton">코스</button>
             </div>
         </div>
@@ -96,5 +96,6 @@
 </div>
 
 <script src="/js/weather.js"></script>
+<script src="/js/crawling.js"></script>
 </body>
 </html>

@@ -47,13 +47,18 @@ function getWeather() {
         */
 
         if(hours == "00" || hours == "01"){
+            day -= 1;
+            day = day < 10 ? '0' + day : day;
+            if (day === '00') {
+                month = ('0' + (today.getMonth())).slice(-2);
+                day = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+            }
+            dateData = year + month + day;
             hours = "23";
             minutes = "30";
         }
-
-        if (minutes < 15) {
-            if(hours == "02") hours = "23";
-            else hours -= 1;
+        else{
+            dateData = year + month + day;
         }
 
         let baseTime = Math.max(...baseTimes.filter((time) => time <= hours));
@@ -182,7 +187,15 @@ function getWeather() {
                     sessionStorage.setItem("locationData", JSON.stringify(locationData));
                     sessionStorage.setItem("genderData", JSON.stringify(genderData));
                     sessionStorage.setItem("styleData", JSON.stringify(styleData));
-                    window.location.href = "/html/Loding.html";
+
+                    const urlParams = new URLSearchParams(window.location.search);
+                    urlParams.set("style", styleData);
+                    urlParams.set("gender", genderData);
+
+                    const url = "/html/Loding.html" + "?" + urlParams.toString();
+                    window.history.pushState("", "", url);
+
+                    window.location.href = url;
                 }
             },
             error: function (xhr) {

@@ -74,8 +74,13 @@ function getWeather() {
             day -= 1;
             day = day < 10 ? '0' + day : day;
             if (day === '00') {
+<<<<<<< Updated upstream
               month = ('0' + (today.getMonth())).slice(-2);
               day = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+=======
+                month = ('0' + (today.getMonth())).slice(-2);
+                day = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+>>>>>>> Stashed changes
             }
             dateData = year + month + day;
             hours = "23";
@@ -83,11 +88,14 @@ function getWeather() {
         }
         else{
             dateData = year + month + day;
+<<<<<<< Updated upstream
         }
 
         if (minutes < 15) {
             if(hours == "02") hours = "23";
             else hours -= 1;
+=======
+>>>>>>> Stashed changes
         }
 
         let baseTime = Math.max(...baseTimes.filter((time) => time <= hours));
@@ -231,8 +239,19 @@ function getWeather() {
                     sessionStorage.setItem("genderData", JSON.stringify(genderData));
                     sessionStorage.setItem("styleData", JSON.stringify(styleData));
 
+<<<<<<< Updated upstream
                     //window.location.href = "/html/Loding.html";
                     window.location.href = "/Project/loding.do";
+=======
+                    const urlParams = new URLSearchParams(window.location.search);
+                    urlParams.set("style", styleData);
+                    urlParams.set("gender", genderData);
+
+                    const url = "/html/Loding.html" + "?" + urlParams.toString();
+                    window.history.pushState("", "", url);
+
+                    window.location.href = url;
+>>>>>>> Stashed changes
                 }
             },
             error: function (xhr) {
