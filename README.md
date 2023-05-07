@@ -3,6 +3,16 @@
 - 주제
   - 지역 날씨, 상황별 OOTD 추천
 
+- 개발 환경
+
+  1. SPRING BOOT
+  2. MARIA DB
+  3. AWS EC2
+
+- 사용 언어
+
+  1. JAVA, SQL
+  2. HTML, CSS, JAVA SCRIPT
 
 - 일정
 
