@@ -1,33 +1,46 @@
 # OOTD
 
-- 주제
+💡주제
   - 지역 날씨, 상황별 OOTD 추천
 
-- 개발 환경
+<p display="inline-block">
+    💡Language <br>
+      <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=Java&logoColor=white">
+      <img src="https://img.shields.io/badge/SQL-000000?style=for-the-badge&logo=SQL&logoColor=white">
+      <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white"> 
+      <img src="https://img.shields.io/badge/CSS3-1574B6?style=for-the-badge&logo=CSS3&logoColor=white"> 
+      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white">
+</p>
 
-  1. SPRING BOOT
-  2. MARIA DB
-  3. AWS EC2
+<p display="inline-block">
+    💡Tools <br>
+      <img src="https://img.shields.io/badge/IntelliJ-000000?style=for-the-badge&logo=IntelliJ IDEA&logoColor=white">
+      <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=MariaDB&logoColor=white">
+      <img src="https://img.shields.io/badge/Spring-6D833F?style=for-the-badge&logo=Spring&logoColor=white">
+      <img src="https://img.shields.io/badge/Spring Boot-6D833F?style=for-the-badge&logo=Spring Boot&logoColor=white">
+</p>
 
-- 사용 언어
+<p display="inline-block">
+    💡Cowork Tools <br>
+      <img src="https://img.shields.io/badge/Github-000000?style=for-the-badge&logo=github&logoColor=white">
+      <img src="https://img.shields.io/badge/Slack-000000?style=for-the-badge&logo=Slack&logoColor=white">
+      <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white">
+</p>
 
-  1. JAVA, SQL
-  2. HTML, CSS, JAVA SCRIPT
-
-- 일정
+💡일정
 
 ![일정표](https://user-images.githubusercontent.com/90664405/236689278-6b3a984c-5312-4a61-bff7-977db11e425e.png)
 
 
-- 요구사항
+💡요구사항
 
 ![요구사항](https://user-images.githubusercontent.com/90664405/236689405-d144f826-0b79-40f1-a07f-db0cbe60db6d.png)
 
-- 기능
+💡기능
 
 ![기능](https://user-images.githubusercontent.com/90664405/236689406-b1aae183-a1f3-4c09-803c-79a1ff3e245e.png)
 
-- 사용 예
+💡사용 예
 
 1. 메인 페이지
 
