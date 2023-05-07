@@ -1,4 +1,4 @@
-function saveArea() {
+function getWeather() {
     let nullCheck = true;
 
     $('.emptyCheck').each(function () {
@@ -15,7 +15,7 @@ function saveArea() {
         nullCheck = false;
         alert("성별을(를) 확인바람");
     }
-
+    
     if(!nullCheck) return false;
 
     if (!$("input[name='style']:checked").val()) {
@@ -25,43 +25,19 @@ function saveArea() {
 
     if(!nullCheck) return false;
 
-    if(nullCheck) {
-        // 시/도, 시/군/구, 읍/면/동 select 요소들의 값을 가져옵니다.
-        const city = document.getElementById("step1").value;
-        const county = document.getElementById("step2").value;
-        const town = document.getElementById("step3").value;
-
-        // sessionStorage에 선택된 지역을 저장합니다.
-        sessionStorage.setItem("selectedLocation", JSON.stringify({ city, county, town }));
-
-        // 선택된 성별의 값을 가져옵니다.
-        const gender = document.querySelector('input[name="gender"]:checked').value;
-
-        // sessionStorage에 선택된 성별을 저장합니다.
-        sessionStorage.setItem("selectedGender", gender);
-
-        // 선택된 스타일의 값을 가져옵니다.
-        const style = document.querySelector('input[name="style"]:checked').value;
-
-        // sessionStorage에 선택된 스타일을 저장합니다.
-        sessionStorage.setItem("selectedStyle", style);
-
-        window.location.href = "/Project/loding.do";
-    }
-}
-
-function getWeather() {
-    let nullCheck = true;
-
     if (nullCheck) {
         const today = new Date();
 
         let year = today.getFullYear();
         let month = ('0' + (today.getMonth() + 1)).slice(-2);
         let day = ('0' + today.getDate()).slice(-2);
+        //let hours = ('0' + today.getHours()).slice(-2);
+        //let minutes = ('0' + today.getMinutes()).slice(-2);
         let hours = today.getHours();
         let minutes = today.getMinutes();
         let baseTimes = [2, 5, 8, 11, 14, 17, 20, 23];
+
+        dateData = year + month + day;
 
         /*
         - 단기예보 현업운영 발표시간 별 예보시각 !
@@ -74,13 +50,8 @@ function getWeather() {
             day -= 1;
             day = day < 10 ? '0' + day : day;
             if (day === '00') {
-<<<<<<< Updated upstream
-              month = ('0' + (today.getMonth())).slice(-2);
-              day = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-=======
                 month = ('0' + (today.getMonth())).slice(-2);
                 day = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
->>>>>>> Stashed changes
             }
             dateData = year + month + day;
             hours = "23";
@@ -88,14 +59,6 @@ function getWeather() {
         }
         else{
             dateData = year + month + day;
-<<<<<<< Updated upstream
-        }
-
-        if (minutes < 15) {
-            if(hours == "02") hours = "23";
-            else hours -= 1;
-=======
->>>>>>> Stashed changes
         }
 
         let baseTime = Math.max(...baseTimes.filter((time) => time <= hours));
@@ -105,23 +68,9 @@ function getWeather() {
         let time = apiHours + apiMinutes;
 
         let areacode = "";
-
         let cityCode = $('#step1 option:selected').val();
         let countyCode = $('#step2 option:selected').val();
         let townCode = $('#step3 option:selected').val();
-
-        /*
-        // sessionStorage에서 sessionLocation 가져오기
-        const sessionLocationStr = sessionStorage.getItem('selectedLocation');
-
-        // JSON 문자열 파싱하여 JavaScript 객체로 변환
-        const sessionLocation = JSON.parse(sessionLocationStr);
-
-        // city, county, town 값 가져오기
-        const cityCode = sessionLocation.city;
-        const countyCode = sessionLocation.county;
-        const townCode = sessionLocation.town;
-        */
 
         if (townCode == '' && countyCode == '') {
             areacode = cityCode;
@@ -239,10 +188,6 @@ function getWeather() {
                     sessionStorage.setItem("genderData", JSON.stringify(genderData));
                     sessionStorage.setItem("styleData", JSON.stringify(styleData));
 
-<<<<<<< Updated upstream
-                    //window.location.href = "/html/Loding.html";
-                    window.location.href = "/Project/loding.do";
-=======
                     const urlParams = new URLSearchParams(window.location.search);
                     urlParams.set("style", styleData);
                     urlParams.set("gender", genderData);
@@ -251,7 +196,6 @@ function getWeather() {
                     window.history.pushState("", "", url);
 
                     window.location.href = url;
->>>>>>> Stashed changes
                 }
             },
             error: function (xhr) {
@@ -334,7 +278,7 @@ function displayData() {
             weatherInfo = "외투착용 필수! 옷장 속 외투 챙기기!";
             break;
         case (11 < weatherData.temperature && weatherData.temperature <= 16):
-            weatherInfo = "본격적인 간절기 시작! 일교차 조심해!";
+            weatherInfo = "본격적인 갈절기 싲가! 일교차 조심해!";
             break;
         case (16 < weatherData.temperature && weatherData.temperature <= 19):
             weatherInfo = "약간은 쌀쌀할거야! 감기 조심해!";
