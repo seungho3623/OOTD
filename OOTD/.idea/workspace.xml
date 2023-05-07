@@ -4,42 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="882781f5-cbc9-4a97-8306-040377984e89" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/OOTD.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/OOTD.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+    <list default="true" id="882781f5-cbc9-4a97-8306-040377984e89" name="변경" comment="변경">
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/TeamProject/Project/Contorller/CrawlingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/TeamProject/Project/Contorller/CrawlingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/TeamProject/Project/Contorller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/TeamProject/Project/Contorller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/html/DDZA_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/html/DDZA_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/html/DDZA_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/html/DDZA_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/crawling.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/js/crawling.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CrawlingController.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CrawlingController.class.uniqueId0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TeamProject/Project/Contorller/CrawlingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TeamProject/Project/Contorller/CrawlingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TeamProject/Project/Contorller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TeamProject/Project/Contorller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/html/DDZA_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/html/DDZA_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/html/DDZA_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/html/DDZA_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/crawling.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/crawling.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +43,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
