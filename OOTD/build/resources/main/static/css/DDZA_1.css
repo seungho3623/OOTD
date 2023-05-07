@@ -116,7 +116,15 @@ body {
     border-style: solid;
     border-color: black;
     border-radius: 20px;
-    border-width: 5px;
+    border-width: 3px;
+}
+
+.likeButton {
+    margin-top: 10px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 20px;
+    border-width: 3px;
 }
 
 .weather-widget {
