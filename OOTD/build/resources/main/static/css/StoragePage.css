@@ -1,0 +1,24 @@
+#resultWeather {
+    display: flex;
+    margin-left: 200px;
+    width: 400px;
+    background: white;
+    border-radius: 15px;
+}
+
+.line {
+    background-color: black;
+    height: 30px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    color: white;
+    align-items: flex-end;
+}
+
+.name {
+    position: relative;
+    top: 10px;
+}

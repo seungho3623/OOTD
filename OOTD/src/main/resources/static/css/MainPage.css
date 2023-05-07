@@ -20,6 +20,38 @@
     background-color: #f2f2f2;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.storageWrap {
+    position: absolute;
+    top: 200px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 125px;
+    height: 75px;
+    background: rgba(0, 0, 0, 0.1);
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    border-radius: 10px;
+}
+
+.storageButton {
+    margin-left: auto;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border-width: 0px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
 .line {
     background-color: black;
     height: 30px;
