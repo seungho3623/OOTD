@@ -17,3 +17,25 @@
 
 ![기능](https://user-images.githubusercontent.com/90664405/236689406-b1aae183-a1f3-4c09-803c-79a1ff3e245e.png)
 
+- 사용 예
+
+1. 메인 페이지
+
+![main](https://user-images.githubusercontent.com/90664405/236689579-72f9f703-d675-45a2-ac05-ab0f1c773325.png)
+
+2. 로딩 페이지
+
+![loading](https://user-images.githubusercontent.com/90664405/236689584-24d5bc49-7bc6-4f2a-95d2-fcdf25b6706a.png)
+
+3. 코디 추천 페이지
+
+![outfit](https://user-images.githubusercontent.com/90664405/236689592-4375070c-89b5-4124-8d2f-4f2e02ce6331.png)
+
+4. 상세 코디 페이지
+
+![detail](https://user-images.githubusercontent.com/90664405/236689599-9301073d-d131-4878-9ba1-c9e9f4f79d93.png)
+
+5. 저장소 페이지
+ 
+ - 업데이트 예정
+
