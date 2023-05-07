@@ -6,6 +6,20 @@
     margin: 0 auto;
 }
 
+#Menu h4 {
+    color: black;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+#Menu select {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f2f2f2;
+}
+
 .line {
     background-color: black;
     height: 30px;
@@ -47,41 +61,30 @@
     font-size: 25px;
 }
 
-.outfitButton {
-    margin-top: 40px;
-    margin: auto;
-}
-
-#Menu h4 {
-    color: black;
-    font-weight: bold;
-    font-size: 40px;
-}
-
-#Menu select {
-    margin-bottom: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    background-color: #f2f2f2;
-}
-
-.checkbox input[type="radio"] {
+.checkGender input[type="radio"] {
     margin-right: 10px;
 }
 
-.selectFirst,
-.selectSecond {
+.checkFirst,
+.checkSecond {
     display: flex;
     margin-top: 10px;
 }
 
-.selectFirst input[type="radio"],
-.selectSecond input[type="radio"] {
+.checkFirst input[type="radio"],
+.checkSecond input[type="radio"] {
     margin-right: 10px;
 }
 
-.getOutfit{
+.buttonWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.outfitButton {
     background-color: #fff;
     color: #000;
     border-radius: 5px;
