@@ -2,6 +2,7 @@ package TeamProject.Project.Contorller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
@@ -21,7 +22,7 @@ public class MainController {
     }
 
     @GetMapping(value = "/Project/detail.do")
-    public String openDetailPage() {
-        return "/html/DDZA_2.html";
+    public String openDetailPage(@RequestParam(required = true) int index) {
+        return "/html/DDZA_2.html?index=" + index;
     }
 }

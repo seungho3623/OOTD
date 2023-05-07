@@ -18,8 +18,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
 
     <link href="/css/DDZA_2.css" rel="stylesheet">
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const index = urlParams.get('index');
+    </script>
 </head>
-<body onload="showCoordiDetail(); displayData()">
+<body onload="showCoordiDetail(index); displayData()">
 <header>
     <div class="flex-container flex-start">
         <div class="flex-item icon"><img src="/img/아이콘.png" width="500" height="166"></div>

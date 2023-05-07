@@ -23,26 +23,17 @@ public class CrawlingController {
     private static WebDriverWait wait;
 
     private static void setDriver() {
-        /**
-         * 크롬 드라이버 설정
-         **/
-
-        /**
-         * 맥
-         **/
+        //맥
         System.setProperty("webdriver.chrome.driver", "src/main/resources/bin/chromedriver");
 
-        /**
-         * 윈도우
-         **/
-        //System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver.exe");
+        //윈도우
+        //System.setProperty("webdriver.chrome.driver", "src/main/resources/bin/chromedriver.exe");
 
-        // 옵션 설정
+        //옵션 설정
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");   // 브라우저 안 띄움
+        options.addArguments("headless");   //브라우저 안 띄움
         options.addArguments("--remote-allow-origins=*");
 
-        //브라우저 선택
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
@@ -53,20 +44,20 @@ public class CrawlingController {
     }
 
     private static void setStyle(String style) {
-        String url = "https://www.musinsa.com/app/codimap/lists";
+        String url = "https://www.musinsa.com/app/codimap/lists?style_type=";
 
         switch(style) {
-            case "캐주얼": url += "?style_type=casual";
+            case "캐주얼": url += "casual";
                 break;
-            case "포멀": url += "?style_type=formal";
+            case "포멀": url += "formal";
                 break;
-            case "홈웨어": url += "?style_type=homewear";
+            case "홈웨어": url += "homewear";
                 break;
-            case "스트릿": url += "?style_type=street";
+            case "스트릿": url += "street";
                 break;
-            case "고프고어": url += "?style_type=gorpcore";
+            case "고프고어": url += "gorpcore";
                 break;
-            case "스포츠": url += "?style_type=sports";
+            case "스포츠": url += "sports";
                 break;
             default:
                 break;
@@ -178,8 +169,8 @@ public class CrawlingController {
                 System.out.println("\n" + (i + 1) + "번째 코디 정보");
 
                 System.out.println(coordiList.get(i).getName());
-                System.out.println(coordiList.get(i).getDescription());
                 System.out.println(coordiList.get(i).getUrl());
+                System.out.println(coordiList.get(i).getDescription());
                 System.out.println(coordiList.get(i).getThumbnail());
                 for(String url: coordiList.get(i).getItemThumbnails()) {
                     System.out.println(url);
