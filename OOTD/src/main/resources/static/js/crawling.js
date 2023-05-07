@@ -43,18 +43,9 @@ function showCoordiDetail(index = 0) {
     coordiName.innerHTML = coordiData[index].name;
     coordiDescription.innerHTML = coordiData[index].description;
     coordiURL.setAttribute("onclick", `location.href='${coordiData[index].url}'`);
-    // coordiThumbnail.src = "https://image.msscdn.net/images/codimap/list/l_3_2023050414030200000073371.jpg?202305060305";
-    // coordiName.innerHTML = "인기 만점";
-    // coordiDescription.innerHTML = "레터링이 돋보이는 반소매 티셔츠와 벌룬 핏 팬츠를 매치하고 백팩으로 마무리한 캐주얼 룩";
-    // coordiURL.setAttribute("onclick", "location.href='https://www.musinsa.com/app/codimap/views/22961'");
 
     for (let i = 0; i < coordiData[index].itemThumbnails.length; i++) {
-        itemThumbnails
-            .item(i + 1)
-            .src = coordiData[index].itemThumbnails[i];
-        // itemThumbnails
-        //     .item(i + 1)
-        //     .src = "https://image.msscdn.net/images/goods_img/20180403/747941/747941_16778032535978_220.jpg";
+        itemThumbnails.item(i + 1).src = coordiData[index].itemThumbnails[i];
     }
 
 }
