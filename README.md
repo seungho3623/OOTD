@@ -4,7 +4,7 @@
   - 지역 날씨, 상황별 OOTD 추천
 
 <p display="inline-block">
-    💡Language <br>
+    💡사용언어 <br>
       <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=Java&logoColor=white">
       <img src="https://img.shields.io/badge/SQL-000000?style=for-the-badge&logo=SQL&logoColor=white">
       <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white"> 
@@ -13,15 +13,17 @@
 </p>
 
 <p display="inline-block">
-    💡Tools <br>
+    💡개발환경 <br>
       <img src="https://img.shields.io/badge/IntelliJ-000000?style=for-the-badge&logo=IntelliJ IDEA&logoColor=white">
       <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=MariaDB&logoColor=white">
       <img src="https://img.shields.io/badge/Spring-6D833F?style=for-the-badge&logo=Spring&logoColor=white">
       <img src="https://img.shields.io/badge/Spring Boot-6D833F?style=for-the-badge&logo=Spring Boot&logoColor=white">
+      <img src="https://img.shields.io/badge/Amazon EC2-FF9900?style=for-the-badge&logo=Amazon EC2&logoColor=white">
+      <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=Ubuntu&logoColor=white">
 </p>
 
 <p display="inline-block">
-    💡Cowork Tools <br>
+    💡협업 <br>
       <img src="https://img.shields.io/badge/Github-000000?style=for-the-badge&logo=github&logoColor=white">
       <img src="https://img.shields.io/badge/Slack-000000?style=for-the-badge&logo=Slack&logoColor=white">
       <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white">
