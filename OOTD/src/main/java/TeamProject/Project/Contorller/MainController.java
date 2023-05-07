@@ -13,16 +13,16 @@ public class MainController {
 
     @GetMapping(value = "/Project/loding.do")
     public String openLodingPage() {
-        return "/html/Loding.html";
+        return "/html/LodingPage.html";
     }
 
     @GetMapping(value = "/Project/outfit.do")
     public String openOutfitPage() {
-        return "/html/DDZA_1.html";
+        return "/html/OutfitPage.html";
     }
 
     @GetMapping(value = "/Project/detail.do")
     public String openDetailPage(@RequestParam(required = true) int index) {
-        return "/html/DDZA_2.html?index=" + index;
+        return "/html/DetailPage.html?index=" + index;
     }
 }
