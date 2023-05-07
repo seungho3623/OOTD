@@ -112,8 +112,8 @@ function getWeather() {
                         case "Casual" :
                             styleData = "캐주얼";
                             break;
-                        case "Retro" :
-                            styleData = "레트로";
+                        case "Formal" :
+                            styleData = "포멀";
                             break;
                         case "Home" :
                             styleData = "홈웨어";
@@ -121,8 +121,8 @@ function getWeather() {
                         case "Street" :
                             styleData = "스트릿";
                             break;
-                        case "Romantic" :
-                            styleData = "로맨틱";
+                        case "GorpCore" :
+                            styleData = "고프고어";
                             break;
                         case "Sports" :
                             styleData = "스포츠";
@@ -192,6 +192,7 @@ function getWeather() {
                     urlParams.set("style", styleData);
                     urlParams.set("gender", genderData);
 
+                    //const url = "/html/Loding.html" + "?" + urlParams.toString();
                     const url = "/Project/loding.do" + "?" + urlParams.toString();
                     window.history.pushState("", "", url);
 

@@ -39,7 +39,7 @@ public class CrawlingController {
 
         // 옵션 설정
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("headless");   // 브라우저 안 띄움
+        options.addArguments("headless");   // 브라우저 안 띄움
         options.addArguments("--remote-allow-origins=*");
 
         //브라우저 선택
@@ -58,13 +58,13 @@ public class CrawlingController {
         switch(style) {
             case "캐주얼": url += "?style_type=casual";
                 break;
-            case "레트로": url += "?style_type=retro";
+            case "포멀": url += "?style_type=formal";
                 break;
             case "홈웨어": url += "?style_type=homewear";
                 break;
             case "스트릿": url += "?style_type=street";
                 break;
-            case "로맨틱": url += "?style_type=romantic";
+            case "고프고어": url += "?style_type=gorpcore";
                 break;
             case "스포츠": url += "?style_type=sports";
                 break;
