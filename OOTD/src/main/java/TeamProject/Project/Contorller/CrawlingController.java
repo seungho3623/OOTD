@@ -24,7 +24,7 @@ public class CrawlingController {
 
     private static void setDriver() {
         //맥
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/bin/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver");
 
         //윈도우
         //System.setProperty("webdriver.chrome.driver", "src/main/resources/bin/chromedriver.exe");
