@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class CrawlingController {
         /**
          * 맥
          **/
-        System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/bin/chromedriver");
 
         /**
          * 윈도우
@@ -38,7 +39,7 @@ public class CrawlingController {
 
         // 옵션 설정
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");   // 브라우저 안 띄움
+        //options.addArguments("headless");   // 브라우저 안 띄움
         options.addArguments("--remote-allow-origins=*");
 
         //브라우저 선택
