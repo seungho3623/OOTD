@@ -6,10 +6,6 @@
     margin: 0 auto;
 }
 
-select {
-    border-radius: 10px;
-}
-
 .line {
     background-color: black;
     height: 30px;
@@ -33,25 +29,25 @@ select {
     font-family: 'Poor Story', cursive;
 }
 
-.first {
+.selectArea {
     margin-top: 20px;
     margin-left: 40px;
     font-size: 25px;
 }
 
-.second {
+.selectGender {
     margin-top: 20px;
     margin-left: 40px;
     font-size: 25px;
 }
 
-.third {
+.selectStyle {
     margin-top: 20px;
     margin-left: 40px;
     font-size: 25px;
 }
 
-.fourth {
+.outfitButton {
     margin-top: 40px;
     margin: auto;
 }
@@ -74,18 +70,18 @@ select {
     margin-right: 10px;
 }
 
-.checkbox1,
-.checkbox2 {
+.selectFirst,
+.selectSecond {
     display: flex;
     margin-top: 10px;
 }
 
-.checkbox1 input[type="radio"],
-.checkbox2 input[type="radio"] {
+.selectFirst input[type="radio"],
+.selectSecond input[type="radio"] {
     margin-right: 10px;
 }
 
-.btn-light {
+.getOutfit{
     background-color: #fff;
     color: #000;
     border-radius: 5px;
