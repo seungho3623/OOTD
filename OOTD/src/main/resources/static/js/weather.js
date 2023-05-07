@@ -192,7 +192,7 @@ function getWeather() {
                     urlParams.set("style", styleData);
                     urlParams.set("gender", genderData);
 
-                    const url = "/html/Loding.html" + "?" + urlParams.toString();
+                    const url = "/Project/loding.do" + "?" + urlParams.toString();
                     window.history.pushState("", "", url);
 
                     window.location.href = url;
