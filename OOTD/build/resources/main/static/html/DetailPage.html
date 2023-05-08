@@ -41,9 +41,6 @@
         </div>
     </div>
     <div class="line"></div>
-    <div class="storageWrap">
-        <button type="button" class="storageButton" onclick="window.location.href='/Project/storage.do';">저장소</button>
-    </div>
 </header>
 
 <br><br>
@@ -58,6 +55,9 @@
         <div class="imgDescriptionBox">
             <div class="imgDescription"></div>
         </div>
+        <button class="likeButton">
+            <img src="/img/Like/like.png" alt="like" width="30" height="30">
+        </button>
     </div>
     <div class="rightbox">
         <div class="itemWrap">
@@ -87,7 +87,7 @@
             </div>
             <div class="buttonBox">
                 <button class="detailButton" onclick="location.href=''">상세</button>
-                <button class="courseButton">코스</button>
+                <button class="storageButton" onclick="window.location.href='/Project/storage.do';">저장소</button>
             </div>
         </div>
     </div>
@@ -95,5 +95,6 @@
 
 <script src="/js/weather.js"></script>
 <script src="/js/crawling.js"></script>
+<script src="/js/storage.js"></script>
 </body>
 </html>

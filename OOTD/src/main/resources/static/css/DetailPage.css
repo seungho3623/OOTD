@@ -43,16 +43,6 @@ header {
     border-radius: 10px;
 }
 
-.storageButton {
-    margin-left: auto;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.1);
-    border-width: 0px;
-    border-radius: 10px;
-    font-size: 20px;
-}
-
 .line {
     background-color: black;
     height: 30px;
@@ -92,6 +82,12 @@ header {
     border-color: black;
     border-radius: 40px;
     text-align: center
+}
+
+.likeButton {
+    margin-top: 10px;
+    border: none;
+    background: 0;
 }
 
 .items {
@@ -216,7 +212,7 @@ body {
     border-width: 3px;
 }
 
-.buttonBox .courseButton {
+.buttonBox .storageButton {
     width: 100px;
     height: 80px;
     margin-left: 40px;

@@ -9,7 +9,6 @@ function startCrawling(style, gender) {
         dataType: "json",
         success: function(data) {
             sessionStorage.setItem("coordiData", JSON.stringify(data));
-            //window.location.href = "/html/DDZA_1.html";
             window.location.href = "/Project/outfit.do";
         },
         error: function() {

@@ -23,32 +23,6 @@ header {
     justify-content: space-between;
 }
 
-.storageWrap {
-    position: absolute;
-    top: 200px;
-    right: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    width: 125px;
-    height: 75px;
-    background: rgba(0, 0, 0, 0.1);
-    border-style: solid;
-    border-color: black;
-    border-width: 3px;
-    border-radius: 10px;
-}
-
-.storageButton {
-    margin-left: auto;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.1);
-    border-width: 0px;
-    border-radius: 10px;
-    font-size: 20px;
-}
-
 .line {
     background-color: black;
     height: 30px;
@@ -131,7 +105,7 @@ body {
 }
 
 .buttonWrap {
-    width: 200px;
+    width: 400px;
     height: 60px;
     margin-top: 30px;
     margin-bottom: 20px;
@@ -142,8 +116,19 @@ body {
 }
 
 .reloadButton {
-    width: 100%;
+    width: 150px;
     height: 100%;
+    font-size: 16px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 20px;
+    border-width: 3px;
+}
+
+.storageButton {
+    width: 150px;
+    height: 100%;
+    margin-left: 50px;
     font-size: 16px;
     border-style: solid;
     border-color: black;
