@@ -2,6 +2,7 @@ package TeamProject.Project.Contorller;
 
 import TeamProject.Project.Dto.CoordiDTO;
 import TeamProject.Project.Dto.CrawlingRequestDTO;
+import jakarta.servlet.http.HttpServletResponse;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,10 +10,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.File;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,17 +22,22 @@ import java.util.List;
 public class CrawlingController {
     private static WebDriver driver;
     private static WebDriverWait wait;
+    private static final String[][] sequence = {
+            {"캐주얼", "남성"}, {"포멀", "남성"}, {"홈웨어", "남성"}, {"스트릿", "남성"}, {"스포츠", "남성"}, {"고프코어", "남성"},
+            {"캐주얼", "여성"}, {"포멀", "여성"}, {"홈웨어", "여성"}, {"스트릿", "여성"}, {"스포츠", "여성"}, {"고프코어", "여성"}
+    };
+    private static int index;
 
-    private static void setDriver() {
+    public static void setDriver() {
         //맥
-        System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/bin/chromedriver");
 
         //윈도우
         //System.setProperty("webdriver.chrome.driver", "src/main/resources/bin/chromedriver.exe");
 
         //옵션 설정
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");   //브라우저 안 띄움
+        //options.addArguments("headless");   //브라우저 안 띄움
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
@@ -151,7 +157,6 @@ public class CrawlingController {
         List<String> coordiNames, coordiThumbnails, coordiLinks;
 
         System.out.println("\n크롤링 시작\n");
-        setDriver();
 
         setStyle(dto.getStyle());
         setGender(dto.getGender());
@@ -182,8 +187,6 @@ public class CrawlingController {
             e.printStackTrace();
         }
 
-        stopDriver();
-
         return coordiList;
     }
 
@@ -191,5 +194,43 @@ public class CrawlingController {
         driver.get(coordi.getUrl());
         coordi.setDescription(getCoordiDescription());
         coordi.setItemThumbnails(getCoordiItemThumbnail(3));
+    }
+
+    @Scheduled(cron = "0 */1 * * * *")
+    private static void getCoordiDataAuto() {
+        List<CoordiDTO> coordiList = new ArrayList<>();
+        List<String> coordiNames, coordiThumbnails, coordiLinks;
+
+        System.out.println("\n크롤링 시작\n");
+
+        setStyle(sequence[index][0]);
+        setGender(sequence[index][1]);
+
+        if(++ index >= sequence.length) index = 0;
+
+        try {
+            coordiNames = getCoordiNames();
+            coordiThumbnails = getCoordiThumbnails();
+            coordiLinks = getCoordiLinks();
+
+            for (int i = 0; i < coordiNames.size(); i++) {
+                coordiList.add(new CoordiDTO(coordiNames.get(i), coordiThumbnails.get(i), coordiLinks.get(i)));
+                getCoordiDetail(coordiList.get(i));
+
+                System.out.println("\n" + (i + 1) + "번째 코디 정보");
+
+                System.out.println(coordiList.get(i).getName());
+                System.out.println(coordiList.get(i).getUrl());
+                System.out.println(coordiList.get(i).getDescription());
+                System.out.println(coordiList.get(i).getThumbnail());
+                for(String url: coordiList.get(i).getItemThumbnails()) {
+                    System.out.println(url);
+                }
+            }
+
+            System.out.println("\n크롤링 완료\n");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
