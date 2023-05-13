@@ -41,10 +41,10 @@ function showCoordiDetail(index = 0) {
     coordiThumbnail.src = coordiData[index].thumbnail;
     coordiName.innerHTML = coordiData[index].name;
     coordiDescription.innerHTML = coordiData[index].description;
-    coordiURL.setAttribute("onclick", `location.href='${coordiData[index].url}'`);
+    //coordiURL.setAttribute("onclick", `location.href='${coordiData[index].url}'`);
+    coordiURL.setAttribute("onclick", `window.open('${coordiData[index].url}', '_blank')`);
 
     for (let i = 0; i < coordiData[index].itemThumbnails.length; i++) {
         itemThumbnails.item(i + 1).src = coordiData[index].itemThumbnails[i];
     }
-
 }
