@@ -25,8 +25,8 @@ public class CrawlingController {
 
     private static int index;
     private static final String[][] sequence = {
-            {"캐주얼", "남성"}, {"포멀", "남성"}, {"홈웨어", "남성"}, {"스트릿", "남성"}, {"스포츠", "남성"}, {"고프코어", "남성"},
-            {"캐주얼", "여성"}, {"포멀", "여성"}, {"홈웨어", "여성"}, {"스트릿", "여성"}, {"스포츠", "여성"}, {"고프코어", "여성"}
+            {"캐주얼", "남성"}, {"포멀", "남성"}, {"아메카지", "남성"}, {"스트릿", "남성"}, {"스포츠", "남성"}, {"고프코어", "남성"},
+            {"캐주얼", "여성"}, {"포멀", "여성"}, {"아메카지", "여성"}, {"스트릿", "여성"}, {"스포츠", "여성"}, {"고프코어", "여성"}
     };
     private static List<CoordiDTO>[] coordiData = new ArrayList[12];
 
@@ -59,7 +59,7 @@ public class CrawlingController {
                 break;
             case "포멀": url += "formal";
                 break;
-            case "홈웨어": url += "homewear";
+            case "아메카지": url += "americancasual";
                 break;
             case "스트릿": url += "street";
                 break;

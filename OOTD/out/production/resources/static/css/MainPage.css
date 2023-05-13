@@ -6,8 +6,24 @@
     margin: 0 auto;
 }
 
-select {
-    border-radius: 10px;
+#Menu h4 {
+    color: black;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+#Menu select {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f2f2f2;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .line {
@@ -33,59 +49,60 @@ select {
     font-family: 'Poor Story', cursive;
 }
 
-.first {
+.selectArea {
     margin-top: 20px;
     margin-left: 40px;
     font-size: 25px;
 }
 
-.second {
+.selectGender {
     margin-top: 20px;
     margin-left: 40px;
     font-size: 25px;
 }
 
-.third {
+.selectStyle {
     margin-top: 20px;
     margin-left: 40px;
     font-size: 25px;
 }
 
-.fourth {
-    margin-top: 40px;
-    margin: auto;
-}
-
-#Menu h4 {
-    color: black;
-    font-weight: bold;
-    font-size: 40px;
-}
-
-#Menu select {
-    margin-bottom: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    background-color: #f2f2f2;
-}
-
-.checkbox input[type="radio"] {
+.checkGender input[type="radio"] {
     margin-right: 10px;
 }
 
-.checkbox1,
-.checkbox2 {
+.checkFirst,
+.checkSecond {
     display: flex;
     margin-top: 10px;
 }
 
-.checkbox1 input[type="radio"],
-.checkbox2 input[type="radio"] {
+.checkFirst input[type="radio"],
+.checkSecond input[type="radio"] {
     margin-right: 10px;
 }
 
-.btn-light {
+.buttonWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.outfitButton {
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 20px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.storageButton {
+    margin-left: 50px;
     background-color: #fff;
     color: #000;
     border-radius: 5px;
