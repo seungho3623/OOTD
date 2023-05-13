@@ -9,7 +9,9 @@ function startCrawling(style, gender) {
         dataType: "json",
         success: function(data) {
             sessionStorage.setItem("coordiData", JSON.stringify(data));
-            window.location.href = "/Project/outfit.do";
+            setTimeout(function(){
+                window.location.href = "/Project/outfit.do";
+            }, 1000);
         },
         error: function() {
             alert("error");
