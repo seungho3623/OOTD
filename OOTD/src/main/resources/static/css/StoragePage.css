@@ -22,3 +22,74 @@
     position: relative;
     top: 10px;
 }
+
+
+
+/* new */
+/*
+#outfitContainer{
+    position:relative;
+    padding:0 80px;
+}
+#outfitContainer > div{
+    float:left;
+    width:calc(25% - 10px);
+    margin:0 10px 10px 0;
+    border:1px solid red;
+}
+#outfitContainer > div img{
+    width:220px;
+    height:330px;
+}
+#outfitContainer > div > div{
+    display:flex;
+    justify-content:center;
+}
+*/
+
+#outfitContainer {
+    position: relative;
+    padding: 0 80px;
+}
+
+#outfitContainer > div {
+    float: left;
+    width: calc(20% - 10px);
+    margin: 0 10px 10px 0;
+    background: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-color: black;
+    border-radius: 40px;
+}
+
+#outfitContainer > div img {
+    display: block;
+    margin: 0 auto; /* Center the images horizontally */
+    margin-top: 10px;
+    width: 220px;
+    height: 330px;
+    background-color: white;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+#outfitContainer > div > div {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the images vertically */
+    height: 100%; /* Ensure the container takes up the full height */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#outfitContainer > div > div button{
+    width: 75px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: white;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+}

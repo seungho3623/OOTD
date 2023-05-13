@@ -32,14 +32,14 @@ public class CrawlingController {
 
     public static void setDriver() {
         //맥
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/bin/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver");
 
         //윈도우
         //System.setProperty("webdriver.chrome.driver", "src/main/resources/bin/chromedriver.exe");
 
         //옵션 설정
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("headless");   //브라우저 안 띄움
+        options.addArguments("headless");   //브라우저 안 띄움
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
