@@ -1,24 +1,26 @@
 const likeButtons = document.querySelectorAll('.likeButton');
+let selectedItems = JSON.parse(sessionStorage.getItem('outfitStorage')) || [];
 
 likeButtons.forEach((button, index) => {
   button.addEventListener('click', (event) => {
-    // sessionStorage에서 coordiData 가져오기
     const coordiDataStr = sessionStorage.getItem('coordiData');
-
-    // JSON 문자열을 JavaScript 객체로 변환
     const coordiData = JSON.parse(coordiDataStr);
 
-    // selectedItems 배열 선언
-    let selectedItems = [];
-
-    // 클릭된 버튼의 인덱스에 해당하는 아이템 가져오기
     const selectedItem = {
       thumbnail: coordiData[index].thumbnail,
       url: coordiData[index].url
     };
-    selectedItems.push(selectedItem);
 
-    sessionStorage.setItem("outfitStorage", JSON.stringify(selectedItems));
-    alert('저장 완료');
+    const isDuplicate = selectedItems.some(item => {
+      return item.thumbnail === selectedItem.thumbnail && item.url === selectedItem.url;
+    });
+
+    if (!isDuplicate) {
+      selectedItems.push(selectedItem);
+      sessionStorage.setItem("outfitStorage", JSON.stringify(selectedItems));
+      alert('저장 완료');
+    } else {
+      alert('이미 선택된 아이템입니다.');
+    }
   });
 });
