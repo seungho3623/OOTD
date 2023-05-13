@@ -22,11 +22,13 @@ import java.util.List;
 public class CrawlingController {
     private static WebDriver driver;
     private static WebDriverWait wait;
+
+    private static int index;
     private static final String[][] sequence = {
             {"캐주얼", "남성"}, {"포멀", "남성"}, {"홈웨어", "남성"}, {"스트릿", "남성"}, {"스포츠", "남성"}, {"고프코어", "남성"},
             {"캐주얼", "여성"}, {"포멀", "여성"}, {"홈웨어", "여성"}, {"스트릿", "여성"}, {"스포츠", "여성"}, {"고프코어", "여성"}
     };
-    private static int index;
+    private static List<CoordiDTO>[] coordiData = new ArrayList[12];
 
     public static void setDriver() {
         //맥
@@ -37,7 +39,7 @@ public class CrawlingController {
 
         //옵션 설정
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("headless");   //브라우저 안 띄움
+        options.addArguments("headless");   //브라우저 안 띄움
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
@@ -190,13 +192,7 @@ public class CrawlingController {
         return coordiList;
     }
 
-    private static void getCoordiDetail(CoordiDTO coordi) throws InterruptedException {
-        driver.get(coordi.getUrl());
-        coordi.setDescription(getCoordiDescription());
-        coordi.setItemThumbnails(getCoordiItemThumbnail(3));
-    }
-
-    @Scheduled(cron = "0 */1 * * * *")
+    @Scheduled(cron = "*/15 * * * * *")
     private static void getCoordiDataAuto() {
         List<CoordiDTO> coordiList = new ArrayList<>();
         List<String> coordiNames, coordiThumbnails, coordiLinks;
@@ -206,14 +202,13 @@ public class CrawlingController {
         setStyle(sequence[index][0]);
         setGender(sequence[index][1]);
 
-        if(++ index >= sequence.length) index = 0;
-
         try {
             coordiNames = getCoordiNames();
             coordiThumbnails = getCoordiThumbnails();
             coordiLinks = getCoordiLinks();
 
-            for (int i = 0; i < coordiNames.size(); i++) {
+            //for (int i = 0; i < coordiNames.size(); i++) {
+            for (int i = 0; i < 3; i++) {
                 coordiList.add(new CoordiDTO(coordiNames.get(i), coordiThumbnails.get(i), coordiLinks.get(i)));
                 getCoordiDetail(coordiList.get(i));
 
@@ -227,10 +222,18 @@ public class CrawlingController {
                     System.out.println(url);
                 }
             }
+            coordiData[index] = coordiList;
+            if(++ index >= sequence.length) index = 0;
 
             System.out.println("\n크롤링 완료\n");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void getCoordiDetail(CoordiDTO coordi) throws InterruptedException {
+        driver.get(coordi.getUrl());
+        coordi.setDescription(getCoordiDescription());
+        coordi.setItemThumbnails(getCoordiItemThumbnail(3));
     }
 }
