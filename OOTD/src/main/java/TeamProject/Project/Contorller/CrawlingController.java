@@ -2,7 +2,6 @@ package TeamProject.Project.Contorller;
 
 import TeamProject.Project.Dto.CoordiDTO;
 import TeamProject.Project.Dto.CrawlingRequestDTO;
-import jakarta.servlet.http.HttpServletResponse;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,21 +24,21 @@ public class CrawlingController {
 
     private static int index;
     private static final String[][] sequence = {
-            {"캐주얼", "남성"}, {"포멀", "남성"}, {"홈웨어", "남성"}, {"스트릿", "남성"}, {"스포츠", "남성"}, {"고프코어", "남성"},
-            {"캐주얼", "여성"}, {"포멀", "여성"}, {"홈웨어", "여성"}, {"스트릿", "여성"}, {"스포츠", "여성"}, {"고프코어", "여성"}
+            {"캐주얼", "남성"}, {"포멀", "남성"}, {"아메카지", "남성"}, {"스트릿", "남성"}, {"스포츠", "남성"}, {"고프코어", "남성"},
+            {"캐주얼", "여성"}, {"포멀", "여성"}, {"아메카지", "여성"}, {"스트릿", "여성"}, {"스포츠", "여성"}, {"고프코어", "여성"}
     };
     private static List<CoordiDTO>[] coordiData = new ArrayList[12];
 
     public static void setDriver() {
         //맥
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/bin/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver");
 
         //윈도우
-        //System.setProperty("webdriver.chrome.driver", "src/main/resources/bin/chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver.exe");
 
         //옵션 설정
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("headless");   //브라우저 안 띄움
+        options.addArguments("headless");   //브라우저 안 띄움
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
@@ -59,7 +58,7 @@ public class CrawlingController {
                 break;
             case "포멀": url += "formal";
                 break;
-            case "홈웨어": url += "homewear";
+            case "아메카지": url += "americancasual";
                 break;
             case "스트릿": url += "street";
                 break;
@@ -155,45 +154,20 @@ public class CrawlingController {
     @ResponseBody
     @PostMapping("/Project/getCoordi")
     private static List<CoordiDTO> getCoordiData(@ModelAttribute CrawlingRequestDTO dto) {
-        List<CoordiDTO> coordiList = new ArrayList<>();
-        List<String> coordiNames, coordiThumbnails, coordiLinks;
+        int index = 0;
 
-        System.out.println("\n크롤링 시작\n");
+        for(String[] seq: sequence) {
+            if((dto.getStyle().equals(seq[0])) && (dto.getGender().equals(seq[1])))
+                return coordiData[index];
 
-        setStyle(dto.getStyle());
-        setGender(dto.getGender());
-
-        try {
-            coordiNames = getCoordiNames();
-            coordiThumbnails = getCoordiThumbnails();
-            coordiLinks = getCoordiLinks();
-
-            //for (int i = 0; i < coordiNames.size(); i++) {
-            for (int i = 0; i < 3; i++) {
-                coordiList.add(new CoordiDTO(coordiNames.get(i), coordiThumbnails.get(i), coordiLinks.get(i)));
-                getCoordiDetail(coordiList.get(i));
-
-                System.out.println("\n" + (i + 1) + "번째 코디 정보");
-
-                System.out.println(coordiList.get(i).getName());
-                System.out.println(coordiList.get(i).getUrl());
-                System.out.println(coordiList.get(i).getDescription());
-                System.out.println(coordiList.get(i).getThumbnail());
-                for(String url: coordiList.get(i).getItemThumbnails()) {
-                    System.out.println(url);
-                }
-            }
-
-            System.out.println("\n크롤링 완료\n");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            index ++;
         }
 
-        return coordiList;
+        return coordiData[0];
     }
 
-    @Scheduled(cron = "*/15 * * * * *")
-    private static void getCoordiDataAuto() {
+    @Scheduled(cron = "0 * * * * *")
+    private static void autoCrawling() {
         List<CoordiDTO> coordiList = new ArrayList<>();
         List<String> coordiNames, coordiThumbnails, coordiLinks;
 
@@ -207,8 +181,7 @@ public class CrawlingController {
             coordiThumbnails = getCoordiThumbnails();
             coordiLinks = getCoordiLinks();
 
-            //for (int i = 0; i < coordiNames.size(); i++) {
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < coordiNames.size(); i++) {
                 coordiList.add(new CoordiDTO(coordiNames.get(i), coordiThumbnails.get(i), coordiLinks.get(i)));
                 getCoordiDetail(coordiList.get(i));
 

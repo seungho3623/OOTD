@@ -115,8 +115,8 @@ function getWeather() {
                         case "Formal" :
                             styleData = "포멀";
                             break;
-                        case "Home" :
-                            styleData = "홈웨어";
+                        case "Amekaji" :
+                            styleData = "아메카지";
                             break;
                         case "Street" :
                             styleData = "스트릿";
