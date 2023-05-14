@@ -160,9 +160,9 @@ header {
 .outfitButton,
 .storageButton {
     background-color: gainsboro; /* 회색 */
-    color: black; /* 흰색 텍스트 */
+    color: black; 
     border-radius: 10px;
-    border: 2px solid black; /* 흰색 테두리 */
+    border: 3px solid black;
     padding: 10px 20px;
     font-size: 25px;
     font-weight: bold;
