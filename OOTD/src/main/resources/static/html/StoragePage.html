@@ -18,13 +18,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
 
     <link href="/css/StoragePage.css" rel="stylesheet">
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </head>
 <body>
     <header>
         <div class="flex-container flex-start">
             <div class="flex-item icon">
                 <a href="/Project/ootd.do">
-                <img src="/img/아이콘.png" width="500" height="166">
+                    <img src="/img/아이콘.png" width="500" height="166">
                 </a>
             </div>
             <div class="flex-item name">
@@ -32,8 +37,9 @@
             </div>
         </div>
         <div class="line"></div>
+        <button type="button" class="backButton" onClick="goBack();">뒤로가기</button>
     </header>
-    <br><br>
+    <br>
     <div id="outfitContainer"></div>
     <script>
         // sessionStorage에서 outfitStorage 데이터 가져오기

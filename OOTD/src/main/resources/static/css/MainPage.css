@@ -49,12 +49,7 @@ header {
     font-family: 'Poor Story', cursive;
 }
 
-.selectArea{
-    margin-top: 20px;
-    margin-left: 60px;
-    font-size: 20px;
-}
-
+.selectArea,
 .selectGender,
 .selectStyle{
     margin-top: 20px;

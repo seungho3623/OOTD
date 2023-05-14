@@ -23,6 +23,10 @@
         const urlParams = new URLSearchParams(window.location.search);
         const pageIndex = Number(urlParams.get('pageIndex'));
         const detailIndex = Number(urlParams.get('detailIndex'));
+
+        function goBack() {
+            window.history.back();
+        }
     </script>
 </head>
 <body onload="showCoordiDetail(pageIndex, detailIndex); displayData()">
@@ -48,9 +52,10 @@
         </div>
     </div>
     <div class="line"></div>
+    <button type="button" class="backButton" onClick="goBack();">뒤로가기</button>
 </header>
 
-<br><br>
+<br>
 <div id="Codi">
     <br><br>
     <div class="leftBox">

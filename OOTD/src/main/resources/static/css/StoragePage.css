@@ -82,3 +82,37 @@
     color: #ffffff; /* 클릭 시 버튼 텍스트 색상 변경 */
     /* 추가적인 스타일 속성들 */
 }
+
+.backButton {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    border-width: 3px;
+    background: rgba(0, 0, 0, 0.1);
+    color: #000000;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.backButton:hover {
+    transform: scale(1.05);
+    background-color: #eee;
+    border-color: #000;
+}
+
+.backButton:active {
+    background-color: black; /* 클릭 시 변경할 배경색 */
+    color: #ffffff; /* 클릭 시 버튼 텍스트 색상 변경 */
+    border-radius: 10px;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+    /* 추가적인 스타일 속성들 */
+}
