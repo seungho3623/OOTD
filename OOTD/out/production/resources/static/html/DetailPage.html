@@ -21,10 +21,11 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const index = urlParams.get('index');
+        const pageIndex = Number(urlParams.get('pageIndex'));
+        const detailIndex = Number(urlParams.get('detailIndex'));
     </script>
 </head>
-<body onload="showCoordiDetail(index); displayData()">
+<body onload="showCoordiDetail(pageIndex, detailIndex); displayData()">
 <header>
     <div class="flex-container flex-start">
         <div class="flex-item icon">

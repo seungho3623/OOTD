@@ -18,8 +18,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
 
     <link href="/css/OutfitPage.css" rel="stylesheet">
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        let pageIndex = Number(urlParams.get('pageIndex'));
+    </script>
 </head>
-<body onload="showCoordi(); displayData()">
+<body onload="showCoordi(pageIndex); displayData()">
     <header>
         <div class="flex-container flex-start">
             <div class="flex-item icon">
@@ -49,8 +54,8 @@
         <div class="outfitWrap">
             <div class="box">
                 <br><br>
-                <div class="imgBox">
-                    <a href="/Project/detail.do?index=0">
+                <div class="imgbox">
+                    <a class="detailButton" href="#">
                         <input type="image" width="250" height="400"/>
                     </a>
                 </div>
@@ -64,8 +69,8 @@
             </div>
             <div class="box">
                 <br><br>
-                <div class="imgBox">
-                    <a href="/Project/detail.do?index=1">
+                <div class="imgbox">
+                    <a class="detailButton" href="#">
                         <input type="image" width="250" height="400"/>
                     </a>
                 </div>
@@ -79,8 +84,8 @@
             </div>
             <div class="box">
                 <br><br>
-                <div class="imgBox">
-                    <a href="/Project/detail.do?index=2">
+                <div class="imgbox">
+                    <a class="detailButton" href="#">
                         <input type="image" width="250" height="400"/>
                     </a>
                 </div>
@@ -94,7 +99,7 @@
             </div>
         </div>
         <div class="buttonWrap">
-            <button type="button" class="reloadButton">다른 코디 찾기</button>
+            <button type="button" class="reloadButton" onclick="window.location.href=`/Project/outfit.do?pageIndex=${++ pageIndex}`;">다른 코디 찾기</button>
             <button type="button" class="storageButton" onclick="window.location.href='/Project/storage.do';">저장소</button>
         </div>
     </div>
