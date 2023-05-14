@@ -39,7 +39,7 @@ function showCoordiDetail(pageIndex = 0, detailIndex = 0) {
     const coordiIndex = (pageIndex * 3) + detailIndex;
     const coordiData = JSON.parse(sessionStorage.getItem('coordiData'));
 
-    const coordiName = document.querySelector(".leftBox .imgDescription");
+    const coordiName = document.querySelector(".outfitBox .imgDescription");
     const coordiDescription = document.querySelector(".itemsDescription");
     const coordiThumbnail = document.getElementsByTagName("input").item(0);
     const itemThumbnails = document.getElementsByTagName("input");

@@ -1,18 +1,18 @@
 /*
 #headerLine{height : 40px;  margin : 0 auto; background: blueviolet;}
 */
-#Menu {
+#menu {
     text-align: center;
     margin: 0 auto;
 }
 
-#Menu h4 {
+#menu h4 {
     color: black;
     font-weight: bold;
     font-size: 30px;
 }
 
-#Menu select {
+#menu select {
     margin-bottom: 10px;
     padding: 5px;
     border-radius: 5px;
@@ -38,7 +38,7 @@ header {
     align-items: flex-end;
 }
 
-.box {
+.menuWrap {
     text-align: left;
     margin: 0 auto;
     width: 600px;

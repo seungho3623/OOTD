@@ -24,21 +24,31 @@
         }
     </script>
 </head>
-<body>
-    <header>
-        <div class="flex-container flex-start">
-            <div class="flex-item icon">
-                <a href="/Project/ootd.do">
-                    <img src="/img/아이콘.png" width="500" height="166">
-                </a>
-            </div>
-            <div class="flex-item name">
-                <img src="/img/그림1.png" width="400" height="100" bottom="50">
-            </div>
+<body onload="displayData()">
+<header>
+    <div class="flex-container flex-start">
+        <div class="flex-item icon">
+            <a href="/Project/ootd.do">
+                <img src="/img/아이콘.png" width="500" height="166">
+            </a>
         </div>
-        <div class="line"></div>
-        <button type="button" class="backButton" onClick="goBack();">뒤로가기</button>
-    </header>
+        <div class="flex-item name">
+            <img src="/img/그림1.png" width="400" height="100" bottom="50">
+        </div>
+
+        <div class="weather-widget">
+            <div class="weather-icon"></div>
+            <div class="weather-data">
+                <div class="weather-location" id="weather-location"></div>
+                <div class="weather-temp" id="weather-temp"></div>
+                <div class="weather-desc" id="weather-desc"></div>
+            </div>
+            <div class="flex-item color-red font4"></div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <button type="button" class="backButton" onClick="goBack();">뒤로가기</button>
+</header>
     <br>
     <div id="outfitContainer"></div>
     <script>

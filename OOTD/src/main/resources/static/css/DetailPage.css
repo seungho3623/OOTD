@@ -104,7 +104,7 @@ header {
     text-align: center;
 }
 
-.leftBox {
+.outfitBox {
     float: left;
     width: 400px;
     height: 600px;
@@ -234,19 +234,19 @@ body {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.rightbox .imgButton {
+.detailBox .imgButton {
     margin-left: 10px;
 }
 
-.rightbox .itemWrap{
+.detailBox .itemWrap{
     overflow:hidden;
 }
-.rightbox .etcWrap{
+.detailBox .etcWrap{
     display:flex;
     align-items:center;
 }
 
-.rightbox .itemsDescriptionBox {
+.detailBox .itemsDescriptionBox {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -261,7 +261,7 @@ body {
     border-radius: 40px;
 }
 
-.rightbox .buttonBox {
+.detailBox .buttonBox {
     display: flex;
     align-items: center;
     justify-content: center;
