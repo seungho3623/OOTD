@@ -118,7 +118,7 @@ header {
     text-align: center
 }
 
-.likeButton {
+.detailLikeButton {
     background-color: transparent;
     margin-top: 10px;
     border: none;
@@ -126,13 +126,13 @@ header {
     cursor: pointer;
 }
 
-.likeButton img {
+.detailLikeButton img {
     width: 30px;
     height: 30px;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.likeButton:hover img {
+.detailLikeButton:hover img {
     transform: scale(1.2);
     opacity: 0.8;
 }
