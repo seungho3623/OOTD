@@ -186,7 +186,7 @@ public class CrawlingController {
             for (int i = 0; i < 60; i++) {
                 coordiList.add(new CoordiDTO(coordiNames.get(i), coordiThumbnails.get(i), coordiLinks.get(i)));
                 getCoordiDetail(coordiList.get(i));
-
+                /*
                 System.out.println("\n" + (i + 1) + "번째 코디 정보");
 
                 System.out.println(coordiList.get(i).getName());
@@ -196,6 +196,7 @@ public class CrawlingController {
                 for(String url: coordiList.get(i).getItemThumbnails()) {
                     System.out.println(url);
                 }
+                 */
             }
             coordiData[index] = coordiList;
             if(++ index >= sequence.length) index = 0;

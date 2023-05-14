@@ -8,7 +8,7 @@ window.onload = function() {
     const interval = setInterval(() => {
         currentPercent += 1;
         updateProgress(currentPercent);
-        if(currentPercent > 140)
+        if(currentPercent > 100)
         {
             clearInterval(interval);
             startCrawling(style, gender);
