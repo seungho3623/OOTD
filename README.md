@@ -46,22 +46,20 @@
 
 1. 메인 페이지
 
-![메인화면](https://github.com/seungho3623/OOTD/assets/90664405/3af04cb5-5215-473b-accc-9758393e75a9)
+![메인](https://github.com/seungho3623/OOTD/assets/90664405/e5ebb7cf-1160-4bda-b060-b77d22e861fb)
 
 2. 로딩 페이지
 
-![로딩화면](https://github.com/seungho3623/OOTD/assets/90664405/2daeaea9-281b-4ffa-989d-aeed3df70859)
+![로딩](https://github.com/seungho3623/OOTD/assets/90664405/01073bfb-4ed4-4e5c-b646-25b7494fe1c7)
 
 3. 코디 추천 페이지
 
-![추천화면](https://github.com/seungho3623/OOTD/assets/90664405/59ca0bb8-af6d-4c3f-8023-18c437d6bfe2)
+![추천](https://github.com/seungho3623/OOTD/assets/90664405/977646a9-da0c-4f3b-9714-d0fc1e0963b1)
 
 4. 상세 코디 페이지
 
-![상세페이지](https://github.com/seungho3623/OOTD/assets/90664405/ce314e52-db0a-4bb7-99da-fd567a11ef9f)
+![상세](https://github.com/seungho3623/OOTD/assets/90664405/75d674fb-da8b-4ff3-a704-934293a1becd)
 
 5. 저장소 페이지
  
-![저장소](https://github.com/seungho3623/OOTD/assets/90664405/cce2b7e5-6117-490d-b415-223da86acf07)
-
-
+![저장](https://github.com/seungho3623/OOTD/assets/90664405/13bc5417-759a-4e86-9a44-c373b396523a)
