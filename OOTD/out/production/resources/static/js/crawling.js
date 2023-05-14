@@ -1,3 +1,4 @@
+
 function startCrawling(style, gender) {
     $.ajax({
         type: "POST",
@@ -9,6 +10,7 @@ function startCrawling(style, gender) {
         dataType: "json",
         success: function(data) {
             sessionStorage.setItem("coordiData", JSON.stringify(data));
+            window.location.href = "/Project/outfit.do";
         },
         error: function() {
             alert("error");

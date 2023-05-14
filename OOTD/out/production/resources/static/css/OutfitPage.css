@@ -17,6 +17,10 @@
     border-radius: 15px;
 }
 
+body {
+    font-family: 'Poor Story', cursive;
+}
+
 header {
     display: flex;
     flex-direction: column;
@@ -64,7 +68,7 @@ header {
     text-align: center
 }
 
-.imgbox {
+.imgBox {
     width: 250px;
     height: 400px;
     margin-top: 40px;
@@ -74,16 +78,34 @@ header {
     border-color: rgba(0, 0, 0, 0.1);
     border-radius: 40px;
     overflow: hidden;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.imgbox img {
+.imgBox:hover {
+    transform: scale(1.1);
+    border-color: #000;
+}
+
+.imgBox a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.imgBox input {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-body {
-    font-family: 'Poor Story', cursive;
+.imgBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .imgDescriptionBox {
@@ -137,9 +159,22 @@ body {
 }
 
 .likeButton {
+    background-color: transparent;
     margin-top: 10px;
     border: none;
-    background: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.likeButton img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.likeButton:hover img {
+    transform: scale(1.2);
+    opacity: 0.8;
 }
 
 .weather-widget {
@@ -189,4 +224,27 @@ body {
 
 .weather-desc {
     text-transform: capitalize;
+}
+
+.reloadButton,
+.storageButton {
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.reloadButton:hover,
+.storageButton:hover {
+    transform: scale(1.05);
+    background-color: #eee;
+    border-color: #000;
+}
+
+.reloadButton:active,
+.storageButton:active {
+    background-color: black; /* 클릭 시 변경할 배경색 */
+    color: #ffffff; /* 클릭 시 버튼 텍스트 색상 변경 */
+    border-radius: 20px;
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+    /* 추가적인 스타일 속성들 */
 }
