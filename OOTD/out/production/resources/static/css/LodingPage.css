@@ -29,6 +29,11 @@
     }
 }
 
+header{
+    position: relative;
+    z-index: 9999;
+}
+
 p {
     margin-top: 20px;
     color: black;
