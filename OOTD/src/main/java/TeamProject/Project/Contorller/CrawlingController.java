@@ -182,7 +182,8 @@ public class CrawlingController {
             coordiThumbnails = getCoordiThumbnails();
             coordiLinks = getCoordiLinks();
 
-            for (int i = 0; i < coordiNames.size(); i++) {
+            //for (int i = 0; i < coordiNames.size(); i++) {
+            for (int i = 0; i < 60; i++) {
                 coordiList.add(new CoordiDTO(coordiNames.get(i), coordiThumbnails.get(i), coordiLinks.get(i)));
                 getCoordiDetail(coordiList.get(i));
 

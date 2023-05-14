@@ -17,13 +17,13 @@ public class MainController {
     }
 
     @GetMapping(value = "/Project/outfit.do")
-    public String openOutfitPage() {
-        return "/html/OutfitPage.html";
+    public String openOutfitPage(@RequestParam(required = true) int pageIndex) {
+        return "/html/OutfitPage.html?pageIndex=" + pageIndex;
     }
 
     @GetMapping(value = "/Project/detail.do")
-    public String openDetailPage(@RequestParam(required = true) int index) {
-        return "/html/DetailPage.html?index=" + index;
+    public String openDetailPage(@RequestParam(required = true) int pageIndex, int detailIndex) {
+        return "/html/DetailPage.html?pageIndex=" + pageIndex + "detailIndex=" + detailIndex;
     }
 
     @GetMapping(value = "/Project/storage.do")
