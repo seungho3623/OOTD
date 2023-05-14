@@ -26,7 +26,7 @@ function showCoordi(pageIndex = 0) {
 
     const coordiNames = document.querySelectorAll(".imgDescription");
     const coordiThumbnails = document.getElementsByTagName("input");
-    const detailButtons = document.getElementsByClassName("detailButton")
+    const detailButtons = document.getElementsByClassName("detailButton");
 
     for (let i = 0; i < coordiNames.length; i++) {
         coordiNames.item(i).innerHTML = coordiData[coordiIndex + i].name;

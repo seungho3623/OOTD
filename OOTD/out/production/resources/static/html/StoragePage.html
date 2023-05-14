@@ -90,6 +90,8 @@
 
                 // 변경된 outfitStorage를 sessionStorage에 저장
                 sessionStorage.setItem('outfitStorage', JSON.stringify(outfitStorage));
+
+                location.reload();
             });
             outfitElement.appendChild(thumbnailImg);
             buttonElement.appendChild(urlButton);
