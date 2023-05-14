@@ -22,7 +22,7 @@
         const gender = urlParams.get('gender');
     </script>
 </head>
-<body onload="startCrawling(style, gender); displayData()">
+<body onload="displayData();">
 <header>
     <div class="flex-container flex-start">
         <div class="flex-item icon">
@@ -37,14 +37,21 @@
     <div class="line"></div>
 </header>
 
+<!--
 <div class="loading">
     <div class="spinner"></div>
-    <p>코디 찾는 중..</p>
+</div>
+-->
+<div class="loading-container">
+    <div class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+    </div>
+    <div class="loading-text">코디 찾는 중...</div>
 </div>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/js/crawling.js"></script>
 <script src="/js/loding.js"></script>
 <script src="/js/weather.js"></script>
-<script src="/js/crawling.js"></script>
 </body>
 </html>

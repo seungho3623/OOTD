@@ -1,7 +1,7 @@
 function getWeather() {
     let nullCheck = true;
 
-    $('.emptyCheck').each(function () {
+    $('.selectCity').each(function () {
         if ('' == $(this).val()) {
             alert($(this).attr('title') + "을(를) 확인바람");
             nullCheck = false;

@@ -23,30 +23,6 @@
     top: 10px;
 }
 
-
-
-/* new */
-/*
-#outfitContainer{
-    position:relative;
-    padding:0 80px;
-}
-#outfitContainer > div{
-    float:left;
-    width:calc(25% - 10px);
-    margin:0 10px 10px 0;
-    border:1px solid red;
-}
-#outfitContainer > div img{
-    width:220px;
-    height:330px;
-}
-#outfitContainer > div > div{
-    display:flex;
-    justify-content:center;
-}
-*/
-
 #outfitContainer {
     position: relative;
     padding: 0 80px;
@@ -92,4 +68,17 @@
     border-style: solid;
     border-color: rgba(0, 0, 0, 0.1);
     border-radius: 40px;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#outfitContainer > div > div button:hover {
+    transform: scale(1.05);
+    background-color: #eee;
+    border-color: #000;
+}
+
+#outfitContainer > div > div button:active {
+    background-color: black; /* 클릭 시 변경할 배경색 */
+    color: #ffffff; /* 클릭 시 버튼 텍스트 색상 변경 */
+    /* 추가적인 스타일 속성들 */
 }

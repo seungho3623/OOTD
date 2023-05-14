@@ -9,7 +9,7 @@
 #Menu h4 {
     color: black;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 #Menu select {
@@ -49,38 +49,102 @@ header {
     font-family: 'Poor Story', cursive;
 }
 
-.selectArea {
+.selectArea{
     margin-top: 20px;
-    margin-left: 40px;
+    margin-left: 60px;
+    font-size: 20px;
+}
+
+.selectGender,
+.selectStyle{
+    margin-top: 20px;
+    margin-left: 60px;
     font-size: 25px;
 }
 
-.selectGender {
-    margin-top: 20px;
-    margin-left: 40px;
-    font-size: 25px;
-}
-
-.selectStyle {
-    margin-top: 20px;
-    margin-left: 40px;
-    font-size: 25px;
-}
-
-.checkGender input[type="radio"] {
-    margin-right: 10px;
-}
-
+.checkGender,
 .checkFirst,
 .checkSecond {
     display: flex;
     margin-top: 10px;
 }
 
+.checkGender .form-check-inline .form-check-label,
+.checkFirst .form-check-inline .form-check-label,
+.checkSecond .form-check-inline .form-check-label{
+    font-size: 25px;
+}
+
+.checkGender input[type="radio"],
 .checkFirst input[type="radio"],
 .checkSecond input[type="radio"] {
-    margin-right: 10px;
+    margin-right: 5px;
 }
+
+.checkGender .form-check-input,
+.checkFirst .form-check-input,
+.checkSecond .form-check-input{
+    margin-right: 5px;
+    position: relative;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #808080; /* 체크박스 테두리 색상 (회색) */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    vertical-align: middle; /* 수직 가운데 정렬 */
+    transform: translateY(-20%); /* 수직 가운데 정렬 */
+}
+
+.checkGender .form-check-input:checked,
+.checkFirst .form-check-input:checked,
+.checkSecond .form-check-input:checked{
+    background-color: #808080; /* 체크박스 체크된 배경색 (회색) */
+    border-color: #808080; /* 체크박스 체크된 테두리 색상 (회색) */
+}
+
+.checkGender .form-check-label,
+.checkFirst .form-check-label,
+.checkSecond .form-check-label{
+    font-size: 16px;
+}
+
+.checkGender .form-check-input:focus,
+.checkFirst .form-check-input:focus,
+.checkSecond .form-check-input:focus{
+    outline: none;
+}
+
+.checkGender .form-check-input:hover,
+.checkFirst .form-check-input:hover,
+.checkSecond .form-check-input:hover,
+.checkGender .form-check-input:focus,
+.checkFirst .form-check-input:focus,
+.checkSecond .form-check-input:focus{
+    border-color: #000000; /* 체크박스 호버 시 테두리 색상 (검정색) */
+}
+
+.checkGender .form-check-input:checked:hover,
+.checkFirst .form-check-input:checked:hover,
+.checkSecond .form-check-input:checked:hover{
+    background-color: #000000; /* 체크박스 체크된 상태에서 호버 시 배경색 변경 (검정색) */
+    border-color: #000000; /* 체크박스 체크된 상태에서 호버 시 테두리 색상 변경 (검정색) */
+}
+
+.checkGender .form-check-input:active,
+.checkFirst .form-check-input:active,
+.checkSecond .form-check-input:active{
+    transform: scale(1.1); /* 체크박스 클릭 시 크기 확대 효과 */
+}
+
+.checkGender .form-check-input:checked:active,
+.checkFirst .form-check-input:checked:active,
+.checkSecond .form-check-input:checked:active{
+    background-color: #000000; /* 체크박스 체크된 상태에서 클릭 시 배경색 변경 (검정색) */
+    border-color: #000000; /* 체크박스 체크된 상태에서 클릭 시 테두리 색상 변경 (검정색) */
+    transform: scale(1.1); /* 체크박스 체크된 상태에서 클릭 시 크기 확대 효과 */
+}
+
 
 .buttonWrap {
     display: flex;
@@ -91,24 +155,36 @@ header {
 }
 
 .outfitButton {
-    background-color: #fff;
-    color: #000;
-    border-radius: 5px;
-    border: none;
-    padding: 10px 20px;
-    font-size: 25px;
-    font-weight: bold;
-    cursor: pointer;
+
 }
 
 .storageButton {
     margin-left: 50px;
-    background-color: #fff;
-    color: #000;
-    border-radius: 5px;
-    border: none;
+}
+
+.outfitButton,
+.storageButton {
+    background-color: gainsboro; /* 회색 */
+    color: black; /* 흰색 텍스트 */
+    border-radius: 10px;
+    border: 2px solid black; /* 흰색 테두리 */
     padding: 10px 20px;
     font-size: 25px;
     font-weight: bold;
     cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.outfitButton:hover,
+.storageButton:hover {
+    transform: scale(1.05); /* 호버 시 버튼 확대 효과 */
+    background-color: #eeeeee; /* 호버 시 버튼 배경색 변경 */
+    border-color: #000000; /* 호버 시 버튼 테두리 색상 변경 */
+}
+
+.outfitButton:active,
+.storageButton:active {
+    background-color: #000000; /* 클릭 시 버튼 배경색 변경 */
+    color: #ffffff; /* 클릭 시 버튼 텍스트 색상 변경 */
+    /* 추가적인 스타일 속성들 */
 }
