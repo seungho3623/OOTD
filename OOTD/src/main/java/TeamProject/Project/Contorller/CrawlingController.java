@@ -2,7 +2,6 @@ package TeamProject.Project.Contorller;
 
 import TeamProject.Project.Dto.CoordiDTO;
 import TeamProject.Project.Dto.CrawlingRequestDTO;
-import jakarta.servlet.http.HttpServletResponse;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -30,7 +30,7 @@ public class CrawlingController {
     };
     private static List<CoordiDTO>[] coordiData = new ArrayList[12];
 
-    public static void setDriver() {
+    public static void setChromeDriver() {
         //맥
         System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver");
 
@@ -46,7 +46,7 @@ public class CrawlingController {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    private static void stopDriver() {
+    private static void stopChromeDriver() {
         driver.close();    //탭 닫기
         driver.quit();    //브라우저 닫기
     }
@@ -158,8 +158,11 @@ public class CrawlingController {
         int index = 0;
 
         for(String[] seq: sequence) {
-            if((dto.getStyle().equals(seq[0])) && (dto.getGender().equals(seq[1])))
+            // 정해진 조합 순서대로 스타일, 성별 비교
+            if((dto.getStyle().equals(seq[0])) && (dto.getGender().equals(seq[1]))) {
+                Collections.shuffle(coordiData[index]);
                 return coordiData[index];
+            }
 
             index ++;
         }
@@ -210,6 +213,15 @@ public class CrawlingController {
     private static void getCoordiDetail(CoordiDTO coordi) throws InterruptedException {
         driver.get(coordi.getUrl());
         coordi.setDescription(getCoordiDescription());
-        coordi.setItemThumbnails(getCoordiItemThumbnail(3));
+
+        try {
+            coordi.setItemThumbnails(getCoordiItemThumbnail(3));
+        } catch (IndexOutOfBoundsException e) {
+            try {
+                coordi.setItemThumbnails(getCoordiItemThumbnail(2));
+            } catch (IndexOutOfBoundsException e2) {
+                coordi.setItemThumbnails(getCoordiItemThumbnail(1));
+            }
+        }
     }
 }

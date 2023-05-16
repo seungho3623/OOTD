@@ -21,15 +21,15 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const pageIndex = Number(urlParams.get('pageIndex'));
-        const detailIndex = Number(urlParams.get('detailIndex'));
+        const page = Number(urlParams.get('page'));
+        const detail = Number(urlParams.get('detail'));
 
         function goBack() {
             window.history.back();
         }
     </script>
 </head>
-<body onload="showCoordiDetail(pageIndex, detailIndex); displayData()">
+<body onload="showCoordiDetail(page, detail); displayData()">
 <header>
     <div class="flex-container flex-start">
         <div class="flex-item icon">

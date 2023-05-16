@@ -122,7 +122,7 @@ function getWeather() {
                             styleData = "스트릿";
                             break;
                         case "GorpCore" :
-                            styleData = "고프고어";
+                            styleData = "고프코어";
                             break;
                         case "Sports" :
                             styleData = "스포츠";
@@ -188,15 +188,7 @@ function getWeather() {
                     sessionStorage.setItem("genderData", JSON.stringify(genderData));
                     sessionStorage.setItem("styleData", JSON.stringify(styleData));
 
-                    const urlParams = new URLSearchParams(window.location.search);
-                    urlParams.set("style", styleData);
-                    urlParams.set("gender", genderData);
-
-                    //const url = "/html/Loding.html" + "?" + urlParams.toString();
-                    const url = "/Project/loding.do" + "?" + urlParams.toString();
-                    window.history.pushState("", "", url);
-
-                    window.location.href = url;
+                    setLoadingParam();
                 }
             },
             error: function (xhr) {

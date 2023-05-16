@@ -1,17 +1,17 @@
 
-function startCrawling(style, gender) {
+function getCoordi(style, gender) {
     $.ajax({
         type: "POST",
         url: "/Project/getCoordi",
         data: {
-            gender: gender,
-            style: style
+            style: style,
+            gender: gender
         },
         dataType: "json",
         success: function(data) {
             sessionStorage.setItem("coordiData", JSON.stringify(data));
             setTimeout(function() {
-                window.location.href = "/Project/outfit.do?pageIndex=0";
+                window.location.href = "/Project/outfit.do?page=0";
             }, 1000);
         },
         error: function() {
@@ -20,8 +20,8 @@ function startCrawling(style, gender) {
     });
 }
 
-function showCoordi(pageIndex = 0) {
-    const coordiIndex = pageIndex * 3;
+function showCoordi(page = 0) {
+    const coordiIndex = page * 3;
     const coordiData = JSON.parse(sessionStorage.getItem('coordiData'));
 
     const coordiNames = document.querySelectorAll(".imgDescription");
@@ -31,12 +31,12 @@ function showCoordi(pageIndex = 0) {
     for (let i = 0; i < coordiNames.length; i++) {
         coordiNames.item(i).innerHTML = coordiData[coordiIndex + i].name;
         coordiThumbnails.item(i).src = coordiData[coordiIndex + i].thumbnail;
-        detailButtons.item(i).href = `/Project/detail.do?pageIndex=${pageIndex}&detailIndex=${i}`;
+        detailButtons.item(i).href = `/Project/detail.do?page=${page}&detail=${i}`;
     }
 }
 
-function showCoordiDetail(pageIndex = 0, detailIndex = 0) {
-    const coordiIndex = (pageIndex * 3) + detailIndex;
+function showCoordiDetail(page = 0, detail = 0) {
+    const coordiIndex = (page * 3) + detail;
     const coordiData = JSON.parse(sessionStorage.getItem('coordiData'));
 
     const coordiName = document.querySelector(".outfitBox .imgDescription");

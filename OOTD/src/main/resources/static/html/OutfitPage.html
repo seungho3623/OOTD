@@ -21,10 +21,10 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        let pageIndex = Number(urlParams.get('pageIndex'));
+        let page = Number(urlParams.get('page'));
     </script>
 </head>
-<body onload="showCoordi(pageIndex); displayData()">
+<body onload="showCoordi(page); displayData()">
     <header>
         <div class="flex-container flex-start">
             <div class="flex-item icon">
@@ -99,7 +99,7 @@
             </div>
         </div>
         <div class="buttonWrap">
-            <button type="button" class="reloadButton" onclick="window.location.href=`/Project/outfit.do?pageIndex=${++ pageIndex}`;">다른 코디 찾기</button>
+            <button type="button" class="reloadButton" onclick="window.location.href=`/Project/outfit.do?page=${++ page}`;">다른 코디 찾기</button>
             <button type="button" class="storageButton" onclick="window.location.href='/Project/storage.do';">저장소</button>
         </div>
     </div>

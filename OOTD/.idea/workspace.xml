@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="882781f5-cbc9-4a97-8306-040377984e89" name="변경" comment="변경">
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/TeamProject/Project/Contorller/CrawlingController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/TeamProject/Project/Contorller/CrawlingController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/js/weather.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/js/weather.js" afterDir="false" />
-    </list>
+    <list default="true" id="882781f5-cbc9-4a97-8306-040377984e89" name="변경" comment="변경" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
