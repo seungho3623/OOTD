@@ -122,7 +122,7 @@ function getWeather() {
                             styleData = "스트릿";
                             break;
                         case "GorpCore" :
-                            styleData = "고프고어";
+                            styleData = "고프코어";
                             break;
                         case "Sports" :
                             styleData = "스포츠";
@@ -187,6 +187,8 @@ function getWeather() {
                     sessionStorage.setItem("locationData", JSON.stringify(locationData));
                     sessionStorage.setItem("genderData", JSON.stringify(genderData));
                     sessionStorage.setItem("styleData", JSON.stringify(styleData));
+
+                    setLoadingParam();
                 }
             },
             error: function (xhr) {

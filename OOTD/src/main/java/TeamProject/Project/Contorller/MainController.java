@@ -11,8 +11,8 @@ public class MainController {
         return "/html/MainPage.html";
     }
 
-    @GetMapping(value = "/Project/loding.do")
-    public String openLodingPage() {
+    @GetMapping(value = "/Project/loading.do")
+    public String openLoadingPage() {
         return "/html/LoadingPage.html";
     }
 

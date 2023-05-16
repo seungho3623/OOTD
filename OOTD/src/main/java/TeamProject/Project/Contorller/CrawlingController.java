@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -33,10 +32,10 @@ public class CrawlingController {
 
     public static void setChromeDriver() {
         //맥
-        //System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver");
 
         //윈도우
-        System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver.exe");
 
         //옵션 설정
         ChromeOptions options = new ChromeOptions();
@@ -158,11 +157,12 @@ public class CrawlingController {
     private static List<CoordiDTO> getCoordiData(@ModelAttribute CrawlingRequestDTO dto) {
         int index = 0;
 
-        Collections.shuffle(Arrays.asList(coordiData));
-
         for(String[] seq: sequence) {
-            if((dto.getStyle().equals(seq[0])) && (dto.getGender().equals(seq[1])))
+            // 정해진 조합 순서대로 스타일, 성별 비교
+            if((dto.getStyle().equals(seq[0])) && (dto.getGender().equals(seq[1]))) {
+                Collections.shuffle(coordiData[index]);
                 return coordiData[index];
+            }
 
             index ++;
         }
@@ -213,6 +213,15 @@ public class CrawlingController {
     private static void getCoordiDetail(CoordiDTO coordi) throws InterruptedException {
         driver.get(coordi.getUrl());
         coordi.setDescription(getCoordiDescription());
-        coordi.setItemThumbnails(getCoordiItemThumbnail(3));
+
+        try {
+            coordi.setItemThumbnails(getCoordiItemThumbnail(3));
+        } catch (IndexOutOfBoundsException e) {
+            try {
+                coordi.setItemThumbnails(getCoordiItemThumbnail(2));
+            } catch (IndexOutOfBoundsException e2) {
+                coordi.setItemThumbnails(getCoordiItemThumbnail(1));
+            }
+        }
     }
 }

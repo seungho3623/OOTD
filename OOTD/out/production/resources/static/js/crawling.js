@@ -4,8 +4,8 @@ function getCoordi(style, gender) {
         type: "POST",
         url: "/Project/getCoordi",
         data: {
-            gender: gender,
-            style: style
+            style: style,
+            gender: gender
         },
         dataType: "json",
         success: function(data) {

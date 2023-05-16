@@ -1,11 +1,11 @@
-function setParam() {
+function setLoadingParam() {
     const urlParams = new URLSearchParams(window.location.search);
 
     urlParams.set("style", JSON.parse(sessionStorage.getItem('styleData')));
-    urlParams.set("gender", JSON.parse(sessionStorage.getItem('genderData'));
+    urlParams.set("gender", JSON.parse(sessionStorage.getItem('genderData')));
 
-    //const url = "/html/Loding.html" + "?" + urlParams.toString();
-    const url = "/Project/loding.do" + "?" + urlParams.toString();
+    //const url = "/html/Loading.html" + "?" + urlParams.toString();
+    const url = "/Project/loading.do" + "?" + urlParams.toString();
     window.history.pushState("", "", url);
 
     window.location.href = url;
