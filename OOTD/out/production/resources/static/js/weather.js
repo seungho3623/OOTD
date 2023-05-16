@@ -187,16 +187,6 @@ function getWeather() {
                     sessionStorage.setItem("locationData", JSON.stringify(locationData));
                     sessionStorage.setItem("genderData", JSON.stringify(genderData));
                     sessionStorage.setItem("styleData", JSON.stringify(styleData));
-
-                    const urlParams = new URLSearchParams(window.location.search);
-                    urlParams.set("style", styleData);
-                    urlParams.set("gender", genderData);
-
-                    //const url = "/html/Loding.html" + "?" + urlParams.toString();
-                    const url = "/Project/loding.do" + "?" + urlParams.toString();
-                    window.history.pushState("", "", url);
-
-                    window.location.href = url;
                 }
             },
             error: function (xhr) {

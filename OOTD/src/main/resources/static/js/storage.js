@@ -2,13 +2,13 @@ const likeButtons = document.querySelectorAll('.likeButton');
 const detailLikeButton = document.querySelector('.detailLikeButton');
 let selectedItems = JSON.parse(sessionStorage.getItem('outfitStorage')) || [];
 
-//pageIndex에 따라서 buttonIndex 가 +3 이 되어야 정상적으로 저장이 가능함.
+//page에 따라서 buttonIndex 가 +3 이 되어야 정상적으로 저장이 가능함.
 likeButtons.forEach((button, index) => {
   button.addEventListener('click', (event) => {
     const coordiDataStr = sessionStorage.getItem('coordiData');
     const coordiData = JSON.parse(coordiDataStr);
 
-    const adjustedIndex = (pageIndex * 3) + index;
+    const adjustedIndex = (page * 3) + index;
     const likeSelectedItem = {
       thumbnail: coordiData[adjustedIndex].thumbnail,
       url: coordiData[adjustedIndex].url
@@ -32,7 +32,7 @@ detailLikeButton.addEventListener('click', (event) => {
   const coordiDataStr = sessionStorage.getItem('coordiData');
   const coordiData = JSON.parse(coordiDataStr);
 
-  const adjustedIndex = (pageIndex * 3) + detailIndex;
+  const adjustedIndex = (page * 3) + detail;
   const detailSelectedItem = {
     thumbnail: coordiData[adjustedIndex].thumbnail,
     url: coordiData[adjustedIndex].url

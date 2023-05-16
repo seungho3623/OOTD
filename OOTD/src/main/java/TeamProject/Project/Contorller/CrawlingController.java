@@ -2,7 +2,6 @@ package TeamProject.Project.Contorller;
 
 import TeamProject.Project.Dto.CoordiDTO;
 import TeamProject.Project.Dto.CrawlingRequestDTO;
-import jakarta.servlet.http.HttpServletResponse;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -30,12 +31,12 @@ public class CrawlingController {
     };
     private static List<CoordiDTO>[] coordiData = new ArrayList[12];
 
-    public static void setDriver() {
+    public static void setChromeDriver() {
         //맥
-        System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver");
+        //System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver");
 
         //윈도우
-        //System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver.exe");
 
         //옵션 설정
         ChromeOptions options = new ChromeOptions();
@@ -46,7 +47,7 @@ public class CrawlingController {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    private static void stopDriver() {
+    private static void stopChromeDriver() {
         driver.close();    //탭 닫기
         driver.quit();    //브라우저 닫기
     }
@@ -156,6 +157,8 @@ public class CrawlingController {
     @PostMapping("/Project/getCoordi")
     private static List<CoordiDTO> getCoordiData(@ModelAttribute CrawlingRequestDTO dto) {
         int index = 0;
+
+        Collections.shuffle(Arrays.asList(coordiData));
 
         for(String[] seq: sequence) {
             if((dto.getStyle().equals(seq[0])) && (dto.getGender().equals(seq[1])))
