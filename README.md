@@ -36,11 +36,11 @@
 
 💡요구사항
 
-![요구사항](https://user-images.githubusercontent.com/90664405/236689405-d144f826-0b79-40f1-a07f-db0cbe60db6d.png)
+![요구사항](https://github.com/seungho3623/OOTD/assets/90664405/531434c3-a647-44f5-9658-c2f688be2263)
 
 💡기능
 
-![기능](https://user-images.githubusercontent.com/90664405/236689406-b1aae183-a1f3-4c09-803c-79a1ff3e245e.png)
+![기능](https://github.com/seungho3623/OOTD/assets/90664405/190720e8-6a25-43b1-890c-3a5a85dfa294)
 
 💡사용 예
 
