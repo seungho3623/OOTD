@@ -1,29 +1,3 @@
-window.onload = function() {
-    // 이미지 대체 처리를 수행할 함수를 호출합니다.
-    replaceMissingImages();
-};
-
-function replaceMissingImages() {
-    const imgBox = document.querySelector('.imgBox');
-    const imgBoxImage = imgBox.querySelector('input[type="image"]');
-    const imgItemBoxes = document.querySelectorAll('.imgItemBox');
-
-    // 이미지가 없을 경우 대체할 이미지 경로를 지정합니다.
-    const replacementImageSrc = '/img/Like/failure.png';
-
-    if (!imgBoxImage.complete || imgBoxImage.naturalWidth === 0) {
-        imgBoxImage.src = replacementImageSrc;
-    }
-
-    imgItemBoxes.forEach(function(imgItemBox) {
-        const inputImage = imgItemBox.querySelector('input[type="image"]');
-
-        if (!inputImage.complete || inputImage.naturalWidth === 0) {
-            inputImage.src = replacementImageSrc;
-        }
-    });
-}
-
 function getCoordi(style, gender) {
     $.ajax({
         type: "POST",
@@ -78,4 +52,21 @@ function showCoordiDetail(page = 0, detail = 0) {
     for (let i = 0; i < coordiData[coordiIndex].itemThumbnails.length; i++) {
         itemThumbnails.item(i + 1).src = coordiData[coordiIndex].itemThumbnails[i];
     }
+}
+
+function replaceMissingImages() {
+    const imgItemBoxes = document.querySelectorAll('.imgItemBox');
+
+    imgItemBoxes.forEach(function(imgItemBox) {
+        const inputImage = imgItemBox.querySelector('input[type="image"]');
+        const originalImageSrc = inputImage.src;
+
+        // 이미지가 없을 경우 대체할 이미지 경로를 지정합니다.
+        const replacementImageSrc = '/img/Like/failure.png';
+
+        // 이미지가 없을 경우 대체 이미지로 변경합니다.
+        if (!inputImage.src || inputImage.src === window.location.href) {
+            inputImage.src = replacementImageSrc;
+        }
+    });
 }
