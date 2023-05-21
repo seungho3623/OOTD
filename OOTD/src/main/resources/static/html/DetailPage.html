@@ -27,6 +27,12 @@
         function goBack() {
             window.history.back();
         }
+
+        function checkImage(img) {
+            if (!img.complete || img.naturalWidth === 0) {
+                img.src = img.alt;
+            }
+        }
     </script>
 </head>
 <body onload="showCoordiDetail(page, detail); displayData()">
@@ -74,7 +80,7 @@
     <div class="detailBox">
         <div class="itemWrap">
             <br><br>
-            <div class="items">
+             <div class="items">
                 <br><br>
                 <div class="imgItemBox">
                     <input type="image" width="250" height="290"/>
