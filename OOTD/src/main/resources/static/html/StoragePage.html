@@ -18,16 +18,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
 
     <link href="/css/StoragePage.css" rel="stylesheet">
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </head>
-<body>
-    <header>
-        <div class="flex-container flex-start">
-            <div class="flex-item icon"><img src="/img/아이콘.png" width="500" height="166"></div>
-            <div class="flex-item name"><img src="/img/그림1.png" width="400" height="100" bottom="50"></div>
+<body onload="displayData()">
+<header>
+    <div class="flex-container flex-start">
+        <div class="flex-item icon">
+            <a href="/Project/ootd.do">
+                <img src="/img/아이콘.png" width="500" height="166">
+            </a>
         </div>
-        <div class="line"></div>
-    </header>
+        <div class="flex-item name">
+            <img src="/img/그림1.png" width="400" height="100" bottom="50">
+        </div>
 
+        <div class="weather-widget">
+            <div class="weather-icon"></div>
+            <div class="weather-data">
+                <div class="weather-location" id="weather-location"></div>
+                <div class="weather-temp" id="weather-temp"></div>
+                <div class="weather-desc" id="weather-desc"></div>
+            </div>
+            <div class="flex-item color-red font4"></div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <button type="button" class="backButton" onClick="goBack();">뒤로가기</button>
+</header>
+    <br>
     <div id="outfitContainer"></div>
     <script>
         // sessionStorage에서 outfitStorage 데이터 가져오기
@@ -40,22 +62,23 @@
         const outfitContainer = document.getElementById('outfitContainer');
 
         // outfitStorage 데이터를 반복하여 HTML에 추가
-        outfitStorage.forEach((outfit) => {
+        outfitStorage.forEach((outfit, index) => {
             const outfitElement = document.createElement('div');
 
             const thumbnailImg = document.createElement('img');
             thumbnailImg.src = outfit.thumbnail;
             thumbnailImg.alt = 'Thumbnail';
-            thumbnailImg.width = 100;
-            thumbnailImg.height = 100;
 
-            const urlLink = document.createElement('a');
-            urlLink.href = outfit.url;
-            urlLink.target = '_blank';
-            urlLink.textContent = outfit.url;
+            const buttonElement = document.createElement('div');
+            const urlButton = document.createElement('button');
+            urlButton.textContent = '상세';
+            // URL 버튼 클릭 이벤트 처리
+            urlButton.addEventListener('click', () => {
+              window.open(outfit.url, '_blank');
+            });
 
             const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Delete';
+            deleteButton.textContent = '삭제';
 
             // 삭제 버튼 클릭 이벤트 처리
             deleteButton.addEventListener('click', () => {
@@ -67,10 +90,13 @@
 
                 // 변경된 outfitStorage를 sessionStorage에 저장
                 sessionStorage.setItem('outfitStorage', JSON.stringify(outfitStorage));
+
+                location.reload();
             });
             outfitElement.appendChild(thumbnailImg);
-            outfitElement.appendChild(urlLink);
-            outfitElement.appendChild(deleteButton);
+            buttonElement.appendChild(urlButton);
+            buttonElement.appendChild(deleteButton);
+            outfitElement.appendChild(buttonElement);
 
             outfitContainer.appendChild(outfitElement);
         });

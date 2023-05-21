@@ -18,12 +18,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
 
     <link href="/css/OutfitPage.css" rel="stylesheet">
+
+    <script>
+        const endOfPage = ((JSON.parse(sessionStorage.getItem('coordiData')).length) / 3) - 1;
+        const urlParams = new URLSearchParams(window.location.search);
+        let page = Number(urlParams.get('page'));
+    </script>
 </head>
-<body onload="showCoordi(); displayData()">
+<body onload="showCoordi(page); displayData()">
     <header>
         <div class="flex-container flex-start">
-            <div class="flex-item icon"><img src="/img/아이콘.png" width="500" height="166"></div>
-            <div class="flex-item name"><img src="/img/그림1.png" width="400" height="100" bottom="50"></div>
+            <div class="flex-item icon">
+                <a href="/Project/ootd.do">
+                    <img src="/img/아이콘.png" width="500" height="166">
+                </a>
+            </div>
+            <div class="flex-item name">
+                <img src="/img/그림1.png" width="400" height="100" bottom="50">
+            </div>
 
             <div class="weather-widget">
                 <div class="weather-icon"></div>
@@ -41,10 +53,10 @@
     <br><br>
     <div id="Codi">
         <div class="outfitWrap">
-            <div class="box">
+            <div class="outfitBox">
                 <br><br>
-                <div class="imgbox">
-                    <a href="/Project/detail.do?index=0">
+                <div class="imgBox">
+                    <a class="detailButton" href="#">
                         <input type="image" width="250" height="400"/>
                     </a>
                 </div>
@@ -56,10 +68,10 @@
                     <img src="/img/Like/like.png" alt="like" width="30" height="30">
                 </button>
             </div>
-            <div class="box">
+            <div class="outfitBox">
                 <br><br>
-                <div class="imgbox">
-                    <a href="/Project/detail.do?index=1">
+                <div class="imgBox">
+                    <a class="detailButton" href="#">
                         <input type="image" width="250" height="400"/>
                     </a>
                 </div>
@@ -71,10 +83,10 @@
                     <img src="/img/Like/like.png" alt="like" width="30" height="30">
                 </button>
             </div>
-            <div class="box">
+            <div class="outfitBox">
                 <br><br>
-                <div class="imgbox">
-                    <a href="/Project/detail.do?index=2">
+                <div class="imgBox">
+                    <a class="detailButton" href="#">
                         <input type="image" width="250" height="400"/>
                     </a>
                 </div>
@@ -88,7 +100,7 @@
             </div>
         </div>
         <div class="buttonWrap">
-            <button type="button" class="reloadButton">다른 코디 찾기</button>
+            <button type="button" class="reloadButton" onclick="window.location.href=`/Project/outfit.do?page=${page >= endOfPage ? 0 : ++ page}`;">다른 코디 찾기</button>
             <button type="button" class="storageButton" onclick="window.location.href='/Project/storage.do';">저장소</button>
         </div>
     </div>
