@@ -27,9 +27,15 @@
         function goBack() {
             window.history.back();
         }
+
+        function checkImage(img) {
+            if (!img.complete || img.naturalWidth === 0) {
+                img.src = img.alt;
+            }
+        }
     </script>
 </head>
-<body onload="showCoordiDetail(page, detail); displayData()">
+<body onload="showCoordiDetail(page, detail); displayData(); replaceMissingImages();">
 <header>
     <div class="flex-container flex-start">
         <div class="flex-item icon">
@@ -74,7 +80,7 @@
     <div class="detailBox">
         <div class="itemWrap">
             <br><br>
-            <div class="items">
+             <div class="items">
                 <br><br>
                 <div class="imgItemBox">
                     <input type="image" width="250" height="290"/>
