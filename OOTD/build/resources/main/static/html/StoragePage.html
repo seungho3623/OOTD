@@ -22,18 +22,12 @@
 <body>
     <header>
         <div class="flex-container flex-start">
-            <div class="flex-item icon">
-                <a href="/Project/ootd.do">
-                <img src="/img/아이콘.png" width="500" height="166">
-                </a>
-            </div>
-            <div class="flex-item name">
-                <img src="/img/그림1.png" width="400" height="100" bottom="50">
-            </div>
+            <div class="flex-item icon"><img src="/img/아이콘.png" width="500" height="166"></div>
+            <div class="flex-item name"><img src="/img/그림1.png" width="400" height="100" bottom="50"></div>
         </div>
         <div class="line"></div>
     </header>
-    <br><br>
+
     <div id="outfitContainer"></div>
     <script>
         // sessionStorage에서 outfitStorage 데이터 가져오기
@@ -46,23 +40,22 @@
         const outfitContainer = document.getElementById('outfitContainer');
 
         // outfitStorage 데이터를 반복하여 HTML에 추가
-        outfitStorage.forEach((outfit, index) => {
+        outfitStorage.forEach((outfit) => {
             const outfitElement = document.createElement('div');
 
             const thumbnailImg = document.createElement('img');
             thumbnailImg.src = outfit.thumbnail;
             thumbnailImg.alt = 'Thumbnail';
+            thumbnailImg.width = 100;
+            thumbnailImg.height = 100;
 
-            const buttonElement = document.createElement('div');
-            const urlButton = document.createElement('button');
-            urlButton.textContent = '상세';
-            // URL 버튼 클릭 이벤트 처리
-            urlButton.addEventListener('click', () => {
-              window.open(outfit.url, '_blank');
-            });
+            const urlLink = document.createElement('a');
+            urlLink.href = outfit.url;
+            urlLink.target = '_blank';
+            urlLink.textContent = outfit.url;
 
             const deleteButton = document.createElement('button');
-            deleteButton.textContent = '삭제';
+            deleteButton.textContent = 'Delete';
 
             // 삭제 버튼 클릭 이벤트 처리
             deleteButton.addEventListener('click', () => {
@@ -76,9 +69,8 @@
                 sessionStorage.setItem('outfitStorage', JSON.stringify(outfitStorage));
             });
             outfitElement.appendChild(thumbnailImg);
-            buttonElement.appendChild(urlButton);
-            buttonElement.appendChild(deleteButton);
-            outfitElement.appendChild(buttonElement);
+            outfitElement.appendChild(urlLink);
+            outfitElement.appendChild(deleteButton);
 
             outfitContainer.appendChild(outfitElement);
         });

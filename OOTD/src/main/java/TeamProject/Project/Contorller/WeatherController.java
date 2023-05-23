@@ -30,9 +30,9 @@ public class WeatherController {
         areaRequestDTO.setNx(coordinate.getNx());
         areaRequestDTO.setNy(coordinate.getNy());
 
-        //List<WeatherDTO> weatherList = this.weatherService.getWeather(areaRequestDTO);
+        List<WeatherDTO> weatherList = this.weatherService.getWeather(areaRequestDTO);
 
-        return this.weatherService.getWeather(areaRequestDTO);
+        return weatherList;
     }
 
     @PostMapping(value = "/Project/weatherStep.do")

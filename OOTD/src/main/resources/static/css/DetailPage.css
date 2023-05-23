@@ -27,40 +27,6 @@ header {
     justify-content: space-between;
 }
 
-.backButton {
-    margin-top: 10px;
-    margin-left: 10px;
-    width: 150px;
-    height: 40px;
-    font-size: 16px;
-    font-weight: bold;
-    border-style: solid;
-    border-color: black;
-    border-radius: 10px;
-    border-width: 3px;
-    background: rgba(0, 0, 0, 0.1);
-    color: #000000;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.backButton:hover {
-    transform: scale(1.05);
-    background-color: #eee;
-    border-color: #000;
-}
-
-.backButton:active {
-    background-color: black; /* 클릭 시 변경할 배경색 */
-    color: #ffffff; /* 클릭 시 버튼 텍스트 색상 변경 */
-    border-radius: 10px;
-    border-style: solid;
-    border-color: white;
-    border-width: 3px;
-    /* 추가적인 스타일 속성들 */
-}
-
 .storageWrap {
     position: absolute;
     top: 200px;
@@ -104,7 +70,7 @@ header {
     text-align: center;
 }
 
-.outfitBox {
+.leftBox {
     float: left;
     width: 400px;
     height: 600px;
@@ -118,23 +84,10 @@ header {
     text-align: center
 }
 
-.detailLikeButton {
-    background-color: transparent;
+.likeButton {
     margin-top: 10px;
     border: none;
-    padding: 0;
-    cursor: pointer;
-}
-
-.detailLikeButton img {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.detailLikeButton:hover img {
-    transform: scale(1.2);
-    opacity: 0.8;
+    background: 0;
 }
 
 .items {
@@ -151,7 +104,10 @@ header {
     border-radius: 40px
 }
 
-.imgBox {
+.imgbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 250px;
     height: 400px;
     margin-top: 40px;
@@ -161,40 +117,15 @@ header {
     border-color: rgba(0, 0, 0, 0.1);
     border-radius: 40px;
     overflow: hidden;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid transparent;
-
-    transform: scale(1);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.imgBox:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-}
-
-.imgBox a {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
-.imgBox input {
-    display: block;
+.imgbox img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.imgBox img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.imgItemBox {
+.imgitembox {
     width: 250px;
     height: 290px;
     margin-top: 40px;
@@ -204,18 +135,9 @@ header {
     border-color: rgba(0, 0, 0, 0.1);
     border-radius: 40px;
     overflow: hidden;
-
-    transform: scale(1);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.imgItemBox:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-}
-
-.imgItemBox img {
+.imgitembox img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -239,19 +161,19 @@ body {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.detailBox .imgButton {
+.rightbox .imgButton {
     margin-left: 10px;
 }
 
-.detailBox .itemWrap{
+.rightbox .itemWrap{
     overflow:hidden;
 }
-.detailBox .etcWrap{
+.rightbox .etcWrap{
     display:flex;
     align-items:center;
 }
 
-.detailBox .itemsDescriptionBox {
+.rightbox .itemsDescriptionBox {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -266,7 +188,7 @@ body {
     border-radius: 40px;
 }
 
-.detailBox .buttonBox {
+.rightbox .buttonBox {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -298,29 +220,6 @@ body {
     border-style: solid;
     border-color: black;
     border-width: 3px;
-}
-
-.buttonBox .detailButton,
-.buttonBox .storageButton {
-    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.buttonBox .detailButton:hover,
-.buttonBox .storageButton:hover {
-    transform: scale(1.05);
-    background-color: #eee;
-    border-color: #000;
-}
-
-.buttonBox .detailButton:active,
-.buttonBox .storageButton:active {
-    background-color: black; /* 클릭 시 변경할 배경색 */
-    color: #ffffff; /* 클릭 시 버튼 텍스트 색상 변경 */
-    border-radius: 20px;
-    border-style: solid;
-    border-color: white;
-    border-width: 3px;
-    /* 추가적인 스타일 속성들 */
 }
 
 .itemsDescriptionBox .itemsDescription {

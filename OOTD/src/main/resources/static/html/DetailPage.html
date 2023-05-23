@@ -21,25 +21,14 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const page = Number(urlParams.get('page'));
-        const detail = Number(urlParams.get('detail'));
-
-        function goBack() {
-            window.history.back();
-        }
+        const index = urlParams.get('index');
     </script>
 </head>
-<body onload="showCoordiDetail(page, detail); displayData()">
+<body onload="showCoordiDetail(index); displayData()">
 <header>
     <div class="flex-container flex-start">
-        <div class="flex-item icon">
-            <a href="/Project/ootd.do">
-                <img src="/img/아이콘.png" width="500" height="166">
-            </a>
-        </div>
-        <div class="flex-item name">
-            <img src="/img/그림1.png" width="400" height="100" bottom="50">
-        </div>
+        <div class="flex-item icon"><img src="/img/아이콘.png" width="500" height="166"></div>
+        <div class="flex-item name"><img src="/img/그림1.png" width="400" height="100" bottom="50"></div>
 
         <div class="weather-widget">
             <div class="weather-icon"></div>
@@ -52,53 +41,52 @@
         </div>
     </div>
     <div class="line"></div>
-    <button type="button" class="backButton" onClick="goBack();">뒤로가기</button>
 </header>
 
-<br>
+<br><br>
 <div id="Codi">
     <br><br>
-    <div class="outfitBox">
+    <div class="leftBox">
         <br><br>
-        <div class="imgBox">
+        <div class="imgbox">
                 <input type="image" width="250" height="400"/>
         </div>
         <br>
         <div class="imgDescriptionBox">
             <div class="imgDescription"></div>
         </div>
-        <button class="detailLikeButton">
+        <button class="likeButton">
             <img src="/img/Like/like.png" alt="like" width="30" height="30">
         </button>
     </div>
-    <div class="detailBox">
+    <div class="rightbox">
         <div class="itemWrap">
             <br><br>
             <div class="items">
                 <br><br>
-                <div class="imgItemBox">
-                    <input type="image" width="250" height="290"/>
+                <div class="imgitembox">
+                <input type="image" width="250" height="290"/>
                 </div>
             </div>
             <div class="items">
                 <br><br>
-                <div class="imgItemBox">
-                    <input type="image" width="250" height="290"/>
+                <div class="imgitembox">
+                <input type="image" width="250" height="290"/>
                 </div>
             </div>
             <div class="items">
-                <br><br>
-                <div class="imgItemBox">
-                    <input type="image" width="250" height="290"/>
-                </div>
+            <br><br>
+            <div class="imgitembox">
+            <input type="image" width="250" height="290"/>
             </div>
+        </div>
         </div>
         <div class="etcWrap">
             <div class="itemsDescriptionBox">
                 <div class="itemsDescription"></div>
             </div>
             <div class="buttonBox">
-                <button class="detailButton">상세</button>
+                <button class="detailButton" onclick="location.href=''">상세</button>
                 <button class="storageButton" onclick="window.location.href='/Project/storage.do';">저장소</button>
             </div>
         </div>

@@ -23,7 +23,10 @@ import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 @Service
 @Slf4j
@@ -41,7 +44,7 @@ public class WeatherServiceImpl implements WeatherService {
         if (weatherList.isEmpty()) {
             ResponseEntity<WeatherApiResponseDTO> response = requestWeatherApi(areaRequestDTO); // 데이터가 하나도 없는 경우 새로 생성
             ObjectMapper objectMapper = new ObjectMapper();
-            List<WeatherItemDTO> weatherItemList = Objects.requireNonNull(response.getBody())
+            List<WeatherItemDTO> weatherItemList = response.getBody()
                     .getResponse()
                     .getBody()
                     .getItems()
@@ -68,7 +71,7 @@ public class WeatherServiceImpl implements WeatherService {
 
     @Override
     public ResponseEntity<WeatherApiResponseDTO> requestWeatherApi(AreaRequestDTO areaRequestDTO) throws UnsupportedEncodingException, URISyntaxException {
-        String url = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst";
+        String url = "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst";
         String serviceKey = "6wwQhBuKz6tg4wGAnMPF19o1eTOE4N7fyCFgBMhdb1eUPYZjWiBvaaM90Zrqr6FisEYu3MJOjDowhuOivARgZA%3D%3D";
 
         RestTemplate restTemplate = new RestTemplate();
@@ -102,7 +105,7 @@ public class WeatherServiceImpl implements WeatherService {
         final String POS_Y = areaRequestDTO.getNy();
 
         //서비스 키
-        final String API_URL = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst";
+        final String API_URL = "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst";
         final String SERVICE_KEY = "6wwQhBuKz6tg4wGAnMPF19o1eTOE4N7fyCFgBMhdb1eUPYZjWiBvaaM90Zrqr6FisEYu3MJOjDowhuOivARgZA%3D%3D";
 
         // 속성 키
@@ -165,44 +168,40 @@ public class WeatherServiceImpl implements WeatherService {
             // body 로 부터 items 찾기
             JSONObject parse_items = (JSONObject) parse_body.get("items");
             // items 로 부터 item 찾기
-            // NullPointerException 수정
-            Object items = parse_items.get("item");
-            if(items instanceof JSONArray) {
-                basetimeSrtFcstResult = (JSONArray) items;
+            basetimeSrtFcstResult = (JSONArray) parse_items.get("item");
 
-                if (basetimeSrtFcstResult.size() == NUMBER_REQUEST) {
-                    ArrayList<Integer> tempList = new ArrayList<>();
-                    for (int i = 0; i < NUMBER_REQUEST; i++) {
-                        JSONObject dataLine = (JSONObject) basetimeSrtFcstResult.get(i);
-                        if (dataLine.get(PROPERTY_CATEGORY).equals(PROPERTY_TEMPERATURE)) {
-                            tempList.add(Integer.parseInt(dataLine.get(PROPERTY_FORECAST_VALUE).toString()));
-                        }
+            if (basetimeSrtFcstResult.size() == NUMBER_REQUEST) {
+                ArrayList<Integer> tempList = new ArrayList<>();
+                for (int i = 0; i < NUMBER_REQUEST; i++) {
+                    JSONObject dataLine = (JSONObject) basetimeSrtFcstResult.get(i);
+                    if (dataLine.get(PROPERTY_CATEGORY).equals(PROPERTY_TEMPERATURE)) {
+                        tempList.add(Integer.parseInt(dataLine.get(PROPERTY_FORECAST_VALUE).toString()));
                     }
-                    // 데이터 길이 체크
-                    if (tempList.size() == HOUR_OF_DAY) {
-                        dailyWeatherDTO.setTempMax(Collections.max(tempList));
-                        dailyWeatherDTO.setTempMin(Collections.min(tempList));
-                        ArrayList<Integer> tempListDay = new ArrayList<>(tempList.subList(0, HOUR_OF_DAY));
-                        dailyWeatherDTO.setTempMax(Collections.max(tempListDay));
-                        dailyWeatherDTO.setTempMin(Collections.min(tempListDay));
-                        LocalDateTime todayDate = baseDate.plusDays(1);
-                        dailyWeatherDTO.setForecastDate(todayDate);
-                        tempMaxDTO.setNx(POS_X);
-                        tempMaxDTO.setNy(POS_Y);
-                        tempMaxDTO.setCategory("DTX");
-                        tempMaxDTO.setBaseDate(todayDate.format(DateTimeFormatter.ofPattern("yyyyMMdd")));
-                        tempMaxDTO.setBaseTime("2300");
-                        tempMaxDTO.setFcstValue(String.valueOf(dailyWeatherDTO.getTempMax()));
-                        weatherDTOList.add(tempMaxDTO);
-                        tempMinDTO.setNx(POS_X);
-                        tempMinDTO.setNy(POS_Y);
-                        tempMinDTO.setCategory("DTN");
-                        tempMinDTO.setBaseDate(todayDate.format(DateTimeFormatter.ofPattern("yyyyMMdd")));
-                        tempMinDTO.setBaseTime("2300");
-                        tempMinDTO.setFcstValue(String.valueOf(dailyWeatherDTO.getTempMin()));
-                        weatherDTOList.add(tempMinDTO);
-                        return weatherDTOList;
-                    }
+                }
+                // 데이터 길이 체크
+                if (tempList.size() == HOUR_OF_DAY) {
+                    dailyWeatherDTO.setTempMax(Collections.max(tempList));
+                    dailyWeatherDTO.setTempMin(Collections.min(tempList));
+                    ArrayList<Integer> tempListDay = new ArrayList<>(tempList.subList(0, HOUR_OF_DAY));
+                    dailyWeatherDTO.setTempMax(Collections.max(tempListDay));
+                    dailyWeatherDTO.setTempMin(Collections.min(tempListDay));
+                    LocalDateTime todayDate = baseDate.plusDays(1);
+                    dailyWeatherDTO.setForecastDate(todayDate);
+                    tempMaxDTO.setNx(POS_X);
+                    tempMaxDTO.setNy(POS_Y);
+                    tempMaxDTO.setCategory("DTX");
+                    tempMaxDTO.setBaseDate(todayDate.format(DateTimeFormatter.ofPattern("yyyyMMdd")));
+                    tempMaxDTO.setBaseTime("2300");
+                    tempMaxDTO.setFcstValue(String.valueOf(dailyWeatherDTO.getTempMax()));
+                    weatherDTOList.add(tempMaxDTO);
+                    tempMinDTO.setNx(POS_X);
+                    tempMinDTO.setNy(POS_Y);
+                    tempMinDTO.setCategory("DTN");
+                    tempMinDTO.setBaseDate(todayDate.format(DateTimeFormatter.ofPattern("yyyyMMdd")));
+                    tempMinDTO.setBaseTime("2300");
+                    tempMinDTO.setFcstValue(String.valueOf(dailyWeatherDTO.getTempMin()));
+                    weatherDTOList.add(tempMinDTO);
+                    return weatherDTOList;
                 }
             }
         } catch (IOException e) {

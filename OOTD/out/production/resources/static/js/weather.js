@@ -1,7 +1,7 @@
 function getWeather() {
     let nullCheck = true;
 
-    $('.selectCity').each(function () {
+    $('.emptyCheck').each(function () {
         if ('' == $(this).val()) {
             alert($(this).attr('title') + "을(를) 확인바람");
             nullCheck = false;
@@ -112,17 +112,17 @@ function getWeather() {
                         case "Casual" :
                             styleData = "캐주얼";
                             break;
-                        case "Formal" :
-                            styleData = "포멀";
+                        case "Retro" :
+                            styleData = "레트로";
                             break;
-                        case "American" :
-                            styleData = "아메카지";
+                        case "Home" :
+                            styleData = "홈웨어";
                             break;
                         case "Street" :
                             styleData = "스트릿";
                             break;
-                        case "GorpCore" :
-                            styleData = "고프코어";
+                        case "Romantic" :
+                            styleData = "로맨틱";
                             break;
                         case "Sports" :
                             styleData = "스포츠";
@@ -188,7 +188,14 @@ function getWeather() {
                     sessionStorage.setItem("genderData", JSON.stringify(genderData));
                     sessionStorage.setItem("styleData", JSON.stringify(styleData));
 
-                    setLoadingParam();
+                    const urlParams = new URLSearchParams(window.location.search);
+                    urlParams.set("style", styleData);
+                    urlParams.set("gender", genderData);
+
+                    const url = "/html/Loding.html" + "?" + urlParams.toString();
+                    window.history.pushState("", "", url);
+
+                    window.location.href = url;
                 }
             },
             error: function (xhr) {

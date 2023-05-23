@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
 
-    <link href="/css/MainPage.css" rel="stylesheet">
+    <link href="/css/Main.css" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -27,73 +27,75 @@
 </header>
 
 <br><br><br><br>
-<div id="menu">
-    <div class="menuWrap">
-        <div class="selectArea">
+<div id="Menu">
+    <div class="box">
+        <ul class="first">
             <h4>지역</h4>
-            <div class="areaWrap">
-                <select id="step1" class="selectCity" title="시/도">
-                    <option id="city" value="">시/도</option>
-                </select>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <select id="step1" class="emptyCheck select2" title="시/도">
+                        <option id="city" value="">시/도</option>
+                    </select>
 
-                <select id="step2" class="selectCounty" style="display:none;">
-                    <option id="county" value="">시/군/구</option>
-                </select>
+                    <select id="step2" class="select2" style="display:none;">
+                        <option id="county" value="">시/군/구</option>
+                    </select>
 
-                <select id="step3" class="selectTown" style="display:none;">
-                    <option id="town" value="">읍/면/동</option>
-                </select>
-            </div>
-        </div>
-        <div class="selectGender">
+                    <select id="step3" class="select2" style="display:none;">
+                        <option id="town" value="">읍/면/동</option>
+                    </select>
+                </div>
+            </form>
+        </ul>
+        <ul class="second">
             <h4>성별</h4>
-            <div class="checkGender">
-                <div class="form-check-inline">
+            <div class="checkbox">
+                <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="gender" id="radioMan" value="Man">
                     <label class="form-check-label" for="radioMan">남</label>
                 </div>
-                <div class="form-check-inline">
+                <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="gender" id="radioWomen" value="Women">
                     <label class="form-check-label" for="radioWomen">여</label>
                 </div>
             </div>
-        </div>
-        <div class="selectStyle">
+        </ul>
+        <ul class="third">
             <h4>스타일</h4>
-            <div class="checkFirst">
-                <div class="form-check-inline">
+            <div class="checkbox1">
+                <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="style" id="radioCasual" value="Casual">
                     <label class="form-check-label" for="radioCasual">캐주얼</label>
                 </div>
-                <div class="form-check-inline">
-                    <input class="form-check-input" type="radio" name="style" id="radioRetro" value="Formal">
-                    <label class="form-check-label" for="radioRetro">포멀</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="style" id="radioRetro" value="Retro">
+                    <label class="form-check-label" for="radioRetro">레트로</label>
                 </div>
-                <div class="form-check-inline">
-                    <input class="form-check-input" type="radio" name="style" id="radioAmerican" value="American">
-                    <label class="form-check-label" for="radioAmerican">아메카지</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="style" id="radioHome" value="Home">
+                    <label class="form-check-label" for="radioHome">홈웨어</label>
                 </div>
             </div>
-            <div class="checkSecond">
-                <div class="form-check-inline">
+            <div class="checkbox2">
+                <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="style" id="radioStreet" value="Street">
                     <label class="form-check-label" for="radioStreet">스트릿</label>
                 </div>
-                <div class="form-check-inline">
-                    <input class="form-check-input" type="radio" name="style" id="radioRomantic" value="Sports">
-                    <label class="form-check-label" for="radioRomantic">스포츠</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="style" id="radioRomantic" value="Romantic">
+                    <label class="form-check-label" for="radioRomantic">로맨틱</label>
                 </div>
-                <div class="form-check-inline">
-                    <input class="form-check-input" type="radio" name="style" id="radioSports" value="GorpCore">
-                    <label class="form-check-label" for="radioSports">고프코어</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="style" id="radioSports" value="Sports">
+                    <label class="form-check-label" for="radioSports">스포츠</label>
                 </div>
             </div>
-        </div>
-        <div class="buttonWrap">
-            <br>
-            <button type="button" class="outfitButton" onclick="getWeather()"> 추천받기</button>
-            <button type="button" class="storageButton" onclick="window.location.href='/Project/storage.do';"> 저장소</button>
-        </div>
+            <div class="fourth">
+                <br>
+                <!--<a href="/html/DDZA_1.html"><button type="button" class="btn btn-light" onclick="getWeather()"> 추천받기</button></a>-->
+                <button type="button" class="btn btn-light" onclick="getWeather()"> 추천받기</button>
+            </div>
+        </ul>
     </div>
 </div>
 
@@ -101,7 +103,6 @@
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
         crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="/js/loading.js"></script>
 <script src="/js/location.js"></script>
 <script src="/js/weather.js"></script>
 </body>
