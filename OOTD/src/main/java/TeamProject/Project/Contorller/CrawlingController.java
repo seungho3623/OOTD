@@ -3,6 +3,7 @@ package TeamProject.Project.Contorller;
 import TeamProject.Project.Dto.CoordiDTO;
 import TeamProject.Project.Dto.CrawlingRequestDTO;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,14 +23,14 @@ import java.util.List;
 public class CrawlingController {
     private static WebDriver driver;
     private static WebDriverWait wait;
-
-    private static int index;
+    
+    private static List<CoordiDTO>[] coordiData = new ArrayList[12];
     private static final String[][] sequence = {
             {"캐주얼", "남성"}, {"포멀", "남성"}, {"아메카지", "남성"}, {"스트릿", "남성"}, {"스포츠", "남성"}, {"고프코어", "남성"},
             {"캐주얼", "여성"}, {"포멀", "여성"}, {"아메카지", "여성"}, {"스트릿", "여성"}, {"스포츠", "여성"}, {"고프코어", "여성"}
     };
-    private static List<CoordiDTO>[] coordiData = new ArrayList[12];
-
+    private static int currentOrder;
+    
     public static void setChromeDriver() {
         //맥
         System.setProperty("webdriver.chrome.driver", "OOTD/src/main/resources/bin/chromedriver");
@@ -71,6 +72,8 @@ public class CrawlingController {
                 break;
         }
 
+        url += "&tag_no=215";
+
         System.out.println("\n스타일 : " + style);
         System.out.println("url : " + url);
 
@@ -99,12 +102,17 @@ public class CrawlingController {
     private static List<String> getCoordiNames() throws InterruptedException {
         List<String> list = new ArrayList<>();
 
-        List<WebElement> elements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("style-list-information__link")));
-        for (WebElement element : elements) {
-            list.add(element.getAttribute("title"));
-        }
+        try {
+            List<WebElement> elements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("style-list-information__link")));
 
-        return list;
+            for (WebElement element : elements) {
+                list.add(element.getAttribute("title"));
+            }
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        } finally {
+            return list;
+        }
     }
 
     private static List<String> getCoordiThumbnails() throws InterruptedException {
@@ -112,59 +120,82 @@ public class CrawlingController {
         final String empty_src = "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
 
         List<String> list = new ArrayList<>();
-        List<WebElement> elements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("style-list-thumbnail")));
 
-        for(WebElement element : elements) {
-            String src = element.findElement(By.tagName("img")).getAttribute("src");
-            if(src.equals(empty_src)) src = url + element.findElement(By.tagName("img")).getAttribute("data-original");
+        try {
+            List<WebElement> elements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("style-list-thumbnail")));
 
-            list.add(src);
+            for(WebElement element : elements) {
+                String src = element.findElement(By.tagName("img")).getAttribute("src");
+
+                if(src.equals(empty_src)) {
+                    src = url + element.findElement(By.tagName("img")).getAttribute("data-original");
+                }
+
+                list.add(src);
+            }
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        } finally {
+            return list;
         }
-
-        return list;
     }
 
     private static List<String> getCoordiLinks() throws InterruptedException {
         List<String> list = new ArrayList<>();
         final String url = "https://www.musinsa.com/app/codimap/views/";
 
-        List<WebElement> elements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("style-list-information__title")));
-        for (WebElement element : elements) {
-            String link = element.getAttribute("onclick");
-            list.add(url + link.substring(link.indexOf("'") + 1, link.lastIndexOf("'")));
-        }
+        try {
+            List<WebElement> elements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("style-list-information__title")));
 
-        return list;
+            for (WebElement element : elements) {
+                String link = element.getAttribute("onclick");
+                list.add(url + link.substring(link.indexOf("'") + 1, link.lastIndexOf("'")));
+            }
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        } finally {
+            return list;
+        }
     }
 
     private static String getCoordiDescription() throws InterruptedException {
-        return wait.until(ExpectedConditions.presenceOfElementLocated(By.className("styling_txt"))).getText();
+        try {
+            return wait.until(ExpectedConditions.presenceOfElementLocated(By.className("styling_txt"))).getText();
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 
-    private static List<String> getCoordiItemThumbnail(int count) throws InterruptedException {
-        List<WebElement> elements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("styling_img")));
+    private static List<String> getCoordiItemThumbnail(int count) throws InterruptedException, IndexOutOfBoundsException {
         List<String> list = new ArrayList<>();
 
-        for(int i = 0; i < count; i++) {
-            list.add(elements.get(i).findElement(By.tagName("img")).getAttribute("src"));
-        }
+        try {
+            List<WebElement> elements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("styling_img")));
 
-        return list;
+            for(int i = 0; i < count; i++) {
+                list.add(elements.get(i).findElement(By.tagName("img")).getAttribute("src"));
+            }
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        } finally {
+            return list;
+        }
     }
 
     @ResponseBody
     @PostMapping("/Project/getCoordi")
     private static List<CoordiDTO> getCoordiData(@ModelAttribute CrawlingRequestDTO dto) {
-        int index = 0;
+        int order = 0;
 
         for(String[] seq: sequence) {
             // 정해진 조합 순서대로 스타일, 성별 비교
             if((dto.getStyle().equals(seq[0])) && (dto.getGender().equals(seq[1]))) {
-                Collections.shuffle(coordiData[index]);
-                return coordiData[index];
+                Collections.shuffle(coordiData[order]);
+                return coordiData[order];
             }
 
-            index ++;
+            order ++;
         }
 
         return coordiData[0];
@@ -177,16 +208,15 @@ public class CrawlingController {
 
         System.out.println("\n크롤링 시작\n");
 
-        setStyle(sequence[index][0]);
-        setGender(sequence[index][1]);
+        setStyle(sequence[currentOrder][0]);
+        setGender(sequence[currentOrder][1]);
 
         try {
             coordiNames = getCoordiNames();
             coordiThumbnails = getCoordiThumbnails();
             coordiLinks = getCoordiLinks();
 
-            //for (int i = 0; i < coordiNames.size(); i++) {
-            for (int i = 0; i < 60; i++) {
+            for (int i = 0; i < Math.min(coordiNames.size(), 60); i++) {
                 coordiList.add(new CoordiDTO(coordiNames.get(i), coordiThumbnails.get(i), coordiLinks.get(i)));
                 getCoordiDetail(coordiList.get(i));
                 /*
@@ -201,8 +231,8 @@ public class CrawlingController {
                 }
                  */
             }
-            coordiData[index] = coordiList;
-            if(++ index >= sequence.length) index = 0;
+            coordiData[currentOrder] = coordiList;
+            if(++currentOrder >= sequence.length) currentOrder = 0;
 
             System.out.println("\n크롤링 완료\n");
         } catch (InterruptedException e) {

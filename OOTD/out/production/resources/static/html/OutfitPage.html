@@ -20,6 +20,7 @@
     <link href="/css/OutfitPage.css" rel="stylesheet">
 
     <script>
+        const endOfPage = ((JSON.parse(sessionStorage.getItem('coordiData')).length) / 3) - 1;
         const urlParams = new URLSearchParams(window.location.search);
         let page = Number(urlParams.get('page'));
     </script>
@@ -99,7 +100,7 @@
             </div>
         </div>
         <div class="buttonWrap">
-            <button type="button" class="reloadButton" onclick="window.location.href=`/Project/outfit.do?page=${++ page}`;">다른 코디 찾기</button>
+            <button type="button" class="reloadButton" onclick="window.location.href=`/Project/outfit.do?page=${page >= endOfPage ? 0 : ++ page}`;">다른 코디 찾기</button>
             <button type="button" class="storageButton" onclick="window.location.href='/Project/storage.do';">저장소</button>
         </div>
     </div>
