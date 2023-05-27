@@ -28,7 +28,13 @@ public class StorageController {
 
     @GetMapping(value = "/Project/storage.do")
     public String openStoragePage(Model model) {
-        model.addAttribute("list", outfitStorageService.itemList());
+        List<OutfitStorageItem> list = outfitStorageService.itemList();
+        model.addAttribute("list", list);
+
+        for(OutfitStorageItem item : list){
+            System.out.println(item);
+        }
+        //model.addAttribute("data", "TestData");
 
         return "/html/StoragePage.html";
     }
