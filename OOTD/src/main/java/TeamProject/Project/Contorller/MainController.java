@@ -25,9 +25,4 @@ public class MainController {
     public String openDetailPage(@RequestParam(required = true) int page, int detail) {
         return "/html/DetailPage.html?page=" + page + "detail=" + detail;
     }
-
-    @GetMapping(value = "/Project/storage.do")
-    public String openStoragePage() {
-        return "/html/StoragePage.html";
-    }
 }

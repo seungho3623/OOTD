@@ -21,6 +21,7 @@ likeButtons.forEach((button, index) => {
     if (!isDuplicate) {
       selectedItems.push(likeSelectedItem);
       sessionStorage.setItem('outfitStorage', JSON.stringify(selectedItems));
+      //saveDatabase(likeSelectedItem);
       alert('저장 완료');
     } else {
       alert('이미 선택된 아이템입니다.');
@@ -45,8 +46,30 @@ detailLikeButton.addEventListener('click', (event) => {
   if (!isDuplicate) {
     selectedItems.push(detailSelectedItem);
     sessionStorage.setItem('outfitStorage', JSON.stringify(selectedItems));
+    //saveDatabase(detailSelectedItem);
     alert('저장 완료');
   } else {
     alert('이미 선택된 아이템입니다.');
   }
 });
+
+function saveDatabase(item) {
+  $.ajax({
+    type: "POST",
+    url: "/Project/storage.do/storage",
+    data: {
+      thumbnail: item.thumbnail,
+      url: item.url
+    },
+    success: function(response) {
+      if (response.success) {
+        alert("Data saved successfully!");
+      } else {
+        alert("Failed to save data.");
+      }
+    },
+    error: function() {
+      alert("An error occurred while saving data.");
+    }
+  });
+}

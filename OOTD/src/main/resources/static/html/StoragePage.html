@@ -19,6 +19,11 @@
 
     <link href="/css/StoragePage.css" rel="stylesheet">
     <script>
+        // 서버에서 전달받은 리스트 데이터를 JavaScript 배열로 변환
+        let list = /*[[${list}]]*/ [];
+
+        // 리스트 데이터 확인
+        console.log(list);
         function goBack() {
             window.history.back();
         }
@@ -49,61 +54,61 @@
     <div class="line"></div>
     <button type="button" class="backButton" onClick="goBack();">뒤로가기</button>
 </header>
-    <br>
-    <div id="outfitContainer"></div>
-    <script>
-        // sessionStorage에서 outfitStorage 데이터 가져오기
-        const outfitStorageStr = sessionStorage.getItem('outfitStorage');
+<br>
+<div id="outfitContainer"></div>
+<script>
+    // sessionStorage에서 outfitStorage 데이터 가져오기
+    const outfitStorageStr = sessionStorage.getItem('outfitStorage');
 
-        // JSON 문자열을 JavaScript 객체로 변환
-        const outfitStorage = JSON.parse(outfitStorageStr);
+    // JSON 문자열을 JavaScript 객체로 변환
+    const outfitStorage = JSON.parse(outfitStorageStr);
 
-        // outfitContainer 요소 선택
-        const outfitContainer = document.getElementById('outfitContainer');
+    // outfitContainer 요소 선택
+    const outfitContainer = document.getElementById('outfitContainer');
 
-        // outfitStorage 데이터를 반복하여 HTML에 추가
-        outfitStorage.forEach((outfit, index) => {
-            const outfitElement = document.createElement('div');
+    // outfitStorage 데이터를 반복하여 HTML에 추가
+    outfitStorage.forEach((outfit, index) => {
+        const outfitElement = document.createElement('div');
 
-            const thumbnailImg = document.createElement('img');
-            thumbnailImg.src = outfit.thumbnail;
-            thumbnailImg.alt = 'Thumbnail';
+        const thumbnailImg = document.createElement('img');
+        thumbnailImg.src = outfit.thumbnail;
+        thumbnailImg.alt = 'Thumbnail';
 
-            const buttonElement = document.createElement('div');
-            const urlButton = document.createElement('button');
-            urlButton.textContent = '상세';
-            // URL 버튼 클릭 이벤트 처리
-            urlButton.addEventListener('click', () => {
-              window.open(outfit.url, '_blank');
-            });
-
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = '삭제';
-
-            // 삭제 버튼 클릭 이벤트 처리
-            deleteButton.addEventListener('click', () => {
-                // 해당 outfit을 outfitStorage에서 제거
-                outfitStorage.splice(index, 1);
-
-                // outfitContainer의 자식 요소 삭제
-                outfitContainer.removeChild(outfitElement);
-
-                // 변경된 outfitStorage를 sessionStorage에 저장
-                sessionStorage.setItem('outfitStorage', JSON.stringify(outfitStorage));
-
-                location.reload();
-            });
-            outfitElement.appendChild(thumbnailImg);
-            buttonElement.appendChild(urlButton);
-            buttonElement.appendChild(deleteButton);
-            outfitElement.appendChild(buttonElement);
-
-            outfitContainer.appendChild(outfitElement);
+        const buttonElement = document.createElement('div');
+        const urlButton = document.createElement('button');
+        urlButton.textContent = '상세';
+        // URL 버튼 클릭 이벤트 처리
+        urlButton.addEventListener('click', () => {
+            window.open(outfit.url, '_blank');
         });
-    </script>
 
-    <script src="/js/weather.js"></script>
-    <script src="/js/crawling.js"></script>
-    <script scr="/js/storage.js"></script>
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = '삭제';
+
+        // 삭제 버튼 클릭 이벤트 처리
+        deleteButton.addEventListener('click', () => {
+            // 해당 outfit을 outfitStorage에서 제거
+            outfitStorage.splice(index, 1);
+
+            // outfitContainer의 자식 요소 삭제
+            outfitContainer.removeChild(outfitElement);
+
+            // 변경된 outfitStorage를 sessionStorage에 저장
+            sessionStorage.setItem('outfitStorage', JSON.stringify(outfitStorage));
+
+            location.reload();
+        });
+        outfitElement.appendChild(thumbnailImg);
+        buttonElement.appendChild(urlButton);
+        buttonElement.appendChild(deleteButton);
+        outfitElement.appendChild(buttonElement);
+
+        outfitContainer.appendChild(outfitElement);
+    });
+</script>
+
+<script src="/js/weather.js"></script>
+<script src="/js/crawling.js"></script>
+<script scr="/js/storage.js"></script>
 </body>
 </html>

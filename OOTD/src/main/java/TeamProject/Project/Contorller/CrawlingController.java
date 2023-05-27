@@ -54,6 +54,7 @@ public class CrawlingController {
 
     private static void setStyle(String style) {
         String url = "https://www.musinsa.com/app/codimap/lists?style_type=";
+        int weatherTemp = 30;
 
         switch(style) {
             case "캐주얼": url += "casual";
@@ -72,7 +73,15 @@ public class CrawlingController {
                 break;
         }
 
-        url += "&tag_no=215";
+        if(weatherTemp < 10) {
+            url += "&tag_no=217"; // 겨울 태그
+        }else if(weatherTemp < 20){
+            url += "&tag_no=214"; //봄 태그
+        }else if(weatherTemp < 25){
+            url += "&tag_no=216"; //가을 태그
+        }else{
+            url += "&tag_no=215"; // 여름 태그
+        }
 
         System.out.println("\n스타일 : " + style);
         System.out.println("url : " + url);

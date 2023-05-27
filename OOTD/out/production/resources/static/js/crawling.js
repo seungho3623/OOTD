@@ -49,7 +49,7 @@ function showCoordiDetail(page = 0, detail = 0) {
     coordiDescription.innerHTML = coordiData[coordiIndex].description;
     coordiURL.setAttribute("onclick", `window.open('${coordiData[coordiIndex].url}', '_blank')`);
 
-    for (let i = 0; i < coordiData[coordiIndex].itemThumbnails.length - 3; i++) {
+    for (let i = 0; i < coordiData[coordiIndex].itemThumbnails.length; i++) {
         itemThumbnails.item(i + 1).src = coordiData[coordiIndex].itemThumbnails[i];
     }
 }
