@@ -1,12 +1,10 @@
 package TeamProject.Project.Contorller;
 
 import TeamProject.Project.Dto.AreaRequestDTO;
-import TeamProject.Project.Dto.DailyWeatherDTO;
 import TeamProject.Project.Dto.WeatherDTO;
 import TeamProject.Project.Service.WeatherService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,7 +35,7 @@ public class WeatherController {
 
     @PostMapping(value = "/Project/weatherStep.do")
     @ResponseBody
-    public List<AreaRequestDTO> getAreaStep(@RequestParam Map<String, String> params) {
+    public List<AreaRequestDTO> getAreaStep(Map<String, String> params) {
         return this.weatherService.getArea(params);
     }
 }

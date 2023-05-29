@@ -19,8 +19,8 @@ likeButtons.forEach((button, index) => {
     });
 
     if (!isDuplicate) {
-      // selectedItems.push(likeSelectedItem);
-      // sessionStorage.setItem('outfitStorage', JSON.stringify(selectedItems));
+      selectedItems.push(likeSelectedItem);
+      sessionStorage.setItem('outfitStorage', JSON.stringify(selectedItems));
       saveDatabase(likeSelectedItem);
       alert('저장 완료');
     } else {
@@ -44,8 +44,8 @@ detailLikeButton.addEventListener('click', (event) => {
   });
 
   if (!isDuplicate) {
-    // selectedItems.push(detailSelectedItem);
-    // sessionStorage.setItem('outfitStorage', JSON.stringify(selectedItems));
+    selectedItems.push(detailSelectedItem);
+    sessionStorage.setItem('outfitStorage', JSON.stringify(selectedItems));
     saveDatabase(detailSelectedItem);
     alert('저장 완료');
   } else {
@@ -170,6 +170,9 @@ function showDatabase() {
 
     // 삭제 버튼 클릭 이벤트 처리
     deleteButton.addEventListener('click', () => {
+      // 해당 outfit을 Database에서 제거
+      deleteFromDatabase(outfitStorage[index].id);
+
       // 해당 outfit을 outfitStorage에서 제거
       outfitStorage.splice(index, 1);
 
@@ -188,5 +191,23 @@ function showDatabase() {
     outfitElement.appendChild(buttonElement);
 
     outfitContainer.appendChild(outfitElement);
+  });
+}
+
+// 데이터베이스에서 outfit 데이터 삭제하는 함수
+function deleteFromDatabase(outfitId) {
+  $.ajax({
+    type: "DELETE",
+    url: `/Project/deleteStorageData?id=${outfitId}`,
+    success: function(response) {
+      if (response.success) {
+        alert("Data deleted successfully!");
+      } else {
+        alert("Failed to delete data.");
+      }
+    },
+    error: function() {
+      alert("An error occurred while deleting data.");
+    }
   });
 }

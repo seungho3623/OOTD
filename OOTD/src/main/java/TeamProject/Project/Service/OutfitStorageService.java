@@ -23,4 +23,8 @@ public class OutfitStorageService {
     public List<OutfitStorageItem> itemList(){
         return outfitRepository.findAll();
     }
+
+    public void outfitDelete(Integer id){
+        outfitRepository.deleteById(id);
+    }
 }
