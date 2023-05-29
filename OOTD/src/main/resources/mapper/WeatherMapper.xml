@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="TeamProject.Project.Mapper.WeatherMapper">
     <select id="selectArea" resultType="TeamProject.Project.Dto.AreaRequestDTO" parameterType="MAP">
@@ -14,6 +15,7 @@
                 ORDER BY
                 step1
             </when>
+
             <when test="type == 'county'">
                 SELECT
                 areacode, step2
@@ -37,36 +39,37 @@
             </when>
         </choose>
     </select>
+
     <select id="selectCoordinate" parameterType="String" resultType="TeamProject.Project.Dto.AreaRequestDTO">
-        SELECT gridX as nx,
-               gridY as ny
-        FROM tb_weather_area
-        WHERE areacode = #{areacode}
+        SELECT
+            gridX as nx, gridY as ny
+        FROM
+            tb_weather_area
+        WHERE
+            areacode = #{areacode}
     </select>
 
     <select id="selectSameCoordinateWeatherList" parameterType="TeamProject.Project.Dto.AreaRequestDTO"
             resultType="TeamProject.Project.Dto.WeatherDTO">
-        SELECT DISTINCT baseDate,
-                        baseTime,
-                        category,
-                        nx,
-                        ny,
-                        fcstValue
-        FROM tw_weather_response
-        WHERE baseDate = #{baseDate}
-          AND baseTime = #{baseTime}
-          AND nx = #{nx}
-          AND ny = #{ny}
+        SELECT DISTINCT
+            baseDate, baseTime, category, nx, ny, fcstValue
+        FROM
+            tw_weather_response
+        WHERE
+            baseDate = #{baseDate} AND
+            baseTime = #{baseTime} AND
+            nx = #{nx} AND
+            ny = #{ny}
     </select>
 
     <insert id="insertWeatherList" parameterType="TeamProject.Project.Dto.WeatherDTO">
         INSERT INTO tw_weather_response(
-        baseDate
-        ,baseTime
-        ,category
-        ,nx
-        ,ny
-        ,fcstValue
+            baseDate
+            ,baseTime
+            ,category
+            ,nx
+            ,ny
+            ,fcstValue
         )
         VALUES
         <foreach collection="list" item="item" open="(" separator="),(" close=")">

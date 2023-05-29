@@ -5,7 +5,7 @@ let dateData;
 let weatherData = {};
 
 window.onload = function () {
-    loadArea('city');
+    loadArea('city', '');
 };
 $(document).ready(function () {
     $('.select2').select2();
@@ -45,7 +45,6 @@ $('#step3').change(function () {
 function loadArea(type, element) {
     let value = $(element).find('option:selected').text();
     let params = {type: type, keyword: value};
-
     console.log(params);
     $.ajax({
         url: "/Project/weatherStep.do",
@@ -53,11 +52,11 @@ function loadArea(type, element) {
         dataType: "json",
         method: "post",
         success: function (res) {
-            if (type == 'city') {
+            if (type === 'city') {
                 res.forEach(function (city) {
-                    $('#step1').append('<option value="' + city.areacode + '">' + city.step1 + '</option>')
+                    $('#step1').append('<option value="' + city.areacode + '">' + city.step1+ '</option>')
                 });
-            } else if (type == 'county') {
+            } else if (type === 'county') {
                 $('#county').siblings().remove();
                 $('#town').siblings().remove();
                 res.forEach(function (county) {

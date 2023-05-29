@@ -35,7 +35,7 @@ public class WeatherController {
 
     @PostMapping(value = "/Project/weatherStep.do")
     @ResponseBody
-    public List<AreaRequestDTO> getAreaStep(Map<String, String> params) {
+    public List<AreaRequestDTO> getAreaStep(@RequestParam Map<String, String> params) {
         return this.weatherService.getArea(params);
     }
 }
