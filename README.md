@@ -20,8 +20,6 @@
       <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=MariaDB&logoColor=white">
       <img src="https://img.shields.io/badge/Spring-6D833F?style=for-the-badge&logo=Spring&logoColor=white">
       <img src="https://img.shields.io/badge/Spring Boot-6D833F?style=for-the-badge&logo=Spring Boot&logoColor=white">
-      <img src="https://img.shields.io/badge/Amazon EC2-FF9900?style=for-the-badge&logo=Amazon EC2&logoColor=white">
-      <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=Ubuntu&logoColor=white">
 </p>
 <hr>
 
