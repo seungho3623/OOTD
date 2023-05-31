@@ -113,10 +113,10 @@ public class WeatherServiceImpl implements WeatherService {
         // 마지막 단기예보 발표시각(하루 전 2300) 구하기
         LocalDateTime baseDate = LocalDateTime.now().minusDays(1).withHour(23).withMinute(30);
 
-        final int NUMBER_REQUEST = HOUR_OF_DAY * NUMBER_PER_DATE_SHORT_FORECAST;
+        final int REQUEST_SIZE = HOUR_OF_DAY * NUMBER_PER_DATE_SHORT_FORECAST;
 
         String dataType = "json";    //타입 xml, json
-        String numberOfRows = Integer.toString(NUMBER_REQUEST);
+        String numberOfRows = Integer.toString(REQUEST_SIZE);
         String urlBuilder = API_URL + "?" + URLEncoder.encode("ServiceKey", StandardCharsets.UTF_8) + "=" + SERVICE_KEY +
                 "&" + URLEncoder.encode("nx", StandardCharsets.UTF_8) + "=" + URLEncoder.encode(POS_X, StandardCharsets.UTF_8) + //경도
                 "&" + URLEncoder.encode("ny", StandardCharsets.UTF_8) + "=" + URLEncoder.encode(POS_Y, StandardCharsets.UTF_8) + //위도
@@ -170,9 +170,9 @@ public class WeatherServiceImpl implements WeatherService {
             if(items instanceof JSONArray) {
                 basetimeSrtFcstResult = (JSONArray) items;
 
-                if (basetimeSrtFcstResult.size() == NUMBER_REQUEST) {
+                if (basetimeSrtFcstResult.size() == REQUEST_SIZE) {
                     ArrayList<Integer> tempList = new ArrayList<>();
-                    for (int i = 0; i < NUMBER_REQUEST; i++) {
+                    for (int i = 0; i < REQUEST_SIZE; i++) {
                         JSONObject dataLine = (JSONObject) basetimeSrtFcstResult.get(i);
                         if (dataLine.get(PROPERTY_CATEGORY).equals(PROPERTY_TEMPERATURE)) {
                             tempList.add(Integer.parseInt(dataLine.get(PROPERTY_FORECAST_VALUE).toString()));
